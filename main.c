@@ -1,7 +1,7 @@
 /**
  * \file main.c
  * \author Juliette Schilling / Madison Noyer
- * \brief Programme principale 
+ * \brief Programme principal
  */
 
 #include <stdlib.h>
@@ -13,6 +13,6 @@
 /** 
 *   \brief programme principal qui implémente la boucle de jeu
 */
-int main(int argc, char* args[]){
+int main(){
 	return 0;
 }
