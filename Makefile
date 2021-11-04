@@ -1,8 +1,8 @@
 CC = gcc
 CFLAGS = -W -Wall -ansi -std=c99
-LDFLAGS = 
+LDFLAGS = `sdl2-config --cflags --libs`
 EXEC = main
-SRC = graphique.c monde.c main.c
+SRC = graphique.c monde.c main.c fonctions_SDL.c
 OBJ = $(SRC:.c=.o)
 
 all: $(EXEC)
