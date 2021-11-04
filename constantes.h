@@ -8,6 +8,7 @@
 #define CONSTANTES_H
 
 
+
 /**
  * \brief Largeur de l'écran de jeu
  */
