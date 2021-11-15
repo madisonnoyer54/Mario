@@ -72,7 +72,8 @@ int main(){
 		DestR_sprite[i].h = tailleH/8 ; // Hauteur du sprite
 	}
 
-	
+	//quelque chose à supprimer
+
 	// Boucle principale
 	while(!terminer){
 		SDL_RenderClear(ecran);
