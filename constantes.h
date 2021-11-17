@@ -42,7 +42,7 @@
 /**
  * \brief Pas de déplacement vertical de mario
  */
-#define MOVING_STEP 10
+#define MOVING_STEP 5
 
 
 /**

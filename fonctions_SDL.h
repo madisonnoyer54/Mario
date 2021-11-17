@@ -20,4 +20,5 @@ SDL_Texture* charger_image_transparente(const char* nomfichier, SDL_Renderer* re
 SDL_Texture* charger_texte(const char* message, SDL_Renderer* renderer,TTF_Font *font, SDL_Color color) ;
 
 
+
 #endif

@@ -7,5 +7,6 @@
 
 #include <stdlib.h>
 #include <stdio.h>
+#include <stdbool.h>
 #include "constantes.h"
 #include "monde.h"

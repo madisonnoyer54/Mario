@@ -14,17 +14,18 @@
 #include "fonctions_fichiers.h"
 #include "fonctions_SDL.h"
 
+
 /** 
 *   \brief programme principal qui implémente la boucle de jeu
-*/
+*//*
 int main(){
 	SDL_Window* fenetre;  // Déclaration de la fenêtre
 	SDL_Event evenements; // Événements liés à la fenêtre
 	bool terminer = false;
 
 	// Variable de déplacement pour Mario 
-	int y =470;
-	int x =0;
+	world->mario.y =470;
+	world->mario.x =0;
 	
 	
 
@@ -53,8 +54,8 @@ int main(){
 
 
     // tableau de sprite 
-    Uint8 r = 0, g = 255, b = 255;
-    SDL_Texture* sprite = charger_image_transparente("ressources/mario.bmp", ecran,r,g,b);
+    Uint8 r = 0, g = 0, b = 0;
+    SDL_Texture* sprite = charger_image_transparente("ressources/marioplage.bmp", ecran,r,g,b);
     int tailleW, tailleH;
     SDL_QueryTexture(sprite, NULL, NULL, &tailleW, &tailleH);
     SDL_Rect SrcR_sprite[72] ;
@@ -90,16 +91,15 @@ int main(){
 				switch(evenements.key.keysym.sym)
 				{
 					case SDLK_ESCAPE:
+
                     case SDLK_q:
                     terminer = true;
                     break;
-                    case SDLK_UP:
-                    y--;
-                    break;
-                    case SDLK_DOWN:
-				
-                    y++;
-                    break;
+                  
+					case SDLK_SPACE : 
+						
+					break;
+            
                     case SDLK_LEFT:
                     x--;
                     break;
@@ -124,6 +124,41 @@ int main(){
 	return 0;
 }
 
+*/
 
 
+
+int main(){
+	world_t world;
+	ressources_t r;
+	world.gameover = 0;
+	
+
+	// Variable de déplacement pour Mario 
+	world.mario.y =470;
+	world.mario.x =0;
+
+	// Initialisation de la SDL
+	if(SDL_Init(SDL_INIT_VIDEO) < 0){
+		printf("Erreur d’initialisation de la SDL: %s",SDL_GetError());
+		SDL_Quit();
+		return EXIT_FAILURE;
+	}
+
+	initialisation(&r);
+	tableau_mario(&r,&world);
+
+	// Boucle principale
+	while(world.gameover != 1 ){
+		affichage(&r);
+		evenement(&r,&world);
+		SDL_RenderPresent(r.ecran);
+	}
+
+	Destroy(r);
+	// Quitter SDL
+	SDL_Quit();
+
+	return 0;
+}
 
