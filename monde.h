@@ -33,6 +33,7 @@ struct world_s{
     sprite_t piege; /*!< Champ qui correspond au sprite du piège */
     int gameover; /*!< Champ indiquant si l'on est à la fin du jeu */
 	unsigned int timer; /*!< Champ pour le timer */ 
+  
 };
 /**
  * \brief Type qui correspond aux données du monde
