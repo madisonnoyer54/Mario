@@ -107,3 +107,5 @@ void Destroy(ressources_t ressources){
 	SDL_DestroyRenderer(ressources.ecran);
 	SDL_DestroyWindow(ressources.fenetre);
 }
+
+
