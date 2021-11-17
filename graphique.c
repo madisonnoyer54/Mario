@@ -10,6 +10,8 @@
 #include "monde.h"
 #include "graphique.h"
 #include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
+
 
 
 void initialisation(ressources_t *ressources){
@@ -36,7 +38,8 @@ void tableau_mario(ressources_t *ressources,world_t *world){
 
 	 // tableau de sprite 
     Uint8 r = 0, g = 0, b = 0;
-    ressources->mario = charger_image_transparente("ressources/marioplage.bmp", ressources->ecran,r,g,b);
+   ressources->mario = charger_image_transparente("ressources/testMario.png", ressources->ecran,r,g,b);
+
     
     SDL_QueryTexture(ressources->mario, NULL, NULL, &tailleW, &tailleH);
  

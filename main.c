@@ -8,6 +8,7 @@
 #include <SDL2/SDL.h>
 #include <stdbool.h>
 #include <stdio.h>
+#include <SDL2/SDL_image.h>
 #include "constantes.h"
 #include "monde.h"
 #include "graphique.h"
@@ -36,6 +37,7 @@ int main(){
 		return EXIT_FAILURE;
 	}
 
+	IMG_Init(IMG_INIT_PNG);
 	initialisation(&r);
 	tableau_mario(&r,&world);
 
