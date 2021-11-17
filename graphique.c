@@ -2,7 +2,8 @@
  * \file graphique.c
  * \author Juliette Schilling / Madison Noyer.
  * \brief Module de gestion de l'affichage graphique.
- */
+**/ 
+
 #include "fonctions_SDL.h"
 #include "fonctions_fichiers.h"
 #include "constantes.h"
