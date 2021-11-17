@@ -24,12 +24,9 @@ SDL_Texture* charger_image (const char* nomfichier, SDL_Renderer*renderer);
  * \brief La fonction permet de charger l'image avec le fond transparent 
  * \param nomfichier nom de l'image a charger 
  * \param renderer le renderer 
- * \param r la couleur rouge 
- * \param g la couleur vert 
- * \param b la couleur bleu 
  * \return returne la texture 
  */
-SDL_Texture* charger_image_transparente(const char* nomfichier, SDL_Renderer* renderer, Uint8 r, Uint8 g, Uint8 b);
+SDL_Texture* charger_image_transparente(const char* nomfichier, SDL_Renderer* renderer);
 
 /**
  * \brief La fonction permet de charger le texte 

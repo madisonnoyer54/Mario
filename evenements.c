@@ -6,8 +6,11 @@
 
 #include <stdio.h>
 #include <SDL2/SDL.h>
-#include "graphique.h"
+#include "fonctions_SDL.h"
+#include "fonctions_fichiers.h"
+#include "constantes.h"
 #include "monde.h"
+#include "graphique.h"
 
 
 unsigned int timer(){
@@ -17,5 +20,41 @@ unsigned int timer(){
 void update_timer(world_t * world){
 	if((world->gameover!=1)){
 		world->timer = timer();
+	}
+}
+
+void evenement(ressources_t *ressources,world_t *world){
+	SDL_Event evenements;
+
+	SDL_PollEvent(&evenements);
+
+	switch(evenements.type){
+		case SDL_QUIT:world->gameover = 1; 
+		break;
+			
+		case SDL_KEYDOWN:
+		switch(evenements.key.keysym.sym){
+			case SDLK_ESCAPE:
+
+            case SDLK_q:
+            	world->gameover =1;
+            break;
+                  
+			case SDLK_SPACE : 
+						
+			break;
+            
+            case SDLK_LEFT:
+                world->mario.x = world->mario.x - MOVING_STEP ;
+            break;
+                    
+			case SDLK_RIGHT:
+               world->mario.x = world->mario.x + MOVING_STEP;
+            break;
+		}
+                
+        ressources->DestR_mario[1].x = world->mario.x;
+                
+                
 	}
 }

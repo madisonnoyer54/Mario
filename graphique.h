@@ -10,8 +10,6 @@
 #ifndef GRAPHIQUE_H
 #define GRAPHIQUE_H
 
-#endif
-
 
 
 /**
@@ -35,7 +33,7 @@ typedef struct ressources_s ressources_t;
  * \brief La fonction initialise les textures nécessaires à l'affichage graphique du jeu
  * \param ressources les ressources du jeu (SDL) 
  */
-void initialisation(ressources_t *ressources);
+void initialisation(ressources_t *ressources, world_t *world);
 
 
 /**
@@ -53,16 +51,11 @@ void tableau_mario(ressources_t *ressources, world_t *world);
 void affichage(ressources_t *ressources);
 
 
-/**
- * \brief La fonction initialise les textures nécessaires à l'affichage graphique du jeu
- * \param ressources les ressources du jeu (SDL) 
- * \param world le monde
- */
-void evenement(ressources_t *ressources,world_t *world);
-
 
 /**
  * \brief La fonction detruit les textures, le window et le renderer nécessaires à l'affichage graphique du jeu
  * \param ressources les ressources du jeu (SDL) 
  */
 void Destroy(ressources_t ressources);
+
+#endif

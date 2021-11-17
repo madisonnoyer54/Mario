@@ -26,10 +26,6 @@ int main(){
 	world.gameover = 0;
 	
 
-	// Variable de déplacement pour Mario 
-	world.mario.y =460;
-	world.mario.x =0;
-
 	// Initialisation de la SDL
 	if(SDL_Init(SDL_INIT_VIDEO) < 0){
 		printf("Erreur d’initialisation de la SDL: %s",SDL_GetError());
@@ -37,8 +33,8 @@ int main(){
 		return EXIT_FAILURE;
 	}
 
-	IMG_Init(IMG_INIT_PNG);
-	initialisation(&r);
+	
+	initialisation(&r, &world);
 	tableau_mario(&r,&world);
 
 	// Boucle principale

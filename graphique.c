@@ -14,7 +14,13 @@
 
 
 
-void initialisation(ressources_t *ressources){
+void initialisation(ressources_t *ressources, world_t *world){
+	// Variable de déplacement pour Mario 
+	world->mario.y =460;
+	world->mario.x =0;
+	
+	//Initialisation pour SDL_image
+	IMG_Init(IMG_INIT_PNG);
 	
 	// Créer la fenêtre
 	ressources->fenetre = SDL_CreateWindow("Fenetre SDL", SDL_WINDOWPOS_CENTERED,SDL_WINDOWPOS_CENTERED, 1000, 600, SDL_WINDOW_RESIZABLE);
@@ -37,8 +43,7 @@ void tableau_mario(ressources_t *ressources,world_t *world){
 	int tailleW, tailleH;
 
 	 // tableau de sprite 
-    Uint8 r = 0, g = 0, b = 0;
-   ressources->mario = charger_image_transparente("ressources/testMario.png", ressources->ecran,r,g,b);
+   ressources->mario = charger_image_transparente("ressources/testMario.png", ressources->ecran);
 
     
     SDL_QueryTexture(ressources->mario, NULL, NULL, &tailleW, &tailleH);
@@ -69,42 +74,6 @@ void affichage(ressources_t *ressources){
 	
 }
 
-
-void evenement(ressources_t *ressources,world_t *world){
-	SDL_Event evenements;
-
-	SDL_PollEvent(&evenements);
-
-	switch(evenements.type){
-		case SDL_QUIT:world->gameover = 1; 
-		break;
-			
-		case SDL_KEYDOWN:
-		switch(evenements.key.keysym.sym){
-			case SDLK_ESCAPE:
-
-            case SDLK_q:
-            	world->gameover =1;
-            break;
-                  
-			case SDLK_SPACE : 
-						
-			break;
-            
-            case SDLK_LEFT:
-                world->mario.x = world->mario.x - MOVING_STEP ;
-            break;
-                    
-			case SDLK_RIGHT:
-               world->mario.x = world->mario.x + MOVING_STEP;
-            break;
-		}
-                
-        ressources->DestR_mario[1].x = world->mario.x;
-                
-                
-	}
-}
 
 void Destroy(ressources_t ressources){
 	SDL_DestroyTexture(ressources.fond);
