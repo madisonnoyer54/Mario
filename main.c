@@ -13,6 +13,7 @@
 #include "graphique.h"
 #include "fonctions_fichiers.h"
 #include "fonctions_SDL.h"
+#include "evenements.h"
 
 
 /** 
@@ -43,6 +44,8 @@ int main(){
 		affichage(&r);
 		evenement(&r,&world);
 		SDL_RenderPresent(r.ecran);
+		update_timer(&world);
+		//printf("%u\n", world.timer);
 	}
 
 	Destroy(r);

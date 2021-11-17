@@ -4,7 +4,7 @@ LIBS = -L./SDL2_ttf/.libs
 LDFLAGS = `sdl2-config --cflags --libs` -lSDL2_ttf
 INCLUDES = -I./SDL2_ttf
 EXEC = main
-SRC = graphique.c monde.c main.c fonctions_SDL.c
+SRC = graphique.c monde.c main.c fonctions_SDL.c evenements.c
 OBJ = $(SRC:.c=.o)
 
 all: $(EXEC)

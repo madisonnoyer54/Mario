@@ -4,6 +4,8 @@
  * \brief Module de gestion de l'affichage graphique (en-tête).
  */
 
+#include "constantes.h"
+#include "monde.h"
 
 #ifndef GRAPHIQUE_H
 #define GRAPHIQUE_H

@@ -32,6 +32,7 @@ struct world_s{
     sprite_t walls[nb_walls]; /*!< Champ qui correspond au tableau du sprites de murs */
     sprite_t piege; /*!< Champ qui correspond au sprite du piège */
     int gameover; /*!< Champ indiquant si l'on est à la fin du jeu */
+	unsigned int timer; /*!< Champ pour le timer */ 
 };
 /**
  * \brief Type qui correspond aux données du monde
