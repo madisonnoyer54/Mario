@@ -24,6 +24,7 @@ int main(){
 	world_t world;
 	ressources_t r;
 	world.gameover = 0;
+	world.mario.i = 0;
 	
 
 	// Initialisation de la SDL
@@ -33,13 +34,11 @@ int main(){
 		return EXIT_FAILURE;
 	}
 
-	
 	initialisation(&r, &world);
-	tableau_mario(&r,&world);
 
 	// Boucle principale
 	while(world.gameover != 1 ){
-		affichage(&r);
+		affichage(&r, &world);
 		evenement(&r,&world);
 		SDL_RenderPresent(r.ecran);
 		update_timer(&world);

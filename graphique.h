@@ -43,12 +43,13 @@ void initialisation(ressources_t *ressources, world_t *world);
  */
 void tableau_mario(ressources_t *ressources, world_t *world);
 
+void annimation_mario(world_t *world);
 
 /**
  * \brief La fonction affiche les textures nécessaires à l'affichage graphique du jeu
  * \param ressources les ressources du jeu (SDL) 
  */
-void affichage(ressources_t *ressources);
+void affichage(ressources_t *ressources, world_t *world);
 
 
 

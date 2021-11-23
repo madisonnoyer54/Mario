@@ -17,9 +17,20 @@ unsigned int timer(){
 	return (SDL_GetTicks())/1000;
 }
 
+unsigned int timer_mario(){
+	return (SDL_GetTicks())/1000;
+}
+
+
 void update_timer(world_t * world){
 	if((world->gameover!=1)){
 		world->timer = timer();
+	}
+}
+
+void update_timer_mario(world_t * world){
+	if((world->gameover!=1)){
+		world->timer_mario = timer_mario();
 	}
 }
 
@@ -46,15 +57,23 @@ void evenement(ressources_t *ressources,world_t *world){
             
             case SDLK_LEFT:
                 world->mario.x = world->mario.x - MOVING_STEP ;
+				world->mario.d = 'g';
+				
+				
             break;
                     
 			case SDLK_RIGHT:
                world->mario.x = world->mario.x + MOVING_STEP;
+			   world->mario.d = 'd';
+			  
             break;
 		}
-                
-        ressources->DestR_mario[1].x = world->mario.x;
-                
+		
+        for(int i = 0; i < 72; i++){
+			ressources->DestR_mario[i].x = world->mario.x;	 
+		}       
+        
+        annimation_mario(world);      
                 
 	}
 }

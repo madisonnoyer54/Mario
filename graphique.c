@@ -36,6 +36,8 @@ void initialisation(ressources_t *ressources, world_t *world){
 	ressources->ecran = SDL_CreateRenderer(ressources->fenetre, -1, SDL_RENDERER_ACCELERATED);
 	// Charger l’image
 	ressources->fond = charger_image("ressources/fond.bmp", ressources->ecran );
+
+	tableau_mario(ressources,world);
 }
 
 
@@ -63,13 +65,34 @@ void tableau_mario(ressources_t *ressources,world_t *world){
 
 }
 
+void annimation_mario(world_t *world){
+	if(world->mario.d == 'd'){
+		world->mario.i = 1;
+		if(world->timer % 2 == 0){
+			world->mario.i = 2;
+		}
+		else{
+			world->mario.i = 2;
+		}
+		
+	}
+	if(world->mario.d == 'g'){
+		world->mario.i = 1;
+		if(world->timer % 2 == 0){
+			world->mario.i = 1;
+		}
+		else{
+			world->mario.i = 1;
+		}
+	}
+}
 
-void affichage(ressources_t *ressources){
+void affichage(ressources_t *ressources,world_t *world){
 	
 
 	SDL_RenderClear(ressources->ecran);
 	SDL_RenderCopy(ressources->ecran, ressources->fond, NULL, NULL);
-	SDL_RenderCopy(ressources->ecran, ressources->mario, &ressources->SrcR_mario[1], &ressources->DestR_mario[1]);
+	SDL_RenderCopy(ressources->ecran, ressources->mario, &ressources->SrcR_mario[world->mario.i], &ressources->DestR_mario[world->mario.i]);
 	
 	
 }
