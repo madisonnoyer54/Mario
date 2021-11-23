@@ -50,17 +50,24 @@ void tableau_mario(ressources_t *ressources,world_t *world){
     
     SDL_QueryTexture(ressources->mario, NULL, NULL, &tailleW, &tailleH);
  
+	int y =0;
+	int a= 0;
+    for(int i = 0; i < 8; i++) {
+		for(int j =0; j < 9; j++){
+			ressources->SrcR_mario[a].x = j* (tailleW/9) ;
+			ressources->SrcR_mario[a].y = y ;
+			ressources->SrcR_mario[a].w = tailleW/9; // Largeur de l’objet en pixels 
+			ressources->SrcR_mario[a].h = tailleH/8 ; // Hauteur de l’objet en pixels 
 
-    for(int i = 0; i < 72; i++) {
-        ressources->SrcR_mario[i].x = tailleW /9 * (i%9) ;
-        ressources->SrcR_mario[i].y = i < 9 ? 0 : tailleH / 8;
-        ressources->SrcR_mario[i].w = tailleW/9; // Largeur de l’objet en pixels 
-        ressources->SrcR_mario[i].h = tailleH/8 ; // Hauteur de l’objet en pixels 
+			ressources->DestR_mario[a].x = world->mario.x;
+			ressources->DestR_mario[a].y = world->mario.y;
+			ressources->DestR_mario[a].w = tailleW/9  ; // Largeur du sprite
+			ressources->DestR_mario[a].h = tailleH/8 ; // Hauteur du sprite
 
-        ressources->DestR_mario[i].x = world->mario.x;
-		ressources->DestR_mario[i].y = world->mario.y;
-		ressources->DestR_mario[i].w = tailleW/9  ; // Largeur du sprite
-		ressources->DestR_mario[i].h = tailleH/8 ; // Hauteur du sprite
+			a = a +1;
+		}
+       y = y + tailleH/8;
+	   
 	}
 
 }
@@ -69,20 +76,20 @@ void annimation_mario(world_t *world){
 	if(world->mario.d == 'd'){
 		world->mario.i = 1;
 		if(world->timer % 2 == 0){
-			world->mario.i = 2;
+			world->mario.i = 0;
 		}
 		else{
-			world->mario.i = 2;
+			world->mario.i = 0;
 		}
 		
 	}
 	if(world->mario.d == 'g'){
 		world->mario.i = 1;
 		if(world->timer % 2 == 0){
-			world->mario.i = 1;
+			world->mario.i = 9;
 		}
 		else{
-			world->mario.i = 1;
+			world->mario.i = 9;
 		}
 	}
 }
