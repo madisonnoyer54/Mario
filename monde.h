@@ -16,6 +16,8 @@ struct sprite_s{
     int y;/*!< Position (verticale) de son centre */
     int h;/*!< Hauteur */
     int w;/*!< Largeur */
+    int d;/*!< Direction ( g: gauche , d: droite ) */
+    int i;/*!< Mario a utiliser */
 };
 /**
  * \brief Type qui correspont au sprite du jeu 
@@ -33,6 +35,7 @@ struct world_s{
     sprite_t piege; /*!< Champ qui correspond au sprite du piège */
     int gameover; /*!< Champ indiquant si l'on est à la fin du jeu */
 	unsigned int timer; /*!< Champ pour le timer */ 
+    unsigned int timer_mario; /*!< Champ pour le timer du mario */ 
   
 };
 /**
