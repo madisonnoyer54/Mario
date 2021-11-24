@@ -17,20 +17,9 @@ unsigned int timer(){
 	return (SDL_GetTicks())/1000;
 }
 
-unsigned int timer_mario(){
-	return (SDL_GetTicks())/1000;
-}
-
-
 void update_timer(world_t * world){
 	if((world->gameover!=1)){
 		world->timer = timer();
-	}
-}
-
-void update_timer_mario(world_t * world){
-	if((world->gameover!=1)){
-		world->timer_mario = timer_mario();
 	}
 }
 
@@ -73,6 +62,7 @@ void evenement(ressources_t *ressources,world_t *world){
 			ressources->DestR_mario[i].x = world->mario.x;	 
 		}       
         
+		world->mario.decompte = world->mario.decompte +1;
         annimation_mario(world);      
                 
 	}

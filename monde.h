@@ -14,10 +14,9 @@
 struct sprite_s{
     int x;/*!< Position (horizontale) de son centre */
     int y;/*!< Position (verticale) de son centre */
-    int h;/*!< Hauteur */
-    int w;/*!< Largeur */
     int d;/*!< Direction ( g: gauche , d: droite ) */
     int i;/*!< Mario a utiliser */
+    int decompte;/*!< décompte du mario par rapport au nombre de tour */
 };
 /**
  * \brief Type qui correspont au sprite du jeu 
@@ -35,7 +34,6 @@ struct world_s{
     sprite_t piege; /*!< Champ qui correspond au sprite du piège */
     int gameover; /*!< Champ indiquant si l'on est à la fin du jeu */
 	unsigned int timer; /*!< Champ pour le timer */ 
-    unsigned int timer_mario; /*!< Champ pour le timer du mario */ 
   
 };
 /**
@@ -44,6 +42,6 @@ struct world_s{
 typedef struct world_s world_t;
 
 
-
+void annimation_mario(world_t *world);
 
 #endif

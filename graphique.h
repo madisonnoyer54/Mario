@@ -20,7 +20,7 @@ struct ressources_s{
     SDL_Renderer* ecran;
     SDL_Texture* fond;
     SDL_Texture* mario;
-    SDL_Rect  SrcR_mario[72] ;
+    SDL_Rect  SrcR_mario[72];
 	SDL_Rect  DestR_mario[72];
 };
 /**
@@ -43,7 +43,6 @@ void initialisation(ressources_t *ressources, world_t *world);
  */
 void tableau_mario(ressources_t *ressources, world_t *world);
 
-void annimation_mario(world_t *world);
 
 /**
  * \brief La fonction affiche les textures nécessaires à l'affichage graphique du jeu

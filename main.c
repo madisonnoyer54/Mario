@@ -25,6 +25,7 @@ int main(){
 	ressources_t r;
 	world.gameover = 0;
 	world.mario.i = 0;
+	world.mario.decompte= 0;
 	
 
 	// Initialisation de la SDL

@@ -16,7 +16,7 @@
 
 void initialisation(ressources_t *ressources, world_t *world){
 	// Variable de déplacement pour Mario 
-	world->mario.y =460;
+	world->mario.y =470;
 	world->mario.x =0;
 	
 	//Initialisation pour SDL_image
@@ -45,7 +45,7 @@ void tableau_mario(ressources_t *ressources,world_t *world){
 	int tailleW, tailleH;
 
 	 // tableau de sprite 
-   ressources->mario = charger_image_transparente("ressources/testMario.png", ressources->ecran);
+   ressources->mario = charger_image_transparente("ressources/mario.png", ressources->ecran);
 
     
     SDL_QueryTexture(ressources->mario, NULL, NULL, &tailleW, &tailleH);
@@ -72,27 +72,6 @@ void tableau_mario(ressources_t *ressources,world_t *world){
 
 }
 
-void annimation_mario(world_t *world){
-	if(world->mario.d == 'd'){
-		world->mario.i = 1;
-		if(world->timer % 2 == 0){
-			world->mario.i = 0;
-		}
-		else{
-			world->mario.i = 0;
-		}
-		
-	}
-	if(world->mario.d == 'g'){
-		world->mario.i = 1;
-		if(world->timer % 2 == 0){
-			world->mario.i = 9;
-		}
-		else{
-			world->mario.i = 9;
-		}
-	}
-}
 
 void affichage(ressources_t *ressources,world_t *world){
 	
