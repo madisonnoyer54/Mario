@@ -23,7 +23,7 @@ void initialisation(ressources_t *ressources, world_t *world){
 	IMG_Init(IMG_INIT_PNG);
 	
 	// Créer la fenêtre
-	ressources->fenetre = SDL_CreateWindow("Fenetre SDL", SDL_WINDOWPOS_CENTERED,SDL_WINDOWPOS_CENTERED, 1000, 600, SDL_WINDOW_RESIZABLE);
+	ressources->fenetre = SDL_CreateWindow("Fenetre SDL", SDL_WINDOWPOS_CENTERED,SDL_WINDOWPOS_CENTERED, 1200, 600, SDL_WINDOW_RESIZABLE);
 
 	// En cas d’erreur
 	if(ressources->fenetre == NULL)
