@@ -47,14 +47,16 @@ void evenement(ressources_t *ressources,world_t *world){
             case SDLK_LEFT:
                 world->mario.x = world->mario.x - MOVING_STEP ;
 				world->mario.d = 'g';
-				
+				world->mario.decompte = world->mario.decompte +1;
+				animation_mario(world); 
 				
             break;
                     
 			case SDLK_RIGHT:
                world->mario.x = world->mario.x + MOVING_STEP;
 			   world->mario.d = 'd';
-			  
+			   world->mario.decompte = world->mario.decompte +1;
+				animation_mario(world); 
             break;
 		}
 		
@@ -62,8 +64,7 @@ void evenement(ressources_t *ressources,world_t *world){
 			ressources->DestR_mario[i].x = world->mario.x;	 
 		}       
         
-		world->mario.decompte = world->mario.decompte +1;
-        annimation_mario(world);      
+		     
                 
 	}
 }

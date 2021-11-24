@@ -12,7 +12,7 @@
 #include "monde.h"
 
 
-void annimation_mario(world_t *world){
+void animation_mario(world_t *world){
 	
 
 	if(world->mario.decompte > 5){

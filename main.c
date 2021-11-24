@@ -9,6 +9,8 @@
 #include <stdbool.h>
 #include <stdio.h>
 #include <SDL2/SDL_image.h>
+#include <SDL2/SDL_ttf.h>
+#include <windows.h>
 #include "constantes.h"
 #include "monde.h"
 #include "graphique.h"
@@ -43,9 +45,13 @@ int main(){
 		evenement(&r,&world);
 		SDL_RenderPresent(r.ecran);
 		update_timer(&world);
-		//printf("%u\n", world.timer);
+		Sleep(10);
 	}
-
+	
+	//Quitter TTF_Font
+	TTF_CloseFont(r.font);
+	TTF_Quit();
+	
 	Destroy(r);
 	// Quitter SDL
 	SDL_Quit();

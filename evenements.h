@@ -8,7 +8,7 @@
 #define EVENEMENTS_H
 
 /**
- * \brief La fonction gère les évènements (entrées clavier...)
+ * \brief La fonction gère les évènements du jeu 
  * \param ressources les ressources du jeu (SDL) 
  * \param world le monde
  */

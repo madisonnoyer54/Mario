@@ -20,8 +20,11 @@ struct ressources_s{
     SDL_Renderer* ecran;
     SDL_Texture* fond;
     SDL_Texture* mario;
-    SDL_Rect  SrcR_mario[72];
-	SDL_Rect  DestR_mario[72];
+	SDL_Texture* texte_timer;
+	TTF_Font* font; 
+	SDL_Rect timer_pos;
+    SDL_Rect SrcR_mario[72];
+	SDL_Rect DestR_mario[72];
 };
 /**
  * \brief Type qui correspond aux textures du jeu

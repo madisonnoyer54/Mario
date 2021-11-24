@@ -42,6 +42,6 @@ struct world_s{
 typedef struct world_s world_t;
 
 
-void annimation_mario(world_t *world);
+void animation_mario(world_t *world);
 
 #endif
