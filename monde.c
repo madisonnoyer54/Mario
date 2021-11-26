@@ -39,19 +39,19 @@ void animation_mario(world_t *world){
 	}
 	if(world->mario.d == 'g'){
 		if(world->mario.decompte== 1){
-			world->mario.i = 41;
+			world->mario.i = 40;
 		}	
 		if(world->mario.decompte== 2){
-			world->mario.i = 42;
+			world->mario.i = 41;
 		}	
 		if(world->mario.decompte== 3){
-			world->mario.i = 43;
+			world->mario.i = 42;
 		}	
 		if(world->mario.decompte== 4){
-			world->mario.i = 44;
+			world->mario.i = 43;
 		}	
 		if(world->mario.decompte== 5){
-			world->mario.i = 45;
+			world->mario.i = 44;
 		}	
 	}
 }

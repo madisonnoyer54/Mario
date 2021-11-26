@@ -19,10 +19,12 @@ struct ressources_s{
     SDL_Window* fenetre;
     SDL_Renderer* ecran;
     SDL_Texture* fond;
-    SDL_Texture* mario;
 	SDL_Texture* texte_timer;
 	TTF_Font* font; 
 	SDL_Rect timer_pos;
+    
+    // Pour gérer l'affichage du Mario 
+    SDL_Texture* mario;
     SDL_Rect SrcR_mario[72];
 	SDL_Rect DestR_mario[72];
 };
