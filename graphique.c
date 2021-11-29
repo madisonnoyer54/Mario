@@ -16,6 +16,9 @@
 
 
 void initialisation(ressources_t *ressources, world_t *world){
+	//Initialisation du nombre de vies
+  	world->mario.nbVies= 3;
+  
 	// Variable de déplacement pour Mario 
 	world->mario.y =470;
 	world->mario.x =0;
@@ -39,6 +42,8 @@ void initialisation(ressources_t *ressources, world_t *world){
 	ressources->fond = charger_image("ressources/fond.bmp", ressources->ecran );
 
 	tableau_mario(ressources,world);
+
+	init_vies(ressources);
 	
 	//Initialisation pour affichage du timer
 	TTF_Init();
@@ -69,6 +74,27 @@ void affiche_timer(ressources_t *ressources, world_t *world){
 	ressources->timer_pos.y = 10;
 	ressources->timer_pos.w = timerW;
 	ressources->timer_pos.h = timerH;
+}
+
+void init_vies(ressources_t *ressources){
+  int tailleW, tailleH;
+  
+  //On charge l'image et on récupère sa taille
+  ressources->vie = charger_image_transparente("ressources/vie.png", ressources->ecran);
+  SDL_QueryTexture(ressources->vie, NULL, NULL, &tailleW, &tailleH);
+  
+  //On initialise les données de tailles
+  ressources->SrcR_vie.x = 0;
+  ressources->SrcR_vie.y = 0;
+  ressources->SrcR_vie.w = tailleW;
+  ressources->SrcR_vie.h = tailleH;
+  
+  for(int i=0; i<3; i++){
+    ressources->DestR_vies[i].x = 10 + (i*(tailleW + 5));
+    ressources->DestR_vies[i].y = 45;
+    ressources->DestR_vies[i].w = tailleW;
+    ressources->DestR_vies[i].h = tailleH;
+  }
 }
 
 
@@ -111,7 +137,11 @@ void affichage(ressources_t *ressources,world_t *world){
 	SDL_RenderCopy(ressources->ecran, ressources->fond, NULL, NULL);
 	SDL_RenderCopy(ressources->ecran, ressources->mario, &ressources->SrcR_mario[world->mario.i], &ressources->DestR_mario[world->mario.i]);
 	
+	for(int i=0; i<world->mario.nbVies; i++){
+		SDL_RenderCopy(ressources->ecran, ressources->vie, &ressources->SrcR_vie, &ressources->DestR_vies[i]);
+	}
 	
+	//Affichage des vies
 	SDL_RenderCopy(ressources->ecran, ressources->texte_timer, NULL, &ressources->timer_pos);
 	
 	affiche_timer(ressources, world);

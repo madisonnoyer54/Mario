@@ -17,6 +17,7 @@ struct sprite_s{
     int d;/*!< Direction ( g: gauche , d: droite ) */
     int i;/*!< Mario a utiliser */
     int decompte;/*!< décompte du mario par rapport au nombre de tour */
+    int nbVies;/*!< nb de vies du sprite */
 };
 /**
  * \brief Type qui correspont au sprite du jeu 
