@@ -39,7 +39,7 @@ void initialisation(ressources_t *ressources, world_t *world){
 	ressources->fond = charger_image("ressources/fond.bmp", ressources->ecran );
 
 	tableau_mario(ressources,world);
-	/*
+	
 	//Initialisation pour affichage du timer
 	TTF_Init();
 	ressources->font = TTF_OpenFont("ressources/arial.ttf", 26);
@@ -52,15 +52,13 @@ void initialisation(ressources_t *ressources, world_t *world){
 	ressources->timer_pos.x = 10;
 	ressources->timer_pos.y = 10;
 	ressources->timer_pos.w = timerW;
-	ressources->timer_pos.h = timerH;*/
+	ressources->timer_pos.h = timerH;
 }
 
-/*
+
 void affiche_timer(ressources_t *ressources, world_t *world){
-	char timer[] = "Timer : ";
-	char c[5];
-	sprintf(c, "%d", world->timer);
-	strcat(timer, c);
+	char timer[50];
+	sprintf(timer, "Timer : %d", world->timer);
 	
 	
 	SDL_Color color = {0,0,0,0};
@@ -71,7 +69,7 @@ void affiche_timer(ressources_t *ressources, world_t *world){
 	ressources->timer_pos.y = 10;
 	ressources->timer_pos.w = timerW;
 	ressources->timer_pos.h = timerH;
-}*/
+}
 
 
 void tableau_mario(ressources_t *ressources,world_t *world){
@@ -116,7 +114,7 @@ void affichage(ressources_t *ressources,world_t *world){
 	
 	SDL_RenderCopy(ressources->ecran, ressources->texte_timer, NULL, &ressources->timer_pos);
 	
-	//affiche_timer(ressources, world);
+	affiche_timer(ressources, world);
 	
 }
 
