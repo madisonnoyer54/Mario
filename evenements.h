@@ -25,11 +25,5 @@ unsigned int timer();
  */
 void update_timer(world_t * world);
 
-/**
- * \brief La fonction initialise les textures nécessaires à l'affichage graphique du jeu
- * \param ressources les ressources du jeu (SDL) 
- * \param world le monde
- */
-void evenement(ressources_t *ressources,world_t *world);
 
 #endif

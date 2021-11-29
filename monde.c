@@ -12,6 +12,22 @@
 #include "monde.h"
 
 
+void init_data(world_t *world){
+
+	//Initialisation des données utiles à la boucle de jeu
+	world->gameover = 0;
+	
+	//Initialisation du nombre de vies
+  	world->mario.nbVies= 3;
+  
+	// Variable de déplacement pour Mario 
+	world->mario.y = 470;
+	world->mario.x = 0;
+	world->mario.i = 0;
+	world->mario.decompte= 0;
+}
+
+
 void animation_mario(world_t *world){
 	
 

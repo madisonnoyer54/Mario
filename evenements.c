@@ -12,17 +12,6 @@
 #include "monde.h"
 #include "graphique.h"
 
-
-unsigned int timer(){
-	return (SDL_GetTicks())/1000;
-}
-
-void update_timer(world_t * world){
-	if((world->gameover!=1)){
-		world->timer = timer();
-	}
-}
-
 void evenement(ressources_t *ressources,world_t *world){
 	SDL_Event evenements;
 
@@ -36,35 +25,43 @@ void evenement(ressources_t *ressources,world_t *world){
 		switch(evenements.key.keysym.sym){
 			case SDLK_ESCAPE:
 
-            case SDLK_q:
-            	world->gameover =1;
-            break;
+            		case SDLK_q:
+            			world->gameover =1;
+            			break;
                   
 			case SDLK_SPACE : 
 						
-			break;
+				break;
             
-            case SDLK_LEFT:
-                world->mario.x = world->mario.x - MOVING_STEP ;
+            		case SDLK_LEFT:
+                		world->mario.x = world->mario.x - MOVING_STEP ;
 				world->mario.d = 'g';
 				world->mario.decompte = world->mario.decompte +1;
 				animation_mario(world); 
-				
-            break;
+            			break;
                     
 			case SDLK_RIGHT:
-               world->mario.x = world->mario.x + MOVING_STEP;
-			   world->mario.d = 'd';
-			   world->mario.decompte = world->mario.decompte +1;
+               			world->mario.x = world->mario.x + MOVING_STEP;
+			   	world->mario.d = 'd';
+			   	world->mario.decompte = world->mario.decompte +1;
 				animation_mario(world); 
-            break;
+            			break;
 		}
 		
-        for(int i = 0; i < 72; i++){
+        	for(int i = 0; i < 72; i++){
 			ressources->DestR_mario[i].x = world->mario.x;	 
 		}       
-        
-		     
-                
+        }
+}
+
+
+unsigned int timer(){
+	return (SDL_GetTicks())/1000;
+}
+
+
+void update_timer(world_t * world){
+	if((world->gameover!=1)){
+		world->timer = timer();
 	}
 }

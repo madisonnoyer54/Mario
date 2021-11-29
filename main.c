@@ -22,12 +22,10 @@
 *   \brief programme principal qui implémente la boucle de jeu
 */
 int main(){
+
+	//Initialisation du monde et des ressources
 	world_t world;
 	ressources_t r;
-	world.gameover = 0;
-	world.mario.i = 0;
-	world.mario.decompte= 0;
-	
 
 	// Initialisation de la SDL
 	if(SDL_Init(SDL_INIT_VIDEO) < 0){
@@ -36,7 +34,10 @@ int main(){
 		return EXIT_FAILURE;
 	}
 
-	initialisation(&r, &world);
+	
+	//Initialisation des données globales du monde + SDL
+	init_data(&world);       
+	init_for_SDL(&r, &world);      
 
 	// Boucle principale
 	while(world.gameover != 1 ){
@@ -44,12 +45,12 @@ int main(){
 		evenement(&r,&world);
 		SDL_RenderPresent(r.ecran);
 		update_timer(&world);
-		SDL_Delay(20);
+		SDL_Delay(10);
 	}
 	
 	//Quitter TTF_Font
-	//TTF_CloseFont(r.font);
-	//TTF_Quit();
+	TTF_CloseFont(r.font);
+	TTF_Quit();
 	
 	Destroy(r);
 	// Quitter SDL
