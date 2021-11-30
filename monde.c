@@ -12,8 +12,12 @@
 #include "monde.h"
 
 
-void init_data(world_t *world){
+int is_game_over(world_t *world){
+    return world->gameover;
+}
 
+void init_data(world_t *world){
+	
 	//Initialisation des données utiles à la boucle de jeu
 	world->gameover = 0;
 	
@@ -25,6 +29,8 @@ void init_data(world_t *world){
 	world->mario.x = 0;
 	world->mario.i = 0;
 	world->mario.decompte= 0;
+
+	
 }
 
 

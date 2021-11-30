@@ -40,7 +40,7 @@ int main(){
 	init_for_SDL(&r, &world);      
 
 	// Boucle principale
-	while(world.gameover != 1 ){
+	while(!is_game_over(&world)){
 		affichage(&r, &world);
 		evenement(&r,&world);
 		SDL_RenderPresent(r.ecran);

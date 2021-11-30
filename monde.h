@@ -44,6 +44,13 @@ typedef struct world_s world_t;
 
 
 /**
+ * \brief La fonction indique si le jeu est fini en fonction des données du monde
+ * \param world les données du monde
+ * \return 1 si le jeu est fini, 0 sinon
+ */
+int is_game_over(world_t *world);
+
+/**
  * \brief La fonction initialise les données du monde
  * \param world le monde
  */
