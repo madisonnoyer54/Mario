@@ -1,4 +1,10 @@
-
+/**
+ * \file fonctions_fichiers.h
+ * \author Juliette Schilling / Madison Noyer
+ * \brief Module de gestion des fonctions fichiers (en-tête).
+ */
+#ifndef FONCTIONS_FICHIERS_H
+#define FONCTIONS_FICHIERS_H
 
 char** allouer_tab_2D(int n, int m);
 
@@ -22,3 +28,4 @@ void ecrire_fichier(const char* nomFichier, char** tab, int n, int m);
 
 
 
+#endif

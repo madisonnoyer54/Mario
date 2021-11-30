@@ -9,6 +9,8 @@
 #include "constantes.h"
 #include "monde.h"
 #include "graphique.h"
+#include "animations.h"
+#include "evenements.h"
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include <string.h>
@@ -20,7 +22,7 @@ void init_for_SDL(ressources_t *ressources, world_t *world){
 	IMG_Init(IMG_INIT_PNG);   //Initialisation de SDL_image
 	
         //Création de la fenêtre
-	ressources->fenetre = SDL_CreateWindow("Fenetre SDL", SDL_WINDOWPOS_CENTERED,SDL_WINDOWPOS_CENTERED, 1200, 600, SDL_WINDOW_RESIZABLE);
+	ressources->fenetre = SDL_CreateWindow("Fenetre SDL", SDL_WINDOWPOS_CENTERED,SDL_WINDOWPOS_CENTERED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_RESIZABLE);
 	if(ressources->fenetre == NULL)      //Si erreur
 	{
 		printf("Erreur de la creation d’une fenetre: %s",SDL_GetError());
@@ -61,7 +63,6 @@ void init_mario(ressources_t *ressources,world_t *world){
 			ressources->DestR_mario[a].y = world->mario.y;
 			ressources->DestR_mario[a].w = tailleW/9  ; // Largeur du sprite
 			ressources->DestR_mario[a].h = tailleH/8 ; // Hauteur du sprite
-
 			a = a +1;
 		}
        y = y + tailleH/8;
@@ -116,7 +117,7 @@ void affichage(ressources_t *ressources,world_t *world){
 
 	affiche_mario(ressources, world);   //Affichage du mario
 	
-	affiche_timer(ressources, world);      //Affichage du timer
+	//affiche_timer(ressources, world);      //Affichage du timer
 
 	affiche_vies(ressources, world);       //Affichage des vies
 	
@@ -154,8 +155,8 @@ void affiche_vies(ressources_t *ressources,world_t *world){
 
 void Destroy(ressources_t ressources){
 	SDL_DestroyTexture(ressources.fond);
-	SDL_DestroyTexture(ressources.mario);
-	SDL_DestroyTexture(ressources.vie);
+	//SDL_DestroyTexture(ressources.mario);
+	//SDL_DestroyTexture(ressources.vie);
 	SDL_DestroyTexture(ressources.texte_timer);
 
 	SDL_DestroyRenderer(ressources.ecran);

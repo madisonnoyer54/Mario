@@ -12,6 +12,8 @@
  * \brief Représentation d'un sprite du jeu 
  */
 struct sprite_s{
+    int h;/*!< Hauteur */
+    int w;/*!< Largeur */
     int x;/*!< Position (horizontale) de son centre */
     int y;/*!< Position (verticale) de son centre */
     int d;/*!< Direction ( g: gauche , d: droite ) */
@@ -58,9 +60,33 @@ void init_data(world_t *world);
 
 
 /**
- * \brief La fonction gère l'animation du mario
- * \param world le monde
+ * \brief La fonction vérifie si le mario a dépassé la limite gauche et le replace au bord le cas échéant
+ * \param sprite le sprite
  */
-void animation_mario(world_t *world);
+void left_overflow(sprite_t *sprite);
+
+
+/**
+ * \brief La fonction vérifie si le mario a dépassé la limite droite et le replace au bord le cas échéant
+ * \param sprite le sprite
+ */
+void right_overflow(sprite_t *sprite);
+
+
+/**
+ * \brief La fonction vérifie la vie du joueur et si elle est épuisée, fait perdre la partie
+ * \param world les données du monde
+ */
+void handle_vie(world_t *world);
+
+
+/**
+ * \brief La fonction met à jour les données en tenant compte de la physique du monde
+ * \param world les données du monde
+ */
+void update_data(world_t *world);
+
+
+
 
 #endif

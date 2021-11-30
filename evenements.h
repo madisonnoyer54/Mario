@@ -14,6 +14,7 @@
  */
 void evenement(ressources_t *ressources,world_t *world);
 
+
 /**
  * \brief La fonction cherche le temps écoulé dans le jeu
  */

@@ -10,11 +10,12 @@
 #include <stdio.h>
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_ttf.h>
+#include "fonctions_SDL.h"
+#include "fonctions_fichiers.h"
 #include "constantes.h"
 #include "monde.h"
 #include "graphique.h"
-#include "fonctions_fichiers.h"
-#include "fonctions_SDL.h"
+#include "animations.h"
 #include "evenements.h"
 
 
@@ -34,17 +35,27 @@ int main(){
 		return EXIT_FAILURE;
 	}
 
-	
+
 	//Initialisation des données globales du monde + SDL
-	init_data(&world);       
-	init_for_SDL(&r, &world);      
+	init_data(&world); 
+	init_for_SDL(&r, &world);  
+	   
+	    
 
 	// Boucle principale
 	while(!is_game_over(&world)){
+		// Affichage des élement 
 		affichage(&r, &world);
+
+		// evenement du joueur 
 		evenement(&r,&world);
+
 		SDL_RenderPresent(r.ecran);
-		update_timer(&world);
+
+		// Mise à jour des données liée à la physique du monde
+		update_data(&world);
+
+		// Pause de 10 ms pour controler la vitesse de rafraichissement
 		SDL_Delay(10);
 	}
 	

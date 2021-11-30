@@ -1,7 +1,7 @@
 /**
  * \file evenements.c
  * \author Juliette Schilling / Madison Noyer.
- * \brief Module de gestion des événements.
+ * \brief Module de gestion des animations.
  */
 
 #include <stdio.h>
@@ -11,12 +11,14 @@
 #include "constantes.h"
 #include "monde.h"
 #include "graphique.h"
+#include "animations.h"
+#include "evenements.h"
+
 
 void evenement(ressources_t *ressources,world_t *world){
 	SDL_Event evenements;
 
 	SDL_PollEvent(&evenements);
-
 	switch(evenements.type){
 		case SDL_QUIT:world->gameover = 1; 
 		break;
@@ -33,26 +35,28 @@ void evenement(ressources_t *ressources,world_t *world){
 						
 				break;
             
-            		case SDLK_LEFT:
-                		world->mario.x = world->mario.x - MOVING_STEP ;
+            case SDLK_LEFT:
+
+            	world->mario.x = world->mario.x - INITIAL_SPEED ;
 				world->mario.d = 'g';
 				world->mario.decompte = world->mario.decompte +1;
-				animation_mario(world); 
-            			break;
+            	break;
                     
 			case SDLK_RIGHT:
-               			world->mario.x = world->mario.x + MOVING_STEP;
+
+            	world->mario.x = world->mario.x + INITIAL_SPEED;
 			   	world->mario.d = 'd';
-			   	world->mario.decompte = world->mario.decompte +1;
-				animation_mario(world); 
-            			break;
+			   	world->mario.decompte = world->mario.decompte +1; 
+            	break;
 		}
 		
+			animation_mario(world);
         	for(int i = 0; i < 72; i++){
-			ressources->DestR_mario[i].x = world->mario.x;	 
-		}       
-        }
+				ressources->DestR_mario[i].x = world->mario.x;	 
+			}       
+    }
 }
+
 
 
 unsigned int timer(){
