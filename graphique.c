@@ -154,6 +154,11 @@ void affiche_vies(ressources_t *ressources,world_t *world){
 
 void Destroy(ressources_t ressources){
 	SDL_DestroyTexture(ressources.fond);
+	SDL_DestroyTexture(ressources.mario);
+	SDL_DestroyTexture(ressources.vie);
+	SDL_DestroyTexture(ressources.texte_timer);
+
 	SDL_DestroyRenderer(ressources.ecran);
 	SDL_DestroyWindow(ressources.fenetre);
+	
 }
