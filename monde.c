@@ -56,9 +56,8 @@ void left_overflow(sprite_t *sprite) {
 
 
 void right_overflow(sprite_t *sprite) {
-    printf("  %d",sprite->x);
-    if (sprite->x + sprite->w / 2 > 1130) {     // Si la bordure droite dépasse le bord droit de l'écran
-        sprite->x = 1130;
+    if (sprite->x + sprite->w / 2 > SCREEN_WIDTH - 70) {     // Si la bordure droite dépasse le bord droit de l'écran
+        sprite->x = SCREEN_WIDTH - 70;
     }
 }
 
