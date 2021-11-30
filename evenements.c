@@ -65,7 +65,7 @@ unsigned int timer(){
 
 
 void update_timer(world_t * world){
-	if((world->gameover!=1)){
+	if(!is_game_over(world)){
 		world->timer = timer();
 	}
 }
