@@ -22,21 +22,21 @@
 
 
 /**
- * \brief Taille d'un vaisseau
+ * \brief Taille d'un mario
  */
-#define MARIO_SIZE 30
+#define MARIO_SIZE 77
 
 
 /**
- * \brief Taille d'un météorite
+ * \brief Taille d'un mario
  */
-#define WALL_SIZE 20
+#define MARIO_WIDTH 74
 
 
 /**
- * \brief Largeur du paneau d'arrivée
+ * \brief Taille d'un murs
  */
-#define FINISH_PANEL_WIDTH 10
+#define WALLS_SIZE 20
 
 
 /**
