@@ -37,8 +37,8 @@ struct ressources_s{
 
 	// Pour gérer l'affichage des murs
 	SDL_Texture* walls;
-	SDL_Rect ScrR_walls[5];
-	SDL_Rect DestR_walls[5];
+	SDL_Rect ScrR_walls[6];
+	SDL_Rect DestR_walls[6];
 };
 /**
  * \brief Type qui correspond aux textures du jeu

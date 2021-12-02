@@ -32,6 +32,9 @@ void evenement(ressources_t *ressources,world_t *world){
             			break;
                   
 			case SDLK_SPACE : 
+				if(world->mario.y == 470){
+					world->mario.y = world->mario.y - 5;
+				}
 						
 				break;
             
@@ -40,6 +43,7 @@ void evenement(ressources_t *ressources,world_t *world){
             	world->mario.x = world->mario.x - INITIAL_SPEED ;
 				world->mario.d = 'g';
 				world->mario.decompte = world->mario.decompte +1;
+
             	break;
                     
 			case SDLK_RIGHT:
@@ -47,13 +51,20 @@ void evenement(ressources_t *ressources,world_t *world){
             	world->mario.x = world->mario.x + INITIAL_SPEED;
 			   	world->mario.d = 'd';
 			   	world->mario.decompte = world->mario.decompte +1; 
+
+				if(world->mario.x > SCREEN_WIDTH/2 ){
+					ressources->DestR_walls[1].x =  ressources->DestR_walls[1].x - INITIAL_SPEED;
+				}
+				
             	break;
 		}
 		
 			animation_mario(world);
         	for(int i = 0; i < 72; i++){
 				ressources->DestR_mario[i].x = world->mario.x;	 
-			}       
+				ressources->DestR_mario[i].y = world->mario.y;	
+			}      
+			
     }
 }
 

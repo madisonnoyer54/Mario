@@ -92,15 +92,16 @@ void init_block(ressources_t *ressources,world_t *world){
 			ressources->ScrR_walls[a].w = tailleW_B/2; // Largeur de l’objet en pixels 
 			ressources->ScrR_walls[a].h = tailleH_B/3 ; // Hauteur de l’objet en pixels 
 
-			ressources->DestR_walls[a].x = world->walls.x;
-			ressources->DestR_walls[a].y = world->walls.y;
-			ressources->DestR_walls[a].w = tailleW_B/6; // Largeur du sprite
-			ressources->DestR_walls[a].h = tailleH_B/8; // Hauteur du sprite
+			
 			a = a +1;
 		}
        y = y + tailleH_B/3;
 	   
 	}
+			ressources->DestR_walls[1].x = 340 ;
+			ressources->DestR_walls[1].y = 300;
+			ressources->DestR_walls[1].w = tailleW_B/6; // Largeur du sprite
+			ressources->DestR_walls[1].h = tailleH_B/8; // Hauteur du sprite
 
 }
 
@@ -150,7 +151,7 @@ void affichage(ressources_t *ressources,world_t *world){
 
 	affiche_mario(ressources, world);   //Affichage du mario
 	
-	//affiche_timer(ressources, world);      //Affichage du timer
+	affiche_timer(ressources, world);      //Affichage du timer
 
 	affiche_vies(ressources, world);       //Affichage des vies
 
@@ -198,6 +199,7 @@ void Destroy(ressources_t ressources){
 	SDL_DestroyTexture(ressources.vie);
 	SDL_DestroyTexture(ressources.texte_timer);
 	SDL_DestroyTexture(ressources.walls);
+
 	SDL_DestroyRenderer(ressources.ecran);
 	SDL_DestroyWindow(ressources.fenetre);
 	

@@ -57,6 +57,10 @@
 #define nb_walls 4
 
 
+/**
+ * \brief graviter
+ */
+#define Graviter 4
 
 
 

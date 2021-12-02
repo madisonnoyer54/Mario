@@ -112,6 +112,6 @@ void init_walls(world_t *world);
  */
 void update_walls(world_t *world);
 
-
+void gravite(world_t *world);
 
 #endif
