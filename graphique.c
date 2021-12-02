@@ -38,6 +38,7 @@ void init_for_SDL(ressources_t *ressources, world_t *world){
 	init_mario(ressources,world);      
 	init_vies(ressources);
 	init_timer(ressources);
+	init_block(ressources,world);
 }
 
 
@@ -66,6 +67,38 @@ void init_mario(ressources_t *ressources,world_t *world){
 			a = a +1;
 		}
        y = y + tailleH/8;
+	   
+	}
+
+}
+
+
+
+void init_block(ressources_t *ressources,world_t *world){
+	int tailleW_B, tailleH_B;
+
+	 // tableau de sprite 
+   ressources->walls = charger_image_transparente("ressources/blocks.png", ressources->ecran);
+
+    
+    SDL_QueryTexture(ressources->walls, NULL, NULL, &tailleW_B, &tailleH_B);
+	
+		int y =0;
+		int a= 0;
+        for(int i = 0; i < 3; i++) {
+		for(int j =0; j < 2; j++){
+			ressources->ScrR_walls[a].x = j* (tailleW_B/2) ;
+			ressources->ScrR_walls[a].y = y ;
+			ressources->ScrR_walls[a].w = tailleW_B/2; // Largeur de l’objet en pixels 
+			ressources->ScrR_walls[a].h = tailleH_B/3 ; // Hauteur de l’objet en pixels 
+
+			ressources->DestR_walls[a].x = world->walls.x;
+			ressources->DestR_walls[a].y = world->walls.y;
+			ressources->DestR_walls[a].w = tailleW_B/6; // Largeur du sprite
+			ressources->DestR_walls[a].h = tailleH_B/8; // Hauteur du sprite
+			a = a +1;
+		}
+       y = y + tailleH_B/3;
 	   
 	}
 
@@ -120,6 +153,8 @@ void affichage(ressources_t *ressources,world_t *world){
 	//affiche_timer(ressources, world);      //Affichage du timer
 
 	affiche_vies(ressources, world);       //Affichage des vies
+
+	affiche_walls(ressources); // Affichage du murs
 	
 }
 
@@ -152,13 +187,17 @@ void affiche_vies(ressources_t *ressources,world_t *world){
 	}
 }
 
+void affiche_walls(ressources_t *ressources){
+	SDL_RenderCopy(ressources->ecran, ressources->walls, &ressources->ScrR_walls[1], &ressources->DestR_walls[1]); 
+}
+
 
 void Destroy(ressources_t ressources){
 	SDL_DestroyTexture(ressources.fond);
-	//SDL_DestroyTexture(ressources.mario);
-	//SDL_DestroyTexture(ressources.vie);
+	SDL_DestroyTexture(ressources.mario);
+	SDL_DestroyTexture(ressources.vie);
 	SDL_DestroyTexture(ressources.texte_timer);
-
+	SDL_DestroyTexture(ressources.walls);
 	SDL_DestroyRenderer(ressources.ecran);
 	SDL_DestroyWindow(ressources.fenetre);
 	
