@@ -18,6 +18,10 @@
 
 
 void init_for_SDL(ressources_t *ressources, world_t *world){
+	ressources->fenetre = calloc(1, sizeof(SDL_Window*));
+	ressources->ecran = calloc(1, sizeof(SDL_Renderer*));
+	ressources->fond = calloc(1, sizeof(SDL_Texture*));
+	ressources->font = calloc(1, sizeof(TTF_Font*));
 	
 	IMG_Init(IMG_INIT_PNG);   //Initialisation de SDL_image
 	
@@ -75,7 +79,8 @@ void init_mario(ressources_t *ressources,world_t *world){
 
 
 
-void init_block(ressources_t *ressources,world_t *world){
+void init_block(ressources_t *ressources, world_t *world){
+	ressources->walls = calloc(1, sizeof(SDL_Texture*));
 	int tailleW_B, tailleH_B;
 
 	 // tableau de sprite 
@@ -108,6 +113,7 @@ void init_block(ressources_t *ressources,world_t *world){
 
 
 void init_timer(ressources_t *ressources){
+	ressources->texte_timer = calloc(1, sizeof(SDL_Texture*));
 	TTF_Init();
 	ressources->font = TTF_OpenFont("ressources/arial.ttf", 26);
 	TTF_SetFontStyle(ressources->font, TTF_STYLE_BOLD);
@@ -124,6 +130,7 @@ void init_timer(ressources_t *ressources){
 
 
 void init_vies(ressources_t *ressources){
+	ressources->vie = calloc(1, sizeof(SDL_Texture*));
   int tailleW, tailleH;
   
   //On charge l'image et on récupère sa taille
