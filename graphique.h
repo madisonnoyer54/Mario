@@ -33,7 +33,7 @@ struct ressources_s{
   	// Pour gérer l'affichage du Mario 
    	SDL_Texture* mario;
    	SDL_Rect SrcR_mario[72];
-	SDL_Rect DestR_mario[72];
+	SDL_Rect DestR_mario;
 
 	// Pour gérer l'affichage des murs
 	SDL_Texture* walls;

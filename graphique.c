@@ -60,12 +60,13 @@ void init_mario(ressources_t *ressources,world_t *world){
 			ressources->SrcR_mario[a].w = tailleW/9; // Largeur de l’objet en pixels 
 			ressources->SrcR_mario[a].h = tailleH/8 ; // Hauteur de l’objet en pixels 
 
-			ressources->DestR_mario[a].x = world->mario.x;
-			ressources->DestR_mario[a].y = world->mario.y;
-			ressources->DestR_mario[a].w = tailleW/9  ; // Largeur du sprite
-			ressources->DestR_mario[a].h = tailleH/8 ; // Hauteur du sprite
+		
 			a = a +1;
 		}
+			ressources->DestR_mario.x = world->mario.x;
+			ressources->DestR_mario.y = world->mario.y;
+			ressources->DestR_mario.w = tailleW/9  ; // Largeur du sprite
+			ressources->DestR_mario.h = tailleH/8 ; // Hauteur du sprite
        y = y + tailleH/8;
 	   
 	}
@@ -141,6 +142,7 @@ void init_vies(ressources_t *ressources){
     ressources->DestR_vies[i].w = tailleW;
     ressources->DestR_vies[i].h = tailleH;
   }
+
 }
 
 
@@ -161,7 +163,7 @@ void affichage(ressources_t *ressources,world_t *world){
 
 
 void affiche_mario(ressources_t *ressources,world_t *world){
-	SDL_RenderCopy(ressources->ecran, ressources->mario, &ressources->SrcR_mario[world->mario.i], &ressources->DestR_mario[world->mario.i]);
+	SDL_RenderCopy(ressources->ecran, ressources->mario, &ressources->SrcR_mario[world->mario.i], &ressources->DestR_mario);
 }
 
 

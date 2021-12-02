@@ -60,10 +60,10 @@ void evenement(ressources_t *ressources,world_t *world){
 		}
 		
 			animation_mario(world);
-        	for(int i = 0; i < 72; i++){
-				ressources->DestR_mario[i].x = world->mario.x;	 
-				ressources->DestR_mario[i].y = world->mario.y;	
-			}      
+        	
+			ressources->DestR_mario.x = world->mario.x;	 
+			ressources->DestR_mario.y = world->mario.y;	
+			   
 			
     }
 }
