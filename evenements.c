@@ -13,6 +13,35 @@
 #include "graphique.h"
 #include "animations.h"
 #include "evenements.h"
+#include "menu.h"
+
+void evenement_menu(ressources_t *ressources, menu_t *menu){
+  SDL_Event evenements;
+  SDL_PollEvent(&evenements);
+  
+  switch(evenements.type){
+  	case SDL_QUIT:
+   		menu->fin = 1; 
+    		break;
+    
+    
+  	case SDL_MOUSEBUTTONUP:
+    		menu->fin = 1;
+    		break;
+    		
+    	case SDL_KEYDOWN:
+		switch(evenements.key.keysym.sym){
+			case SDLK_ESCAPE:
+
+            		case SDLK_q:
+            			menu->fin = 1;
+            			break;
+            	}
+            	break;
+            	
+    
+  }
+}
 
 
 void evenement(ressources_t *ressources,world_t *world){

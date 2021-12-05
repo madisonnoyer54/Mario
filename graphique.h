@@ -25,6 +25,18 @@ struct ressources_s{
 	SDL_Rect DestR_fond;
 
 	TTF_Font* font; 
+	
+	//Gérer l'affichage du menu
+	SDL_Texture* fond_menu;
+	SDL_Texture* texte_menu;
+	TTF_Font* font_menu;
+	SDL_Rect texte_menu_pos;
+	
+	SDL_Texture* marioRouge;
+	SDL_Texture* marioViolet;
+	SDL_Texture* marioJaune;
+	SDL_Rect SrcR_marioMenu[3];
+	SDL_Rect DestR_marioMenu[3];
 
 	//Gérer affichage du timer
 	SDL_Texture* texte_timer;

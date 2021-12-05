@@ -17,6 +17,7 @@
 #include "graphique.h"
 #include "animations.h"
 #include "evenements.h"
+#include "menu.h"
 
 
 /** 
@@ -27,6 +28,7 @@ int main(){
 	//Initialisation du monde et des ressources
 	world_t world;
 	ressources_t r;
+	menu_t menu;
 
 	// Initialisation de la SDL
 	if(SDL_Init(SDL_INIT_VIDEO) < 0){
@@ -39,6 +41,16 @@ int main(){
 	//Initialisation des données globales du monde + SDL
 	init_data(&world); 
 	init_for_SDL(&r, &world);  
+	init_menu(&menu, &r);
+	
+	
+	//Boucle de menu
+	while(menu.fin != 1){
+	  affiche_menu(&r);
+	  evenement_menu(&r, &menu);
+	  SDL_RenderPresent(r.ecran);
+	  SDL_Delay(10);
+	}
 	   
 	    
 

@@ -34,6 +34,8 @@ void init_for_SDL(ressources_t *ressources, world_t *world){
 
 	//ressources->fond = charger_image("ressources/fond.bmp", ressources->ecran );          //Chargement du fond de jeu
 
+	ressources->fond_menu = charger_image("ressources/fond_menu.bmp", ressources->ecran);    //Chargement fond de menu
+	
 	//Initialisation des données
 	init_mario(ressources,world);      
 	init_vies(ressources);
