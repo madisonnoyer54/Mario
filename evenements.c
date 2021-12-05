@@ -114,10 +114,10 @@ void gravite(world_t *world, ressources_t *ressources){
 		
 		//Orientation du mario quand il retombe dans le cas statique
 		if(world->mario.d == 'q'){
-			world->mario.i = 38;    
+			world->mario.i = 37;    
 		}
 		if(world->mario.d == 's'){
-			world->mario.i = 2;    
+			world->mario.i = 1;    
 		}
 
 		ressources->DestR_mario.x = world->mario.x;	 
