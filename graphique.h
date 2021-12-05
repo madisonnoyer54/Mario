@@ -18,7 +18,12 @@
 struct ressources_s{
    	SDL_Window* fenetre;
    	SDL_Renderer* ecran;
+
+	//gérer l'affichage du fond
    	SDL_Texture* fond;
+	SDL_Rect SrcR_fond;
+	SDL_Rect DestR_fond;
+
 	TTF_Font* font; 
 
 	//Gérer affichage du timer
@@ -52,6 +57,7 @@ typedef struct ressources_s ressources_t;
  */
 void init_for_SDL(ressources_t *ressources, world_t *world);
 
+void init_fond(ressources_t *ressources,world_t *world);
 
 /**
  * \brief Initialise le tableau de Mario, permet de découper la plage de Sprite 
@@ -90,6 +96,7 @@ void init_vies(ressources_t *ressources);
  */
 void affichage(ressources_t *ressources, world_t *world);
 
+void afficher_fond(ressources_t *ressources);
 
 /**
  * \brief Gère l'affichage du mario

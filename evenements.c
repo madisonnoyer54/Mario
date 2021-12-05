@@ -68,6 +68,7 @@ void evenement(ressources_t *ressources,world_t *world){
 
 				if(world->mario.x > SCREEN_WIDTH/2 ){
 					ressources->DestR_walls[1].x =  ressources->DestR_walls[1].x - INITIAL_SPEED;
+					ressources->DestR_fond.x = ressources->DestR_fond.x -INITIAL_SPEED;
 				}
 				
             			break;
@@ -76,7 +77,8 @@ void evenement(ressources_t *ressources,world_t *world){
 		}
 		
 		animation_mario(world);
-        	
+        
+		
 		ressources->DestR_mario.x = world->mario.x;	 
 		ressources->DestR_mario.y = world->mario.y;	
 			   

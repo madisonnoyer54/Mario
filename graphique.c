@@ -18,10 +18,6 @@
 
 
 void init_for_SDL(ressources_t *ressources, world_t *world){
-	ressources->fenetre = calloc(1, sizeof(SDL_Window*));
-	ressources->ecran = calloc(1, sizeof(SDL_Renderer*));
-	ressources->fond = calloc(1, sizeof(SDL_Texture*));
-	ressources->font = calloc(1, sizeof(TTF_Font*));
 	
 	IMG_Init(IMG_INIT_PNG);   //Initialisation de SDL_image
 	
@@ -36,15 +32,33 @@ void init_for_SDL(ressources_t *ressources, world_t *world){
 
 	ressources->ecran = SDL_CreateRenderer(ressources->fenetre, -1, SDL_RENDERER_ACCELERATED);  	// Mise en place un contexte de rendu de l’écran
 
-	ressources->fond = charger_image("ressources/fond.bmp", ressources->ecran );          //Chargement du fond de jeu
+	//ressources->fond = charger_image("ressources/fond.bmp", ressources->ecran );          //Chargement du fond de jeu
 
 	//Initialisation des données
 	init_mario(ressources,world);      
 	init_vies(ressources);
 	init_timer(ressources);
 	init_block(ressources,world);
+	init_fond(ressources,world);
 }
 
+void init_fond(ressources_t *ressources,world_t *world){
+	int tailleW_f, tailleH_f;
+	ressources->fond = charger_image("ressources/map8.bmp", ressources->ecran );  
+
+	 SDL_QueryTexture(ressources->fond, NULL, NULL, &tailleW_f, &tailleH_f);
+
+	
+		ressources->SrcR_fond.x = 0;
+		ressources->SrcR_fond.y = 0;
+		ressources->SrcR_fond.w = tailleW_f; // Largeur de l’objet en pixels 
+		ressources->SrcR_fond.h = tailleH_f; // Hauteur de l’objet en pixels 
+
+		ressources->DestR_fond.x = 0;
+		ressources->DestR_fond.y = 0;
+		ressources->DestR_fond.w = tailleW_f*4.5; // Largeur du sprite
+		ressources->DestR_fond.h = tailleH_f*4.5; // Hauteur du sprite
+}
 
 void init_mario(ressources_t *ressources,world_t *world){
 	int tailleW, tailleH;
@@ -162,7 +176,10 @@ void init_vies(ressources_t *ressources){
 void affichage(ressources_t *ressources,world_t *world){
 	SDL_RenderClear(ressources->ecran);        //Mise à jour de l'écran
 
-	SDL_RenderCopy(ressources->ecran, ressources->fond, NULL, NULL);   //Affichage du fond de jeu
+	//SDL_RenderCopy(ressources->ecran, ressources->fond, NULL, NULL);   //Affichage du fond de jeu
+
+
+	afficher_fond(ressources);
 
 	affiche_mario(ressources, world);   //Affichage du mario
 	
@@ -171,9 +188,14 @@ void affichage(ressources_t *ressources,world_t *world){
 	affiche_vies(ressources, world);       //Affichage des vies
 
 	affiche_walls(ressources); // Affichage du murs
+
+	
 	
 }
 
+void afficher_fond(ressources_t *ressources){
+	SDL_RenderCopy(ressources->ecran, ressources->fond, &ressources->SrcR_fond,&ressources->DestR_fond);
+}
 
 void affiche_mario(ressources_t *ressources,world_t *world){
 	SDL_RenderCopy(ressources->ecran, ressources->mario, &ressources->SrcR_mario[world->mario.i], &ressources->DestR_mario);
