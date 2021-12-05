@@ -16,7 +16,7 @@ struct sprite_s{
     int w;/*!< Largeur */
     int x;/*!< Position (horizontale) de son centre */
     int y;/*!< Position (verticale) de son centre */
-    int d;/*!< Direction ( g: gauche , d: droite ) */
+    int d;/*!< Direction ( g: gauche , d: droite , q: statique vers la gauche, s: statique vers la droite) */
     int i;/*!< Mario a utiliser */
     int decompte;/*!< décompte du mario par rapport au nombre de tour */
     int nbVies;/*!< nb de vies du sprite */

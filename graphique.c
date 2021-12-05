@@ -60,7 +60,12 @@ void init_mario(ressources_t *ressources,world_t *world){
         for(int i = 0; i < 8; i++) {
 		for(int j =0; j < 9; j++){
 			ressources->SrcR_mario[a].x = j* (tailleW/9) ;
-			ressources->SrcR_mario[a].y = y ;
+			if(i<4){
+				ressources->SrcR_mario[a].y = y ;
+			}
+			else{
+				ressources->SrcR_mario[a].y = y + 3;
+			}
 			ressources->SrcR_mario[a].w = tailleW/9; // Largeur de l’objet en pixels 
 			ressources->SrcR_mario[a].h = tailleH/8 ; // Hauteur de l’objet en pixels 
 
