@@ -131,10 +131,13 @@ void gravite(world_t *world, ressources_t *ressources){
 		
 		if(world->mario.d == 'd'){
 			deplacement_droite(ressources,world);
+			world->mario.i = 15; 
+
 	    }
 	     	
 		if(world->mario.d == 'g'){
 			world->mario.x = world->mario.x - INITIAL_SPEED;  
+			world->mario.i = 50;  
 		}
 		
 		//Orientation du mario quand il retombe dans le cas statique
@@ -152,6 +155,7 @@ void gravite(world_t *world, ressources_t *ressources){
 		ressources->DestR_mario.y = world->mario.y;	
 		affichage(ressources,world);
 		SDL_RenderPresent(ressources->ecran);
+		SDL_Delay(10);
 		
 	}
 	
@@ -171,7 +175,7 @@ void saut(world_t *world, ressources_t *ressources){
 			}
 			if(world->mario.d == 'g'){
 				world->mario.x = world->mario.x - INITIAL_SPEED - 10;
-				world->mario.i = 49;
+				world->mario.i = 48;
 			}
 
 			left_overflow(&world->mario);
@@ -182,6 +186,7 @@ void saut(world_t *world, ressources_t *ressources){
 			ressources->DestR_mario.y = world->mario.y;	
 			affichage(ressources,world);
 			SDL_RenderPresent(ressources->ecran);
+			SDL_Delay(10);
 
 		
 		}
