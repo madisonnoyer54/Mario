@@ -33,4 +33,5 @@ void gravite(world_t *world, ressources_t *ressources);
 void saut(world_t *world, ressources_t *ressources);
 
 
+void deplacement_droite(ressources_t *ressources,world_t *world);
 #endif

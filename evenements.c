@@ -91,14 +91,10 @@ void evenement(ressources_t *ressources,world_t *world){
             			break;
                     
 			case SDLK_RIGHT:
-            			world->mario.x = world->mario.x + INITIAL_SPEED;
 			   	world->mario.d = 'd';
 			   	world->mario.decompte = world->mario.decompte + 1; 
 
-				if(world->mario.x > SCREEN_WIDTH/2 ){
-					ressources->DestR_walls[1].x =  ressources->DestR_walls[1].x - INITIAL_SPEED;
-					ressources->DestR_fond.x = ressources->DestR_fond.x -INITIAL_SPEED;
-				}
+				deplacement_droite(ressources,world);
 				
             			break;
          
@@ -134,7 +130,7 @@ void gravite(world_t *world, ressources_t *ressources){
     	world->mario.y += Graviter;
 		
 		if(world->mario.d == 'd'){
-			world->mario.x = world->mario.x + INITIAL_SPEED;
+			deplacement_droite(ressources,world);
 	    }
 	     	
 		if(world->mario.d == 'g'){
@@ -169,7 +165,8 @@ void saut(world_t *world, ressources_t *ressources){
 		while(world->mario.y > 350){
 			world->mario.y = world->mario.y - 10 - Graviter;
 			if(world->mario.d == 'd'){
-				world->mario.x = world->mario.x + INITIAL_SPEED + 10;
+				deplacement_droite(ressources,world);
+				world->mario.x = world->mario.x + 10;
 				world->mario.i = 14;
 			}
 			if(world->mario.d == 'g'){
@@ -190,4 +187,16 @@ void saut(world_t *world, ressources_t *ressources){
 		}
 					
 	}
+}
+
+void deplacement_droite(ressources_t *ressources,world_t *world){
+	if(world->mario.x > SCREEN_WIDTH/2 ){
+		ressources->DestR_walls[1].x =  ressources->DestR_walls[1].x - INITIAL_SPEED/2;
+		ressources->DestR_fond.x = ressources->DestR_fond.x -INITIAL_SPEED/2;
+		world->mario.x = world->mario.x + INITIAL_SPEED/2;
+	}
+	else{
+		world->mario.x = world->mario.x + INITIAL_SPEED;
+	}
+	
 }
