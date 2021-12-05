@@ -101,7 +101,6 @@ void init_mario(ressources_t *ressources,world_t *world){
 
 
 void init_block(ressources_t *ressources, world_t *world){
-	ressources->walls = calloc(1, sizeof(SDL_Texture*));
 	int tailleW_B, tailleH_B;
 
 	 // tableau de sprite 

@@ -130,12 +130,12 @@ void update_timer(world_t * world){
 
 
 void gravite(world_t *world, ressources_t *ressources){
-       while (world->mario.y <470){
-       	world->mario.y += Graviter;
+    while (world->mario.y <470){
+    	world->mario.y += Graviter;
 		
 		if(world->mario.d == 'd'){
 			world->mario.x = world->mario.x + INITIAL_SPEED;
-	     	}
+	    }
 	     	
 		if(world->mario.d == 'g'){
 			world->mario.x = world->mario.x - INITIAL_SPEED;  
@@ -149,11 +149,17 @@ void gravite(world_t *world, ressources_t *ressources){
 			world->mario.i = 1;    
 		}
 
+		left_overflow(&world->mario);
+		right_overflow(&world->mario);
+
 		ressources->DestR_mario.x = world->mario.x;	 
 		ressources->DestR_mario.y = world->mario.y;	
 		affichage(ressources,world);
 		SDL_RenderPresent(ressources->ecran);
-        }
+		
+	}
+	
+
         
 	world->mario.y =470;
 }
@@ -171,11 +177,16 @@ void saut(world_t *world, ressources_t *ressources){
 				world->mario.i = 49;
 			}
 
+			left_overflow(&world->mario);
+			right_overflow(&world->mario);
+
 			
 			ressources->DestR_mario.x = world->mario.x;	 
 			ressources->DestR_mario.y = world->mario.y;	
 			affichage(ressources,world);
 			SDL_RenderPresent(ressources->ecran);
+
+		
 		}
 					
 	}
