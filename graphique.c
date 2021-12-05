@@ -44,7 +44,7 @@ void init_for_SDL(ressources_t *ressources, world_t *world){
 
 void init_fond(ressources_t *ressources,world_t *world){
 	int tailleW_f, tailleH_f;
-	ressources->fond = charger_image("ressources/map8.bmp", ressources->ecran );  
+	ressources->fond = charger_image("ressources/map.bmp", ressources->ecran );  
 
 	 SDL_QueryTexture(ressources->fond, NULL, NULL, &tailleW_f, &tailleH_f);
 
@@ -56,8 +56,8 @@ void init_fond(ressources_t *ressources,world_t *world){
 
 		ressources->DestR_fond.x = 0;
 		ressources->DestR_fond.y = 0;
-		ressources->DestR_fond.w = tailleW_f*4.5; // Largeur du sprite
-		ressources->DestR_fond.h = tailleH_f*4.5; // Hauteur du sprite
+		ressources->DestR_fond.w = tailleW_f*2; // Largeur du sprite
+		ressources->DestR_fond.h = tailleH_f*2; // Hauteur du sprite
 }
 
 void init_mario(ressources_t *ressources,world_t *world){
