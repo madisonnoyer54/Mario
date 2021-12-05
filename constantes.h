@@ -24,13 +24,13 @@
 /**
  * \brief Taille d'un mario
  */
-#define MARIO_SIZE 77
+#define MARIO_SIZE 140
 
 
 /**
  * \brief Taille d'un mario
  */
-#define MARIO_WIDTH 74
+#define MARIO_WIDTH 70
 
 
 /**

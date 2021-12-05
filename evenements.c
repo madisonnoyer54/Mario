@@ -32,9 +32,11 @@ void evenement(ressources_t *ressources,world_t *world){
             			break;
                   
 			case SDLK_SPACE : 
-				if(world->mario.y == 470){
-					world->mario.y = world->mario.y - 5;
-				}
+					if( SDLK_LEFT){
+						
+					}
+				saut(world,ressources);
+				gravite(world,ressources);
 						
 				break;
             
@@ -78,5 +80,38 @@ unsigned int timer(){
 void update_timer(world_t * world){
 	if(!is_game_over(world)){
 		world->timer = timer();
+	}
+}
+
+
+
+void gravite(world_t *world, ressources_t *ressources){
+       while (world->mario.y <470){
+            world->mario.y += Graviter;
+
+            world->mario.x = world->mario.x + INITIAL_SPEED ;
+
+			world->mario.i = 0;
+			ressources->DestR_mario.x = world->mario.x;	 
+			ressources->DestR_mario.y = world->mario.y;	
+			affichage(ressources,world);
+			SDL_RenderPresent(ressources->ecran);
+        }
+		world->mario.y =470;
+}
+
+void saut(world_t *world, ressources_t *ressources){
+	if(world->mario.y == 470){
+		while(world->mario.y > 350){
+			world->mario.y = world->mario.y - 10 - Graviter;
+			world->mario.x = world->mario.x + INITIAL_SPEED + 10;
+
+			world->mario.i = 14;
+			ressources->DestR_mario.x = world->mario.x;	 
+			ressources->DestR_mario.y = world->mario.y;	
+			affichage(ressources,world);
+			SDL_RenderPresent(ressources->ecran);
+		}
+					
 	}
 }

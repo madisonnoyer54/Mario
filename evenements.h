@@ -27,4 +27,10 @@ unsigned int timer();
 void update_timer(world_t * world);
 
 
+void gravite(world_t *world, ressources_t *ressources);
+
+
+void saut(world_t *world, ressources_t *ressources);
+
+
 #endif

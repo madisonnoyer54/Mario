@@ -85,7 +85,7 @@ void init_block(ressources_t *ressources, world_t *world){
 
 	 // tableau de sprite 
    ressources->walls = charger_image_transparente("ressources/blocks.png", ressources->ecran);
-
+	
     
     SDL_QueryTexture(ressources->walls, NULL, NULL, &tailleW_B, &tailleH_B);
 	
@@ -104,6 +104,7 @@ void init_block(ressources_t *ressources, world_t *world){
        y = y + tailleH_B/3;
 	   
 	}
+	
 			ressources->DestR_walls[1].x = 340 ;
 			ressources->DestR_walls[1].y = 300;
 			ressources->DestR_walls[1].w = tailleW_B/6; // Largeur du sprite

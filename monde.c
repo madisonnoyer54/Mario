@@ -54,22 +54,22 @@ void init_data(world_t *world){
 
 
 void left_overflow(sprite_t *sprite) {
-    if (sprite->x - sprite->w / 2 < 0) {                // Si la bordure gauche dépasse le bord gauche de l'écran
-        sprite->x = 0 +  sprite->w / 2 ;
+    if (sprite->x  < 0) {                // Si la bordure gauche dépasse le bord gauche de l'écran
+        sprite->x = 0  ;
     }
 }
 
 
 void right_overflow(sprite_t *sprite) {
-    if (sprite->x + sprite->w / 2 > SCREEN_WIDTH) {     // Si la bordure droite dépasse le bord droit de l'écran
-        sprite->x = (SCREEN_WIDTH - sprite->w/2);
+    if (sprite->x + sprite->w > SCREEN_WIDTH) {     // Si la bordure droite dépasse le bord droit de l'écran
+        sprite->x = (SCREEN_WIDTH - sprite->w);
     }
 }
 
 
 void handle_vie(world_t *world) {
     if (world->mario.nbVies <= 0) {
-        world->gameover = 1;    // La partie est terminée
+        world->gameover = 1;   // La partie est terminée
     }
 }
 
@@ -80,7 +80,7 @@ void update_data(world_t *world){
     right_overflow(&(world->mario));
 
     // Gestion e la graviter 
-    //gravite(world);
+   
 
     // Gestion des collisions
    
@@ -103,8 +103,3 @@ void update_data(world_t *world){
 
 
 
-void gravite(world_t *world){
-       if (world->mario.y != 470){
-                world->mario.y += Graviter;
-        }
-}
