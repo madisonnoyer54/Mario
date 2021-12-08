@@ -20,6 +20,7 @@ struct sprite_s{
     int i;/*!< Mario a utiliser */
     int decompte;/*!< décompte du mario par rapport au nombre de tour */
     int nbVies;/*!< nb de vies du sprite */
+	int couleur;
 };
 /**
  * \brief Type qui correspont au sprite du jeu 

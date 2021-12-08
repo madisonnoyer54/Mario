@@ -47,7 +47,7 @@ int main(){
 	//Boucle de menu
 	while(menu.fin != 1){
 	  affiche_menu(&r);
-	  evenement_menu(&r, &menu);
+	  evenement_menu(&r, &menu, &world);
 	  SDL_RenderPresent(r.ecran);
 	  SDL_Delay(10);
 	}

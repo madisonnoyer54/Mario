@@ -9,15 +9,18 @@
 #include "fonctions_SDL.h"
 #include "fonctions_fichiers.h"
 #include "constantes.h"
-#include "monde.h"
+#include "monde.h" 
 #include "graphique.h"
 #include "animations.h"
-#include "evenements.h"
+#include "evenements.h" 
 #include "menu.h"
 
-void evenement_menu(ressources_t *ressources, menu_t *menu){
+void evenement_menu(ressources_t *ressources, menu_t *menu, world_t *world){
   SDL_Event evenements;
   SDL_PollEvent(&evenements);
+	
+	int x = (int)evenements.button.x;
+	int y = (int)evenements.button.y;
   
   switch(evenements.type){
   	case SDL_QUIT:
@@ -26,6 +29,8 @@ void evenement_menu(ressources_t *ressources, menu_t *menu){
     
     
   	case SDL_MOUSEBUTTONUP:
+		  choix_mario(ressources, world, x, y);
+			init_mario(ressources,world);     
     		menu->fin = 1;
     		break;
     		
@@ -41,6 +46,21 @@ void evenement_menu(ressources_t *ressources, menu_t *menu){
             	
     
   }
+}
+
+
+void choix_mario(ressources_t *ressources, world_t *world, int x, int y){
+		int xMario, yMario, wMario, hMario;
+		world->mario.couleur = 4;
+		for(int i=0; i<3; i++){
+			xMario = ressources->DestR_marioMenu[i].x;
+			yMario = ressources->DestR_marioMenu[i].y;
+			wMario = ressources->DestR_marioMenu[i].w;
+			hMario = ressources->DestR_marioMenu[i].h;
+			if((x >= xMario) && (x <= xMario+wMario) && (y >= yMario) && (y <= yMario+hMario)){
+				world->mario.couleur = i;
+			}
+		}
 }
 
 
@@ -64,7 +84,7 @@ void evenement(ressources_t *ressources,world_t *world){
             			break;
                   
 			case SDLK_SPACE : 
-				if(keystates[SDL_SCANCODE_RIGHT] || (keystates[SDL_SCANCODE_LEFT])){   //saut orienté
+				if(keystates[SDL_SCANCODE_RIGHT] || (keystates[SDL_SCANCODE_LEFT])){   //saut oriente
 					saut(world,ressources);
 					gravite(world,ressources);
 				}

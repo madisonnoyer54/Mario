@@ -36,8 +36,7 @@ void init_for_SDL(ressources_t *ressources, world_t *world){
 
 	ressources->fond_menu = charger_image("ressources/fond_menu.bmp", ressources->ecran);    //Chargement fond de menu
 	
-	//Initialisation des données
-	init_mario(ressources,world);      
+	//Initialisation des données 
 	init_vies(ressources);
 	init_timer(ressources);
 	init_block(ressources,world);
@@ -62,11 +61,26 @@ void init_fond(ressources_t *ressources,world_t *world){
 		ressources->DestR_fond.h = tailleH_f*2; // Hauteur du sprite
 }
 
-void init_mario(ressources_t *ressources,world_t *world){
+void init_mario(ressources_t *ressources,world_t *world){              //appelée dans evenements.c
 	int tailleW, tailleH;
 
 	 // tableau de sprite 
-   ressources->mario = charger_image_transparente("ressources/mario.png", ressources->ecran);
+	
+	switch(world->mario.couleur){
+		case 0:
+			ressources->mario = charger_image_transparente("ressources/mario.png", ressources->ecran);
+			break;
+		case 1:
+			ressources->mario = charger_image_transparente("ressources/marioViolet.png", ressources->ecran);
+			break;
+		case 2:
+			ressources->mario = charger_image_transparente("ressources/marioJaune.png", ressources->ecran);
+			break;
+		default:   //par defaut, on applique le mario normal (rouge)
+			ressources->mario = charger_image_transparente("ressources/mario.png", ressources->ecran);
+			break;
+	}
+
 
     
     SDL_QueryTexture(ressources->mario, NULL, NULL, &tailleW, &tailleH);
