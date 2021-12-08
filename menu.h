@@ -9,20 +9,21 @@
 #define MENU_H
 
 #include <SDL2/SDL_ttf.h>
-#include "graphique.h"
 
 
 /**
- * \brief Repr√©sentation du menu 
+ * \brief Representation du menu 
  */
 struct menu_s{
     int fin;/*!< Indique si le menu est fini ou pas */
+	unsigned int timer_menu; /*< ReprÈsente le temps ecoule sur le menu */
 };
 /**
  * \brief Type qui correspont au menu du jeu 
  */
 typedef struct menu_s menu_t;
 
+#include "graphique.h"
 
 void init_menu(menu_t *menu, ressources_t *ressources);
 

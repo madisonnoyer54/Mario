@@ -11,10 +11,10 @@
 #include "fonctions_SDL.h"
 #include "fonctions_fichiers.h"
 #include "constantes.h"
-#include "monde.h"
 #include "graphique.h"
 #include "animations.h"
 #include "evenements.h"
+#include "menu.h"
 
 
 void init_sprite(sprite_t *sprite, int x, int y, int w, int h) {
@@ -75,7 +75,7 @@ void handle_vie(world_t *world) {
 }
 
 
-void update_data(world_t *world){
+void update_data(world_t *world, menu_t *menu){
     // Gestion des dépassements à gauche et à droite
     left_overflow(&(world->mario));
     right_overflow(&(world->mario));
@@ -94,7 +94,7 @@ void update_data(world_t *world){
     handle_vie(world);
 
 	// vérifie le timer
-	update_timer(world);
+	update_timer(world, menu);
 
     // vérifier les murs 
     

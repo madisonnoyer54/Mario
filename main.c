@@ -65,7 +65,7 @@ int main(){
 		SDL_RenderPresent(r.ecran);
 
 		// Mise à jour des données liée à la physique du monde
-		update_data(&world);
+		update_data(&world, &menu);
 
 		// Pause de 10 ms pour controler la vitesse de rafraichissement
 		SDL_Delay(10);

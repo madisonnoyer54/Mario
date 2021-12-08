@@ -29,8 +29,9 @@ void evenement_menu(ressources_t *ressources, menu_t *menu, world_t *world){
     
     
   	case SDL_MOUSEBUTTONUP:
-		  choix_mario(ressources, world, x, y);
-			init_mario(ressources,world);     
+		  	choix_mario(ressources, world, x, y);
+			init_mario(ressources,world);   
+		  	timer_menu(menu);
     		menu->fin = 1;
     		break;
     		
@@ -130,16 +131,20 @@ void evenement(ressources_t *ressources,world_t *world){
     }
 }
 
-
-
-unsigned int timer(){
-	return (SDL_GetTicks())/1000;
+void timer_menu(menu_t *menu){
+	menu->timer_menu = (SDL_GetTicks())/1000;
 }
 
 
-void update_timer(world_t * world){
+
+unsigned int timer(unsigned int time_menu){
+	return (SDL_GetTicks())/1000 - time_menu;
+}
+
+
+void update_timer(world_t *world, menu_t *menu){
 	if(!is_game_over(world)){
-		world->timer = timer();
+		world->timer = timer(menu->timer_menu);
 	}
 }
 

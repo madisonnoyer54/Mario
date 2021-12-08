@@ -4,12 +4,12 @@
  * \brief Module de gestion de l'affichage graphique (en-tête).
  */
 
-#include "constantes.h"
-#include "monde.h"
+
 
 #ifndef GRAPHIQUE_H
 #define GRAPHIQUE_H
 
+#include "constantes.h"
 
 
 /**
@@ -63,13 +63,16 @@ struct ressources_s{
 typedef struct ressources_s ressources_t;
 
 
+#include "monde.h"
+
+
 /**
  * \brief La fonction initialise les textures nécessaires à l'affichage graphique du jeu
  * \param ressources les ressources du jeu
  */
 void init_for_SDL(ressources_t *ressources, world_t *world);
 
-void init_fond(ressources_t *ressources,world_t *world);
+void init_fond(ressources_t *ressources, world_t *world);
 
 /**
  * \brief Initialise le tableau de Mario, permet de découper la plage de Sprite 
@@ -84,7 +87,7 @@ void init_mario(ressources_t *ressources, world_t *world);
  * \param ressources les ressources du jeu
  * \param world le monde
  */
-void init_block(ressources_t *ressources,world_t *world);
+void init_block(ressources_t *ressources, world_t *world);
 
 
 /**

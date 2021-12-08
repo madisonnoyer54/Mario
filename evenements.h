@@ -33,6 +33,9 @@ void choix_mario(ressources_t *ressources, world_t *world, int x, int y);
 void evenement(ressources_t *ressources,world_t *world);
 
 
+void timer_menu(menu_t *menu);
+
+
 /**
  * \brief La fonction cherche le temps écoulé dans le jeu
  */
@@ -42,7 +45,7 @@ unsigned int timer();
  * \brief La fonction met à jour le timer du jeu
  * \param world le monde
  */
-void update_timer(world_t * world);
+void update_timer(world_t *world, menu_t *menu);
 
 
 void gravite(world_t *world, ressources_t *ressources);
