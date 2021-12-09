@@ -15,7 +15,6 @@
 
 
 void init_menu(menu_t *menu, ressources_t *ressources){
-	menu = calloc(1, sizeof(menu_t));
 	
 	ressources->font_menu = TTF_OpenFont("ressources/Minecraft.ttf", 50);
 	SDL_Color color = {0,0,0,0};
