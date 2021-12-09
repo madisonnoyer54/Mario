@@ -25,8 +25,8 @@ void evenement_menu(ressources_t *ressources, menu_t *menu, world_t *world){
   switch(evenements.type){
   	case SDL_QUIT:
    		menu->fin = 1; 
-		  world->gameover = 1; 
-		  init_mario(ressources, world);
+		world->gameover = 1; 
+		init_mario(ressources, world);
     		break;
     
     
@@ -43,6 +43,8 @@ void evenement_menu(ressources_t *ressources, menu_t *menu, world_t *world){
 
             		case SDLK_q:
             			menu->fin = 1;
+						world->gameover = 1; 
+						init_mario(ressources, world);
             			break;
             	}
             	break;
