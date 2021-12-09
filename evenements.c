@@ -87,7 +87,29 @@ void evenement(ressources_t *ressources,world_t *world){
             		case SDLK_q:
             			world->gameover =1;
             			break;
-                  
+            case SDLK_LEFT:
+            	world->mario.x = world->mario.x - INITIAL_SPEED ;
+				world->mario.d = 'g'; 
+				world->mario.decompte = world->mario.decompte + 1;
+
+            	break;
+                    
+			case SDLK_RIGHT:
+			   	world->mario.d = 'd';
+			   	world->mario.decompte = world->mario.decompte + 1; 
+
+				deplacement_droite(ressources,world);
+				
+            	break;    			
+		}
+		animation_mario(world);
+        
+		ressources->DestR_mario.x = world->mario.x;	 
+		ressources->DestR_mario.y = world->mario.y;	
+		break;
+
+		case SDL_KEYUP:
+		switch(evenements.key.keysym.sym){
 			case SDLK_SPACE : 
 				if(keystates[SDL_SCANCODE_RIGHT] || (keystates[SDL_SCANCODE_LEFT])){   //saut oriente
 					saut(world,ressources);
@@ -104,31 +126,12 @@ void evenement(ressources_t *ressources,world_t *world){
 					gravite(world, ressources);
 				}
 						
-				break;
-				
-			
-            
-            		case SDLK_LEFT:
-            			world->mario.x = world->mario.x - INITIAL_SPEED ;
-				world->mario.d = 'g'; 
-				world->mario.decompte = world->mario.decompte + 1;
-
-            			break;
-                    
-			case SDLK_RIGHT:
-			   	world->mario.d = 'd';
-			   	world->mario.decompte = world->mario.decompte + 1; 
-
-				deplacement_droite(ressources,world);
-				
-            			break;
-         
-            			
+				break;  			
 		}
+		break;
 		
 		animation_mario(world);
         
-		
 		ressources->DestR_mario.x = world->mario.x;	 
 		ressources->DestR_mario.y = world->mario.y;	
 			   
