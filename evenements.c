@@ -14,6 +14,7 @@
 #include "animations.h"
 #include "evenements.h" 
 #include "menu.h"
+#include <SDL/SDL_mixer.h>
 
 void evenement_menu(ressources_t *ressources, menu_t *menu, world_t *world){
   SDL_Event evenements;
