@@ -191,6 +191,12 @@ void gravite(world_t *world, ressources_t *ressources){
 		
 	}
 	
+	if(world->mario.d == 'd' || world->mario.d == 's'){
+		world->mario.i = 6;
+	}
+	if(world->mario.d == 'g' || world->mario.d == 'q'){
+		world->mario.i = 42;
+	}
 
         
 	world->mario.y =470;
@@ -203,11 +209,11 @@ void saut(world_t *world, ressources_t *ressources){
 			if(world->mario.d == 'd'){
 				deplacement_droite(ressources,world);
 				world->mario.x = world->mario.x + 10;
-				world->mario.i = 14;
+				world->mario.i = 6;
 			}
 			if(world->mario.d == 'g'){
 				world->mario.x = world->mario.x - INITIAL_SPEED - 10;
-				world->mario.i = 48;
+				world->mario.i = 42;
 			}
 
 			left_overflow(&world->mario);
@@ -221,8 +227,7 @@ void saut(world_t *world, ressources_t *ressources){
 			SDL_Delay(10);
 
 		
-		}
-					
+		}			
 	}
 }
 
