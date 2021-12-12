@@ -147,8 +147,8 @@ void init_block(ressources_t *ressources){
 	printf("ddfdgfedf");
 	printf("%d",ressources->nb_walls);
 	ressources->DestR_walls = malloc(ressources->nb_walls * sizeof(SDL_Rect));
-    taille_fichier("terrain.txt",&n,&m);
-    tab = lire_fichier("terrain.txt");
+    taille_fichier("ressources/terrain.txt",&n,&m);
+    tab = lire_fichier("ressources/terrain.txt");
 		for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++){
                if('1' == tab[i][j] || '2' == tab[i][j] || '3' == tab[i][j]  || '4' == tab[i][j] ){
@@ -263,8 +263,8 @@ void affiche_walls(ressources_t *ressources){
     int n = 0;
     int m = 0; 
 	int a =0;
-    taille_fichier("terrain.txt",&n,&m);
-    tab = lire_fichier("terrain.txt");
+    taille_fichier("ressources/terrain.txt",&n,&m);
+    tab = lire_fichier("ressources/terrain.txt");
 		for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
         
