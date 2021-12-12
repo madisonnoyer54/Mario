@@ -142,22 +142,26 @@ void init_block(ressources_t *ressources){
 	char** tab; 
     int n = 0;
     int m = 0; 
-	ressources->nb_walls = 0;
+	a =0;
+	ressources->nb_walls = 1000;
+	printf("ddfdgfedf");
+	printf("%d",ressources->nb_walls);
+	ressources->DestR_walls = malloc(ressources->nb_walls * sizeof(SDL_Rect));
     taille_fichier("terrain.txt",&n,&m);
     tab = lire_fichier("terrain.txt");
 		for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++){
                if('1' == tab[i][j] || '2' == tab[i][j] || '3' == tab[i][j]  || '4' == tab[i][j] ){
-                    ressources->DestR_walls[ressources->nb_walls].x =  j *tailleW_B / 6;
-		            ressources->DestR_walls[ressources->nb_walls].y =  i * tailleH_B / 8;
-		           	ressources->DestR_walls[ressources->nb_walls].w = tailleW_B / 6; // Largeur du sprite
-		            ressources->DestR_walls[ressources->nb_walls].h = tailleH_B / 8; // Hauteur du sprite
-					ressources->nb_walls = ressources->nb_walls+1;
+                    ressources->DestR_walls[a].x =  j *tailleW_B / 6;
+		            ressources->DestR_walls[a].y =  i * tailleH_B / 8;
+		           	ressources->DestR_walls[a].w = tailleW_B / 6; // Largeur du sprite
+		            ressources->DestR_walls[a].h = tailleH_B / 8; // Hauteur du sprite
+					a = a+1;
                 	
                 }
             }
         }
-
+	
 }
 
 

@@ -55,7 +55,7 @@ struct ressources_s{
 	// Pour gérer l'affichage des murs
 	SDL_Texture* walls;
 	SDL_Rect ScrR_walls[4];
-	SDL_Rect DestR_walls[200];
+	SDL_Rect *DestR_walls;
 	int nb_walls;
 };
 /**
