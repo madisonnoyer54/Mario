@@ -40,7 +40,7 @@ int main(){
 
 	//Initialisation des données globales du monde + SDL
 	init_data(&world); 
-	init_for_SDL(&r, &world);  
+	init_for_SDL(&r);  
 	init_menu(&menu, &r);
 	
 	

@@ -55,7 +55,8 @@ struct ressources_s{
 	// Pour gérer l'affichage des murs
 	SDL_Texture* walls;
 	SDL_Rect ScrR_walls[4];
-	SDL_Rect DestR_walls[10];
+	SDL_Rect DestR_walls[200];
+	int nb_walls;
 };
 /**
  * \brief Type qui correspond aux textures du jeu
@@ -70,9 +71,9 @@ typedef struct ressources_s ressources_t;
  * \brief La fonction initialise les textures nécessaires à l'affichage graphique du jeu
  * \param ressources les ressources du jeu
  */
-void init_for_SDL(ressources_t *ressources, world_t *world);
+void init_for_SDL(ressources_t *ressources);
 
-void init_fond(ressources_t *ressources, world_t *world);
+void init_fond(ressources_t *ressources);
 
 /**
  * \brief Initialise le tableau de Mario, permet de découper la plage de Sprite 
@@ -85,9 +86,8 @@ void init_mario(ressources_t *ressources, world_t *world);
 /**
  * \brief Initialise des murs de Mario, permet de découper la plage de Sprite 
  * \param ressources les ressources du jeu
- * \param world le monde
  */
-void init_block(ressources_t *ressources, world_t *world);
+void init_block(ressources_t *ressources);
 
 
 /**

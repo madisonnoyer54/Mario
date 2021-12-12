@@ -48,14 +48,7 @@
 /**
  * \brief Vitesse initiale de déplacement horizontale des éléments du jeu 
  */
-#define INITIAL_SPEED 2
-
-
-/**
- * \brief Nombre de murs 
- */
-#define nb_walls 4
-
+#define INITIAL_SPEED 7
 
 /**
  * \brief graviter

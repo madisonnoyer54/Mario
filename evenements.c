@@ -1,4 +1,4 @@
-/**
+ /**
  * \file evenements.c
  * \author Juliette Schilling / Madison Noyer.
  * \brief Module de gestion des animations.
@@ -14,7 +14,6 @@
 #include "animations.h"
 #include "evenements.h" 
 #include "menu.h"
-#include <SDL/SDL_mixer.h>
 
 void evenement_menu(ressources_t *ressources, menu_t *menu, world_t *world){
   SDL_Event evenements;
@@ -192,12 +191,6 @@ void gravite(world_t *world, ressources_t *ressources){
 		
 	}
 	
-	if(world->mario.d == 'd' || world->mario.d == 's'){
-		world->mario.i = 6;
-	}
-	if(world->mario.d == 'g' || world->mario.d == 'q'){
-		world->mario.i = 42;
-	}
 
         
 	world->mario.y =470;
@@ -206,15 +199,15 @@ void gravite(world_t *world, ressources_t *ressources){
 void saut(world_t *world, ressources_t *ressources){
 	if(world->mario.y == 470){
 		while(world->mario.y > 350){
-			world->mario.y = world->mario.y - 10 - Graviter;
+			world->mario.y = world->mario.y - 20 - Graviter;
 			if(world->mario.d == 'd'){
 				deplacement_droite(ressources,world);
 				world->mario.x = world->mario.x + 10;
-				world->mario.i = 6;
+				world->mario.i = 14;
 			}
 			if(world->mario.d == 'g'){
 				world->mario.x = world->mario.x - INITIAL_SPEED - 10;
-				world->mario.i = 42;
+				world->mario.i = 48;
 			}
 
 			left_overflow(&world->mario);
@@ -228,14 +221,21 @@ void saut(world_t *world, ressources_t *ressources){
 			SDL_Delay(10);
 
 		
-		}			
+		}
+					
 	}
 }
 
 void deplacement_droite(ressources_t *ressources,world_t *world){
 	if(world->mario.x > SCREEN_WIDTH/2 ){
-		ressources->DestR_walls[1].x =  ressources->DestR_walls[1].x - INITIAL_SPEED/2;
-		ressources->DestR_fond.x = ressources->DestR_fond.x -INITIAL_SPEED/2;
+		for(int i=0; i<	ressources->nb_walls;i++){
+			ressources->DestR_walls[i].x =  ressources->DestR_walls[i].x - INITIAL_SPEED;
+			if(ressources->DestR_walls[i].x <0){
+				//free(&ressources->DestR_walls+i);
+			}
+		}
+		
+		ressources->DestR_fond.x = ressources->DestR_fond.x -INITIAL_SPEED;
 		world->mario.x = world->mario.x + INITIAL_SPEED/2;
 	}
 	else{
