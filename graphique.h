@@ -73,7 +73,14 @@ typedef struct ressources_s ressources_t;
  */
 void init_for_SDL(ressources_t *ressources);
 
+
+/**
+ * @brief initialise le fond du jeux 
+ * 
+ * @param ressources, les ressources du jeu 
+ */
 void init_fond(ressources_t *ressources);
+
 
 /**
  * \brief Initialise le tableau de Mario, permet de découper la plage de Sprite 
@@ -106,12 +113,18 @@ void init_vies(ressources_t *ressources);
 
 
 /**
- * \brief La fonction affiche les textures nécessaires à l'affichage graphique du jeu
+ * \brief La fonction affiche nécessaires à l'affichage graphique du jeu
  * \param ressources les ressources du jeu
  */
 void affichage(ressources_t *ressources, world_t *world);
 
+
+/**
+ * \brief La fonction affiche le fond du jeu
+ * \param ressources les ressources du jeu
+ */
 void afficher_fond(ressources_t *ressources);
+
 
 /**
  * \brief Gère l'affichage du mario

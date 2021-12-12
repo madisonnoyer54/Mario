@@ -32,7 +32,11 @@ void choix_mario(ressources_t *ressources, world_t *world, int x, int y);
  */
 void evenement(ressources_t *ressources,world_t *world);
 
-
+/**
+ * @brief le timer du menu
+ * 
+ * @param menu, le menu
+ */
 void timer_menu(menu_t *menu);
 
 
@@ -48,11 +52,27 @@ unsigned int timer();
 void update_timer(world_t *world, menu_t *menu);
 
 
+/**
+ * @brief definie la graviter 
+ * 
+ * @param world, le monde 
+ * @param ressources, les ressources du jeu  
+ */
 void gravite(world_t *world, ressources_t *ressources);
 
-
+/**
+ * @brief permet au mario de sauter 
+ * 
+ * @param world, le monde 
+ * @param ressources, les ressources du jeu 
+ */
 void saut(world_t *world, ressources_t *ressources);
 
-
+/**
+ * @brief deplacement droite a partir de la moitier de l'ecrent mario + décore
+ * 
+ * @param ressources, les ressources du jeu 
+ * @param world, le monde 
+ */
 void deplacement_droite(ressources_t *ressources,world_t *world);
 #endif

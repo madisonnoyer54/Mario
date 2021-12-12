@@ -93,11 +93,6 @@ void right_overflow(sprite_t *sprite);
 void handle_vie(world_t *world);
 
 
-
-#include "menu.h"
-
-
-
 /**
  * \brief La fonction met à jour les données en tenant compte de la physique du monde
  * \param world les données du monde
@@ -106,7 +101,7 @@ void update_data(world_t *world, menu_t *menu);
 
 
 /**
- * \brief La fonction donne leur position initiale aux murs de météorites dans le monde pour former des couloirs
+ * \brief La fonction donne leur position initiale aux murs dans le monde 
  * \param world les données du monde
  */
 void init_walls(world_t *world);

@@ -28,6 +28,7 @@ SDL_Texture* charger_image (const char* nomfichier, SDL_Renderer*renderer);
  */
 SDL_Texture* charger_image_transparente(const char* nomfichier, SDL_Renderer* renderer);
 
+
 /**
  * \brief La fonction permet de charger le texte 
  * \param message message a charger 
