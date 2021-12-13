@@ -54,8 +54,8 @@ struct ressources_s{
 
 	// Pour gérer l'affichage des murs
 	SDL_Texture* walls;
-	SDL_Rect ScrR_walls[4];
-	SDL_Rect *DestR_walls;
+	SDL_Rect ScrR_walls[6];
+	SDL_Rect* DestR_walls;
 	int nb_walls;
 };
 /**
@@ -163,5 +163,14 @@ void affiche_walls(ressources_t *ressources);
  * \param ressources les ressources du jeu (SDL) 
  */
 void Destroy(ressources_t ressources);
+
+
+/**
+ * \brief retourne le nombre de murs dans le tableau
+ * \param tab le tableau de caractères
+ * \param n la hauteur du tableau
+ * \param m la largeur du tableau
+ */
+int nbWalls(char** tab, int n, int m);
 
 #endif

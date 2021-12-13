@@ -115,7 +115,7 @@ void init_mario(ressources_t *ressources,world_t *world){              //appelé
 
 
 void init_block(ressources_t *ressources){
-	int tailleW_B, tailleH_B;
+	int tailleW_B, tailleH_B; 
 
 	 // tableau de sprite 
    ressources->walls = charger_image_transparente("ressources/blocks.png", ressources->ecran);
@@ -139,16 +139,15 @@ void init_block(ressources_t *ressources){
     	y = y + tailleH_B/3;
 	}
 
-	char** tab; 
-    int n = 0;
-    int m = 0; 
+	
+    int n, m;
 	a =0;
-	ressources->nb_walls = 1000;
-	printf("ddfdgfedf");
-	printf("%d",ressources->nb_walls);
-	ressources->DestR_walls = malloc(ressources->nb_walls * sizeof(SDL_Rect));
+	
     taille_fichier("ressources/terrain.txt",&n,&m);
+	char** tab = allouer_tab_2D(n, m); 
     tab = lire_fichier("ressources/terrain.txt");
+	ressources->nb_walls = nbWalls(tab, n, m);
+	ressources->DestR_walls = malloc(ressources->nb_walls * sizeof(SDL_Rect));
 		for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++){
                if('1' == tab[i][j] || '2' == tab[i][j] || '3' == tab[i][j]  || '4' == tab[i][j] ){
@@ -156,12 +155,10 @@ void init_block(ressources_t *ressources){
 		            ressources->DestR_walls[a].y =  i * tailleH_B / 8;
 		           	ressources->DestR_walls[a].w = tailleW_B / 6; // Largeur du sprite
 		            ressources->DestR_walls[a].h = tailleH_B / 8; // Hauteur du sprite
-					a = a+1;
-                	
+					a++;
                 }
             }
         }
-	
 }
 
 
@@ -268,19 +265,19 @@ void affiche_walls(ressources_t *ressources){
 		for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
         
-               if('1' == tab[i][j]   ){
+               if('1' == tab[i][j]){
                 	SDL_RenderCopy(ressources->ecran, ressources->walls, &ressources->ScrR_walls[0], &ressources->DestR_walls[a]); 
 					a=a +1;
                 }
-                if('2' == tab[i][j]   ){
+                if('2' == tab[i][j]){
                  	SDL_RenderCopy(ressources->ecran, ressources->walls, &ressources->ScrR_walls[1], &ressources->DestR_walls[a]); 
 					a=a +1;
                } 
-			    if('3' == tab[i][j]   ){
+			    if('3' == tab[i][j]){
                  	SDL_RenderCopy(ressources->ecran, ressources->walls, &ressources->ScrR_walls[2], &ressources->DestR_walls[a]); 
 					a=a +1;
                } 
-			    if('4' == tab[i][j]   ){
+			    if('4' == tab[i][j]){
                  	SDL_RenderCopy(ressources->ecran, ressources->walls, &ressources->ScrR_walls[3], &ressources->DestR_walls[a]); 
 					a=a +1;
                } 
@@ -300,4 +297,16 @@ void Destroy(ressources_t ressources){
 	SDL_DestroyRenderer(ressources.ecran);
 	SDL_DestroyWindow(ressources.fenetre);
 	
+}
+
+int nbWalls(char** tab, int n, int m){
+	int res = 0;
+	for(int i=0; i<n; i++){
+		for(int j=0; j<m; j++){
+			if(tab[i][j] == '1'  || tab[i][j] == '2' || tab[i][j] == '3' || tab[i][j] == '4'){
+				res++;
+			}
+		}
+	}
+	return res;
 }

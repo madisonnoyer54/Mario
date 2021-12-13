@@ -235,16 +235,15 @@ void saut(world_t *world, ressources_t *ressources){
 void deplacement_droite(ressources_t *ressources,world_t *world){
 	if(world->mario.x > SCREEN_WIDTH/2 ){
 		for(int i=0; i<ressources->nb_walls;i++){
-			ressources->DestR_walls[i].x =  ressources->DestR_walls[i].x - INITIAL_SPEED;
+			ressources->DestR_walls[i].x -= INITIAL_SPEED;
 			//free(&ressources->DestR_walls);
-			
 		}
 		
 		ressources->DestR_fond.x = ressources->DestR_fond.x -INITIAL_SPEED;
-		world->mario.x = world->mario.x + INITIAL_SPEED/2;
+		world->mario.x += INITIAL_SPEED/2;
 	}
 	else{
-		world->mario.x = world->mario.x + INITIAL_SPEED;
+		world->mario.x += INITIAL_SPEED;
 	}
 	
 }
