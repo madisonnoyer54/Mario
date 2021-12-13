@@ -64,8 +64,7 @@ void taille_fichier(const char* nomFichier, int* nbLig, int* nbCol) {
 
 
 char** lire_fichier(const char* nomFichier) {
-    int* n = malloc(sizeof(n)) ;
-    int* m = malloc(sizeof(m)) ;
+    int n, m;
     taille_fichier(nomFichier, &n, &m) ;
     char** tab = allouer_tab_2D(n, m);
     FILE* ptrFichier = fopen(nomFichier, "r") ;
