@@ -102,5 +102,48 @@ void update_data(world_t *world, menu_t *menu){
 
 
 
+/*
+int sprites_collide(sprite_t *sp1, sprite_t *sp2) {
+    if(){ // touche du coter
+        return 1;
+    }
+    if(){ //toucher en bas
+        return 2;
+    }
+    if(){ //toucher en haut
+        return 3;
+    }
+    return 0;
+}
+*/
 
+/*
+void handle_sprites_collision(sprite_t *sp1, sprite_t *sp2, world_t *world, int type) {
+    // Gestion du temps qui s'écoule 
+    if (sprites_collide(sp1, sp2) == 1 || sprites_collide(sp1, sp2) == 2 || sprites_collide(sp1, sp2) == 3) {
+        
+        // Collision avec un mur 
+        if (type == 1) {    
+          
+        } 
+
+        // Collision avec l'arrivée
+        if (type == 0) {    
+      
+        } 
+
+        // Collision avec un champi
+        if (type == 2) {   
+           
+        }
+
+
+        // Collision avec la piece 
+        if (type == 4) {    
+            
+        }
+    }
+}
+
+*/
 

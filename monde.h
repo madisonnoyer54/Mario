@@ -92,6 +92,7 @@ void right_overflow(sprite_t *sprite);
  */
 void handle_vie(world_t *world);
 
+#include "menu.h"
 
 /**
  * \brief La fonction met à jour les données en tenant compte de la physique du monde
@@ -114,5 +115,8 @@ void init_walls(world_t *world);
 void update_walls(world_t *world);
 
 
+int sprites_collide(sprite_t *sp1, sprite_t *sp2);
 
+
+void handle_sprites_collision(sprite_t *sp1, sprite_t *sp2, world_t *world, int type);
 #endif
