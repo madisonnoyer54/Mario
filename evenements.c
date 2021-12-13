@@ -191,6 +191,12 @@ void gravite(world_t *world, ressources_t *ressources){
 		
 	}
 	
+	if(world->mario.d == 'd' || world->mario.d == 's'){
+		world->mario.i = 6;
+	}
+	if(world->mario.d == 'g' || world->mario.d == 'q'){
+		world->mario.i = 42;
+	}
 
         
 	world->mario.y =470;
