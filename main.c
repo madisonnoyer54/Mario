@@ -73,6 +73,7 @@ int main(){
 	
 	//Quitter TTF_Font
 	TTF_CloseFont(r.font);
+	//TTF_CloseFont(r.fond_menu);
 	TTF_Quit();
 	
 	Destroy(r);

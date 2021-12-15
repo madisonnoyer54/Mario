@@ -45,7 +45,8 @@ void init_data(world_t *world){
 	world->mario.decompte= 0;
     init_sprite(&world->mario,0,470,MARIO_WIDTH,MARIO_SIZE);
 
-
+    // variable initialisation piece 
+    world->pieces.i=0;
     
 
    

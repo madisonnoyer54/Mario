@@ -54,9 +54,15 @@ struct ressources_s{
 
 	// Pour gérer l'affichage des murs
 	SDL_Texture* walls;
-	SDL_Rect ScrR_walls[6];
+	SDL_Rect SrcR_walls[6];
 	SDL_Rect* DestR_walls;
 	int nb_walls;
+
+	// Pour gérer l'affichage des pieces
+	SDL_Texture* pieces;
+	SDL_Rect SrcR_pieces[6];
+	SDL_Rect* DestR_pieces;
+	int nb_pieces;
 };
 /**
  * \brief Type qui correspond aux textures du jeu
@@ -94,7 +100,14 @@ void init_mario(ressources_t *ressources, world_t *world);
  * \brief Initialise des murs de Mario, permet de découper la plage de Sprite 
  * \param ressources les ressources du jeu
  */
-void init_block(ressources_t *ressources);
+void init_walls(ressources_t *ressources);
+
+
+/**
+ * \brief Initialise des piece de Mario, permet de découper la plage de Sprite 
+ * \param ressources les ressources du jeu
+ */
+void init_pieces(ressources_t *ressources);
 
 
 /**
@@ -159,6 +172,14 @@ void affiche_walls(ressources_t *ressources);
 
 
 /**
+ * \brief Gère l'affichage des pieces
+ * \param ressources les ressources du jeu
+ * \param world le monde
+ */
+void affiche_pieces(ressources_t *ressources);
+
+
+/**
  * \brief La fonction detruit les textures, le window et le renderer nécessaires à l'affichage graphique du jeu
  * \param ressources les ressources du jeu (SDL) 
  */
@@ -172,5 +193,20 @@ void Destroy(ressources_t ressources);
  * \param m la largeur du tableau
  */
 int nbWalls(char** tab, int n, int m);
+
+/**
+ * \brief retourne le nombre d'etoile dans le tableau
+ * \param tab le tableau de caractères
+ * \param n la hauteur du tableau
+ * \param m la largeur du tableau
+ */
+int nbPieces(char** tab, int n, int m);
+
+
+
+
+void init_test(ressources_t *ressources);
+
+void affiche_test(ressources_t *ressources);
 
 #endif

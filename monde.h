@@ -35,7 +35,7 @@ struct world_s{
     sprite_t mario; /*!< Champ qui correspond au sprite de mario */
     sprite_t panel; /*!< Champ qui correspond au sprite du panneau d'arrivée */
     sprite_t walls; /*!< Champ qui correspond au tableau du sprites de murs */
-    sprite_t piege; /*!< Champ qui correspond au sprite du piège */
+    sprite_t pieces; /*!< Champ qui correspond au sprite des pieces */
     int gameover; /*!< Champ indiquant si l'on est à la fin du jeu */
     unsigned int timer; /*!< Champ pour le timer */ 
     float vy; /*!< Champ pour la vitesse */ 
@@ -99,20 +99,6 @@ void handle_vie(world_t *world);
  * \param world les données du monde
  */
 void update_data(world_t *world, menu_t *menu);
-
-
-/**
- * \brief La fonction donne leur position initiale aux murs dans le monde 
- * \param world les données du monde
- */
-void init_walls(world_t *world);
-
-
-/**
- * \brief La fonction qui mets a jour la position des murs
- * \param world les données du monde
- */
-void update_walls(world_t *world);
 
 
 int sprites_collide(sprite_t *sp1, sprite_t *sp2);
