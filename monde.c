@@ -14,7 +14,7 @@
 #include "graphique.h"
 #include "animations.h"
 #include "evenements.h"
-#include "menu.h"
+#include "menu.h" 
 
 
 void init_sprite(sprite_t *sprite, int x, int y, int w, int h) {

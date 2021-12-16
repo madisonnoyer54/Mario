@@ -100,6 +100,12 @@ void handle_vie(world_t *world);
  */
 void update_data(world_t *world, menu_t *menu);
 
+/**
+ * \brief La fonction qui mets a jour la position des murs
+ * \param world les données du monde
+ */
+void update_walls(world_t *world);
+
 
 int sprites_collide(sprite_t *sp1, sprite_t *sp2);
 

@@ -39,7 +39,9 @@ void init_for_SDL(ressources_t *ressources){
 	//Initialisation des données 
 	init_vies(ressources);
 	init_timer(ressources);
-	//init_pieces(ressources);
+
+	init_pieces(ressources);
+
 	init_walls(ressources);
 	init_fond(ressources);
 
@@ -163,53 +165,50 @@ void init_walls(ressources_t *ressources){
         }
 }
 
-/*
+
+
 void init_pieces(ressources_t *ressources){
 	int tailleW_p, tailleH_p; 
 	
 	 // tableau de sprite 
-   ressources->pieces = charger_image_transparente("ressources/pieces.bmp", ressources->ecran);
+   ressources->pieces = charger_image_transparente("ressources/pieces.png", ressources->ecran);
 	
     
     SDL_QueryTexture(ressources->pieces, NULL, NULL, &tailleW_p, &tailleH_p);
 
-	int y =0;
-	int a= 0;
-    for(int i = 0; i < 2; i++) {
-		for(int j =0; j < 3; j++){
-			ressources->SrcR_pieces[a].x = j* (tailleW_p/3) ;
-			ressources->SrcR_pieces[a].y = y ;
-			ressources->SrcR_pieces[a].w = tailleW_p/3; // Largeur de l’objet en pixels 
-			ressources->SrcR_pieces[a].h = tailleH_p/2 ; // Hauteur de l’objet en pixels 
+		for(int j = 0; j < 6; j++){
+			ressources->SrcR_pieces[j].x = j* (tailleW_p/5) ;
+			ressources->SrcR_pieces[j].y = 0 ;
+			ressources->SrcR_pieces[j].w = tailleW_p/5; // Largeur de l’objet en pixels 
+			ressources->SrcR_pieces[j].h = tailleH_p ; // Hauteur de l’objet en pixels 
 
 				
-			a = a +1;
 		}
-    	y = y + tailleH_p/2;
-	}
-
 	
+
 	char **tab;
     int n, m;
-	a =0;
+	int a = 0;
     taille_fichier("ressources/terrain.txt",&n,&m);
     tab = lire_fichier("ressources/terrain.txt");
 	ressources->nb_pieces = nbPieces(tab, n, m);
 	ressources->DestR_pieces = malloc(ressources->nb_pieces * sizeof(SDL_Rect));
 
+
+	
 		for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++){
                if('*' == tab[i][j]){
-                    ressources->DestR_pieces[a].x =  j *tailleW_p ;
-		            ressources->DestR_pieces[a].y =  i * tailleH_p ;
-		           	ressources->DestR_pieces[a].w = tailleW_p ; // Largeur du sprite
-		            ressources->DestR_pieces[a].h = tailleH_p; // Hauteur du sprite
+                    ressources->DestR_pieces[a].x =  j *(tailleW_p*0.4)/6 ;
+		            ressources->DestR_pieces[a].y =  i * (tailleH_p*3)/8 ;
+		           	ressources->DestR_pieces[a].w =(tailleW_p*0.4)/6 ; // Largeur du sprite
+		            ressources->DestR_pieces[a].h = (tailleH_p*3)/8; // Hauteur du sprite
 					a++;
                 }
             }
         }
 		
-}*/
+}
 
 
 void init_timer(ressources_t *ressources){
@@ -270,7 +269,8 @@ void affichage(ressources_t *ressources,world_t *world){
 
 	affiche_walls(ressources); // Affichage du murs
 
-	//affiche_pieces(ressources); // Affichage des pieces
+	affiche_pieces(ressources); // Affichage des pieces
+
 
 	
 }
@@ -335,16 +335,15 @@ void affiche_walls(ressources_t *ressources){
 					a=a +1;
                }
             }
-        }
+        } 
 }
 
-/*
+
 void affiche_pieces(ressources_t *ressources){
-	
 	char** tab; 
     int n = 0;
     int m = 0; 
-	int a =0;
+	int a = 0;
 	//world_t *world;
     taille_fichier("ressources/terrain.txt",&n,&m);
     tab = lire_fichier("ressources/terrain.txt");
@@ -352,12 +351,14 @@ void affiche_pieces(ressources_t *ressources){
             for (int j = 0; j < m; j++) {
         
                if('*' == tab[i][j]){
-                	SDL_RenderCopy(ressources->ecran, ressources->pieces, &ressources->SrcR_pieces[0], &ressources->DestR_pieces[a]); 
-					a=a +1;
+                	SDL_RenderCopy(ressources->ecran, ressources->pieces, &ressources->SrcR_pieces[2], &ressources->DestR_pieces[a]); 
+					a++;
                 }
             }
         }
-}*/
+}
+
+
 
 
 
@@ -388,7 +389,7 @@ int nbWalls(char** tab, int n, int m){
 }
 
 
-/*
+
 int nbPieces(char** tab, int n, int m){
 	int res = 0;
 	for(int i=0; i<n; i++){
@@ -399,6 +400,7 @@ int nbPieces(char** tab, int n, int m){
 		}
 	}
 	return res;
-}*/
+}
+
 
 
