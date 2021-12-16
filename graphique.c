@@ -114,6 +114,8 @@ void init_mario(ressources_t *ressources,world_t *world){              //appelé
        y = y + tailleH/8;
 	   
 	}
+	
+	world->mario.i =6;
 
 }
 
@@ -373,6 +375,8 @@ void Destroy(ressources_t ressources){
 	SDL_DestroyRenderer(ressources.ecran);
 	SDL_DestroyWindow(ressources.fenetre);
 	
+	free(ressources.DestR_pieces);
+	free(ressources.DestR_walls);
 }
 
 
