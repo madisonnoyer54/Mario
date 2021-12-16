@@ -176,7 +176,7 @@ void affiche_walls(ressources_t *ressources);
  * \param ressources les ressources du jeu
  * \param world le monde
  */
-void affiche_pieces(ressources_t *ressources);
+void affiche_pieces(ressources_t *ressources, world_t *world);
 
 
 /**

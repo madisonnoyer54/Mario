@@ -269,7 +269,7 @@ void affichage(ressources_t *ressources,world_t *world){
 
 	affiche_walls(ressources); // Affichage du murs
 
-	affiche_pieces(ressources); // Affichage des pieces
+	affiche_pieces(ressources, world); // Affichage des pieces
 
 
 	
@@ -339,10 +339,10 @@ void affiche_walls(ressources_t *ressources){
 }
 
 
-void affiche_pieces(ressources_t *ressources){
+void affiche_pieces(ressources_t *ressources, world_t *world){
+	animation_pieces(world);
 	char** tab; 
-    int n = 0;
-    int m = 0; 
+    int n, m;
 	int a = 0;
 	//world_t *world;
     taille_fichier("ressources/terrain.txt",&n,&m);
@@ -351,7 +351,7 @@ void affiche_pieces(ressources_t *ressources){
             for (int j = 0; j < m; j++) {
         
                if('*' == tab[i][j]){
-                	SDL_RenderCopy(ressources->ecran, ressources->pieces, &ressources->SrcR_pieces[2], &ressources->DestR_pieces[a]); 
+                	SDL_RenderCopy(ressources->ecran, ressources->pieces, &ressources->SrcR_pieces[world->pieces.i], &ressources->DestR_pieces[a]); 
 					a++;
                 }
             }

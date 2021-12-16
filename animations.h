@@ -23,4 +23,11 @@
 void animation_mario(world_t *world);
 
 
+/**
+ * \brief La fonction gère l'animation des pieces
+ * \param world le monde
+ */
+void animation_pieces(world_t *world);
+
+
 #endif

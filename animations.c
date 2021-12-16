@@ -56,3 +56,7 @@ void animation_mario(world_t *world){
 		}	
 	}
 }
+
+void animation_pieces(world_t *world){
+	world->pieces.i = (SDL_GetTicks()/125) % 5;
+}
