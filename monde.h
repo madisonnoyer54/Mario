@@ -39,6 +39,9 @@ struct world_s{
     int gameover; /*!< Champ indiquant si l'on est à la fin du jeu */
     unsigned int timer; /*!< Champ pour le timer */ 
     float vy; /*!< Champ pour la vitesse */ 
+	char** tab;
+	int nb_pieces;
+	int nb_walls;
   
 };
 /**
@@ -70,6 +73,11 @@ int is_game_over(world_t *world);
  * \param world le monde
  */
 void init_data(world_t *world);
+
+
+
+
+void init_tab_world(world_t *world);
 
 
 /**
@@ -105,6 +113,23 @@ void update_data(world_t *world, menu_t *menu);
  * \param world les données du monde
  */
 void update_walls(world_t *world);
+
+
+/**
+ * \brief retourne le nombre de murs dans le tableau
+ * \param tab le tableau de caractères
+ * \param n la hauteur du tableau
+ * \param m la largeur du tableau
+ */
+int nbWalls(char** tab, int n, int m);
+
+/**
+ * \brief retourne le nombre d'etoile dans le tableau
+ * \param tab le tableau de caractères
+ * \param n la hauteur du tableau
+ * \param m la largeur du tableau
+ */
+int nbPieces(char** tab, int n, int m);
 
 
 int sprites_collide(sprite_t *sp1, sprite_t *sp2);

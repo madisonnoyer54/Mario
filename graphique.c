@@ -17,7 +17,7 @@
 
 
 
-void init_for_SDL(ressources_t *ressources){
+void init_for_SDL(ressources_t *ressources, world_t *world){
 	
 	IMG_Init(IMG_INIT_PNG);   //Initialisation de SDL_image
 	
@@ -40,9 +40,9 @@ void init_for_SDL(ressources_t *ressources){
 	init_vies(ressources);
 	init_timer(ressources);
 
-	init_pieces(ressources);
+	init_pieces(ressources, world);
 
-	init_walls(ressources);
+	init_walls(ressources, world);
 	init_fond(ressources);
 
 	
@@ -90,38 +90,28 @@ void init_mario(ressources_t *ressources,world_t *world){              //appelé
     
     SDL_QueryTexture(ressources->mario, NULL, NULL, &tailleW, &tailleH);
  
-	int y =0;
-	int a= 0;
+	int y = 0;
+	int a = 0;
         for(int i = 0; i < 8; i++) {
 		for(int j =0; j < 9; j++){
 			ressources->SrcR_mario[a].x = j* (tailleW/9) ;
-			if(i<4){
-				ressources->SrcR_mario[a].y = y ;
-			}
-			else{
-				ressources->SrcR_mario[a].y = y + 3;
-			}
+			ressources->SrcR_mario[a].y = y ;
 			ressources->SrcR_mario[a].w = tailleW/9; // Largeur de l’objet en pixels 
 			ressources->SrcR_mario[a].h = tailleH/8 ; // Hauteur de l’objet en pixels 
-
-		
-			a = a +1;
+			a++;
 		}
-			ressources->DestR_mario.x = world->mario.x;
-			ressources->DestR_mario.y = world->mario.y;
-			ressources->DestR_mario.w = tailleW/9  ; // Largeur du sprite
-			ressources->DestR_mario.h = tailleH/8 ; // Hauteur du sprite
-       y = y + tailleH/8;
-	   
+		ressources->DestR_mario.x = world->mario.x;
+		ressources->DestR_mario.y = world->mario.y;
+		ressources->DestR_mario.w = BLOCK_SIZE*2;//tailleW/9  ; // Largeur du sprite
+		ressources->DestR_mario.h = BLOCK_SIZE*2;//tailleH/8 ; // Hauteur du sprite
+       		y = y + tailleH/8;
 	}
-	
 	world->mario.i =6;
-
 }
 
 
 
-void init_walls(ressources_t *ressources){
+void init_walls(ressources_t *ressources, world_t *world){
 	int tailleW_B, tailleH_B; 
 
 	 // tableau de sprite 
@@ -146,22 +136,18 @@ void init_walls(ressources_t *ressources){
     	y = y + tailleH_B/3;
 	}
 
-	char** tab;
     int n, m;
 	a =0;
     taille_fichier("ressources/terrain.txt",&n,&m);
-    tab = lire_fichier("ressources/terrain.txt");
-	ressources->nb_walls = nbWalls(tab, n, m);
-	ressources->DestR_walls = malloc(ressources->nb_walls * sizeof(SDL_Rect));
-
-		for (int i = 0; i < n; i++) {
+    ressources->DestR_walls = malloc(world->nb_walls * sizeof(SDL_Rect));
+    for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++){
-               if('1' == tab[i][j] || '2' == tab[i][j] || '3' == tab[i][j]  || '4' == tab[i][j] ){
+               if('1' == world->tab[i][j] || '2' == world->tab[i][j] || '3' == world->tab[i][j]  || '4' == world->tab[i][j] ){
                     ressources->DestR_walls[a].x =  j *tailleW_B / 6;
-		            ressources->DestR_walls[a].y =  i * tailleH_B / 8;
-		           	ressources->DestR_walls[a].w = tailleW_B / 6; // Largeur du sprite
-		            ressources->DestR_walls[a].h = tailleH_B / 8; // Hauteur du sprite
-					a++;
+		    ressources->DestR_walls[a].y =  i * tailleH_B / 8;
+		    ressources->DestR_walls[a].w = BLOCK_SIZE; // Largeur du sprite
+		    ressources->DestR_walls[a].h = BLOCK_SIZE; // Hauteur du sprite
+		    a++;
                 }
             }
         }
@@ -169,7 +155,7 @@ void init_walls(ressources_t *ressources){
 
 
 
-void init_pieces(ressources_t *ressources){
+void init_pieces(ressources_t *ressources, world_t *world){
 	int tailleW_p, tailleH_p; 
 	
 	 // tableau de sprite 
@@ -188,24 +174,18 @@ void init_pieces(ressources_t *ressources){
 		}
 	
 
-	char **tab;
     int n, m;
-	int a = 0;
+    int a = 0;
     taille_fichier("ressources/terrain.txt",&n,&m);
-    tab = lire_fichier("ressources/terrain.txt");
-	ressources->nb_pieces = nbPieces(tab, n, m);
-	ressources->DestR_pieces = malloc(ressources->nb_pieces * sizeof(SDL_Rect));
-
-
-	
-		for (int i = 0; i < n; i++) {
+	ressources->DestR_pieces = malloc(world->nb_pieces * sizeof(SDL_Rect));
+	for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++){
-               if('*' == tab[i][j]){
+               if('*' == world->tab[i][j]){
                     ressources->DestR_pieces[a].x =  j *(tailleW_p*0.4)/6 ;
-		            ressources->DestR_pieces[a].y =  i * (tailleH_p*3)/8 ;
-		           	ressources->DestR_pieces[a].w =(tailleW_p*0.4)/6 ; // Largeur du sprite
-		            ressources->DestR_pieces[a].h = (tailleH_p*3)/8; // Hauteur du sprite
-					a++;
+		    ressources->DestR_pieces[a].y =  i * (tailleH_p*3)/8 ;
+		    ressources->DestR_pieces[a].w = BLOCK_SIZE ; // Largeur du sprite
+		    ressources->DestR_pieces[a].h = BLOCK_SIZE; // Hauteur du sprite
+		    a++;
                 }
             }
         }
@@ -258,10 +238,7 @@ void init_vies(ressources_t *ressources){
 void affichage(ressources_t *ressources,world_t *world){
 	SDL_RenderClear(ressources->ecran);        //Mise à jour de l'écran
 
-	//SDL_RenderCopy(ressources->ecran, ressources->fond, NULL, NULL);   //Affichage du fond de jeu
-
-
-	afficher_fond(ressources);
+	afficher_fond(ressources);     //Affichage du fond de jeu
 
 	affiche_mario(ressources, world);   //Affichage du mario
 	
@@ -269,7 +246,7 @@ void affichage(ressources_t *ressources,world_t *world){
 
 	affiche_vies(ressources, world);       //Affichage des vies
 
-	affiche_walls(ressources); // Affichage du murs
+	affiche_walls(ressources, world); // Affichage du murs
 
 	affiche_pieces(ressources, world); // Affichage des pieces
 
@@ -310,31 +287,28 @@ void affiche_vies(ressources_t *ressources,world_t *world){
 }
 
 
-void affiche_walls(ressources_t *ressources){
-	char** tab; 
-    int n = 0;
-    int m = 0; 
-	int a =0;
+void affiche_walls(ressources_t *ressources, world_t *world){
+    int n, m;
+    int a = 0;
     taille_fichier("ressources/terrain.txt",&n,&m);
-    tab = lire_fichier("ressources/terrain.txt");
-		for (int i = 0; i < n; i++) {
+	for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
         
-               if('1' == tab[i][j]){
+               if('1' == world->tab[i][j]){
                 	SDL_RenderCopy(ressources->ecran, ressources->walls, &ressources->SrcR_walls[0], &ressources->DestR_walls[a]); 
-					a=a +1;
+			a++;
                 }
-                if('2' == tab[i][j]){
+                if('2' == world->tab[i][j]){
                  	SDL_RenderCopy(ressources->ecran, ressources->walls, &ressources->SrcR_walls[1], &ressources->DestR_walls[a]); 
-					a=a +1;
+			a++;
                } 
-			    if('3' == tab[i][j]){
+		if('3' == world->tab[i][j]){
                  	SDL_RenderCopy(ressources->ecran, ressources->walls, &ressources->SrcR_walls[2], &ressources->DestR_walls[a]); 
-					a=a +1;
+			a++;
                } 
-			    if('4' == tab[i][j]){
+		if('4' == world->tab[i][j]){
                  	SDL_RenderCopy(ressources->ecran, ressources->walls, &ressources->SrcR_walls[3], &ressources->DestR_walls[a]); 
-					a=a +1;
+			a++;
                }
             }
         } 
@@ -343,21 +317,19 @@ void affiche_walls(ressources_t *ressources){
 
 void affiche_pieces(ressources_t *ressources, world_t *world){
 	animation_pieces(world);
-	char** tab; 
-    int n, m;
+    	int n, m;
 	int a = 0;
 	//world_t *world;
-    taille_fichier("ressources/terrain.txt",&n,&m);
-    tab = lire_fichier("ressources/terrain.txt");
+    	taille_fichier("ressources/terrain.txt",&n,&m);
 		for (int i = 0; i < n; i++) {
-            for (int j = 0; j < m; j++) {
+            		for (int j = 0; j < m; j++) {
         
-               if('*' == tab[i][j]){
-                	SDL_RenderCopy(ressources->ecran, ressources->pieces, &ressources->SrcR_pieces[world->pieces.i], &ressources->DestR_pieces[a]); 
+               			if('*' == world->tab[i][j]){
+                			SDL_RenderCopy(ressources->ecran, ressources->pieces, &ressources->SrcR_pieces[world->pieces.i], &ressources->DestR_pieces[a]); 
 					a++;
-                }
-            }
-        }
+                		}
+            		}
+        	}
 }
 
 
@@ -377,33 +349,6 @@ void Destroy(ressources_t ressources){
 	
 	free(ressources.DestR_pieces);
 	free(ressources.DestR_walls);
-}
-
-
-int nbWalls(char** tab, int n, int m){
-	int res = 0;
-	for(int i=0; i<n; i++){
-		for(int j=0; j<m; j++){
-			if(tab[i][j] == '1'  || tab[i][j] == '2' || tab[i][j] == '3' || tab[i][j] == '4' || tab[i][j]){
-				res++;
-			}
-		}
-	}
-	return res;
-}
-
-
-
-int nbPieces(char** tab, int n, int m){
-	int res = 0;
-	for(int i=0; i<n; i++){
-		for(int j=0; j<m; j++){
-			if(tab[i][j] == '*'){
-				res++;
-			}
-		}
-	}
-	return res;
 }
 
 

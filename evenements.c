@@ -158,7 +158,7 @@ void update_timer(world_t *world, menu_t *menu){
 
 
 void gravite(world_t *world, ressources_t *ressources){
-    while (world->mario.y <470){
+    while (world->mario.y <487){
     	world->mario.y += Graviter;
 		
 		if(world->mario.d == 'd'){
@@ -199,11 +199,11 @@ void gravite(world_t *world, ressources_t *ressources){
 	}
 
         
-	world->mario.y =470;
+	world->mario.y =487;
 }
 
 void saut(world_t *world, ressources_t *ressources){
-	if(world->mario.y == 470){
+	if(world->mario.y == 487){
 		while(world->mario.y > 350){
 			world->mario.y = world->mario.y - 20 - Graviter;
 			if(world->mario.d == 'd'){
@@ -234,7 +234,7 @@ void saut(world_t *world, ressources_t *ressources){
 
 void deplacement_droite(ressources_t *ressources,world_t *world){
 	if(world->mario.x > SCREEN_WIDTH/2 ){
-		for(int i=0; i<ressources->nb_walls;i++){
+		for(int i=0; i<world->nb_walls;i++){
 			ressources->DestR_walls[i].x -= INITIAL_SPEED;
 			
 			/*
@@ -244,7 +244,7 @@ void deplacement_droite(ressources_t *ressources,world_t *world){
 
 		}
 		
-		for(int i=0; i<ressources->nb_pieces;i++){
+		for(int i=0; i<world->nb_pieces;i++){
 			ressources->DestR_pieces[i].x -= INITIAL_SPEED;
 			//free(&ressources->DestR_walls);
 		}

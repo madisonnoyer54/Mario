@@ -56,13 +56,11 @@ struct ressources_s{
 	SDL_Texture* walls;
 	SDL_Rect SrcR_walls[6];
 	SDL_Rect* DestR_walls;
-	int nb_walls;
 
 	// Pour gérer l'affichage des pieces
 	SDL_Texture* pieces;
 	SDL_Rect SrcR_pieces[6];
 	SDL_Rect* DestR_pieces;
-	int nb_pieces;
 };
 /**
  * \brief Type qui correspond aux textures du jeu
@@ -76,8 +74,9 @@ typedef struct ressources_s ressources_t;
 /**
  * \brief La fonction initialise les textures nécessaires à l'affichage graphique du jeu
  * \param ressources les ressources du jeu
+ * \param world le monde
  */
-void init_for_SDL(ressources_t *ressources);
+void init_for_SDL(ressources_t *ressources, world_t *world);
 
 
 /**
@@ -99,15 +98,17 @@ void init_mario(ressources_t *ressources, world_t *world);
 /**
  * \brief Initialise des murs de Mario, permet de découper la plage de Sprite 
  * \param ressources les ressources du jeu
+ * \param world le monde
  */
-void init_walls(ressources_t *ressources);
+void init_walls(ressources_t *ressources, world_t *world);
 
 
 /**
  * \brief Initialise des piece de Mario, permet de découper la plage de Sprite 
  * \param ressources les ressources du jeu
+ * \param world le monde
  */
-void init_pieces(ressources_t *ressources);
+void init_pieces(ressources_t *ressources, world_t *world);
 
 
 /**
@@ -168,7 +169,7 @@ void affiche_vies(ressources_t *ressources,world_t *world);
  * \param ressources les ressources du jeu
  * \param world le monde
  */
-void affiche_walls(ressources_t *ressources);
+void affiche_walls(ressources_t *ressources, world_t *world);
 
 
 /**
@@ -184,23 +185,6 @@ void affiche_pieces(ressources_t *ressources, world_t *world);
  * \param ressources les ressources du jeu (SDL) 
  */
 void Destroy(ressources_t ressources);
-
-
-/**
- * \brief retourne le nombre de murs dans le tableau
- * \param tab le tableau de caractères
- * \param n la hauteur du tableau
- * \param m la largeur du tableau
- */
-int nbWalls(char** tab, int n, int m);
-
-/**
- * \brief retourne le nombre d'etoile dans le tableau
- * \param tab le tableau de caractères
- * \param n la hauteur du tableau
- * \param m la largeur du tableau
- */
-int nbPieces(char** tab, int n, int m);
 
 
 

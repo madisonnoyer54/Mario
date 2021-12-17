@@ -37,22 +37,33 @@ void init_data(world_t *world){
 	//Initialisation du nombre de vies
   	world->mario.nbVies= 3;
 
-    
+    init_tab_world(world);
  
   
 	// Variable de déplacement pour Mario 
 	world->mario.i = 0;
 	world->mario.decompte= 0;
-    init_sprite(&world->mario,0,470,MARIO_WIDTH,MARIO_SIZE);
+    init_sprite(&world->mario,0,487,2*BLOCK_SIZE, 2*BLOCK_SIZE);
 
     // variable initialisation piece 
     world->pieces.i=0;
-    
-
-   
-
 	
 }
+
+
+void init_tab_world(world_t *world){
+    int n, m;
+    taille_fichier("ressources/terrain.txt",&n,&m);
+    world->tab = lire_fichier("ressources/terrain.txt");
+	world->nb_walls = nbWalls(world->tab, n, m);
+	world->nb_pieces = nbPieces(world->tab, n, m);
+}
+
+/*
+void pos_tab_mario(world_t *world){
+	
+}
+*/
 
 
 void left_overflow(sprite_t *sprite) {
@@ -99,6 +110,33 @@ void update_data(world_t *world, menu_t *menu){
 
     // vérifier les murs 
     
+}
+
+
+int nbWalls(char** tab, int n, int m){
+	int res = 0;
+	for(int i=0; i<n; i++){
+		for(int j=0; j<m; j++){
+			if(tab[i][j] == '1'  || tab[i][j] == '2' || tab[i][j] == '3' || tab[i][j] == '4' || tab[i][j]){
+				res++;
+			}
+		}
+	}
+	return res;
+}
+
+
+
+int nbPieces(char** tab, int n, int m){
+	int res = 0;
+	for(int i=0; i<n; i++){
+		for(int j=0; j<m; j++){
+			if(tab[i][j] == '*'){
+				res++;
+			}
+		}
+	}
+	return res;
 }
 
 

@@ -55,6 +55,11 @@
  */
 #define Graviter 4
 
+/**
+ * \brief taille de block
+ */
+#define BLOCK_SIZE 30
+
 
 
 
