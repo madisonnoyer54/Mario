@@ -40,15 +40,9 @@
 
 
 /**
- * \brief Pas de déplacement vertical de mario
- */
-#define MOVING_STEP 5
-
-
-/**
  * \brief Vitesse initiale de déplacement horizontale des éléments du jeu 
  */
-#define INITIAL_SPEED 7
+#define INITIAL_SPEED 10
 
 /**
  * \brief graviter

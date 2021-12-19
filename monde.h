@@ -16,6 +16,7 @@ struct sprite_s{
     int w;/*!< Largeur */
     int x;/*!< Position (horizontale) de son centre */
     int y;/*!< Position (verticale) de son centre */
+	int x_tab;
     int d;/*!< Direction ( g: gauche , d: droite , q: statique vers la gauche, s: statique vers la droite) */
     int i;/*!< Image a utiliser */
     int decompte;/*!< décompte du mario par rapport au nombre de tour */
@@ -39,10 +40,11 @@ struct world_s{
     int gameover; /*!< Champ indiquant si l'on est à la fin du jeu */
     unsigned int timer; /*!< Champ pour le timer */ 
     float vy; /*!< Champ pour la vitesse */ 
+	char** tab_initial;
 	char** tab;
 	int nb_pieces;
 	int nb_walls;
-  
+   int defilement;
 };
 /**
  * \brief Type qui correspond aux données du monde
@@ -106,13 +108,27 @@ void handle_vie(world_t *world);
  * \brief La fonction met à jour les données en tenant compte de la physique du monde
  * \param world les données du monde
  */
-void update_data(world_t *world, menu_t *menu);
+void update_data(world_t *world, ressources_t *ressources, menu_t *menu);
 
 /**
  * \brief La fonction qui mets a jour la position des murs
  * \param world les données du monde
  */
 void update_walls(world_t *world);
+
+
+
+int est_sur_un_mur(world_t *world);
+
+
+void supprimer_occ_tab(world_t *world, int n, int m, char c);
+
+
+
+void update_pos_mario_tab(world_t *world);
+
+
+void pos_tab_mario(world_t *world, int *n, int *m);
 
 
 /**

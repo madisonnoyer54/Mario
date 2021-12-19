@@ -39,6 +39,8 @@ int main(){
 
 
 	//Initialisation des données globales du monde + SDL
+	
+	world.defilement = 0;
 	init_data(&world); 
 	init_for_SDL(&r, &world);  
 	init_menu(&menu, &r);
@@ -65,7 +67,7 @@ int main(){
 		SDL_RenderPresent(r.ecran);
 
 		// Mise à jour des données liée à la physique du monde
-		update_data(&world, &menu);
+		update_data(&world, &r, &menu);
 
 		// Pause de 10 ms pour controler la vitesse de rafraichissement
 		SDL_Delay(10);
