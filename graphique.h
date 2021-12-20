@@ -62,6 +62,8 @@ struct ressources_s{
 	SDL_Texture* pieces;
 	SDL_Rect SrcR_pieces[6];
 	SDL_Rect* DestR_pieces;
+	SDL_Rect DestR_nb_pieces[2];
+	SDL_Texture* texte_nb_pieces;
 	int nb_pieces;
 };
 /**

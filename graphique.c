@@ -209,12 +209,20 @@ void init_pieces(ressources_t *ressources){
                 }
             }
         }
-		
+	
+
+	
+	//Données pour l'affichage du nombre de pieces
+	ressources->DestR_nb_pieces[0].x = 10;
+	ressources->DestR_nb_pieces[0].y = 75;
+	ressources->DestR_nb_pieces[0].w = 28 ; // Largeur du sprite
+	ressources->DestR_nb_pieces[0].h = 30; // Hauteur du sprite
+	
+	
 }
 
 
 void init_timer(ressources_t *ressources){
-	ressources->texte_timer = calloc(1, sizeof(SDL_Texture*));
 	TTF_Init();
 	ressources->font = TTF_OpenFont("ressources/arial.ttf", 26);
 	TTF_SetFontStyle(ressources->font, TTF_STYLE_BOLD);
@@ -231,7 +239,6 @@ void init_timer(ressources_t *ressources){
 
 
 void init_vies(ressources_t *ressources){
-	//ressources->vie = calloc(1, sizeof(SDL_Texture*));
   int tailleW, tailleH;
   
   //On charge l'image et on récupère sa taille
@@ -250,7 +257,6 @@ void init_vies(ressources_t *ressources){
     ressources->DestR_vies[i].w = tailleW;
     ressources->DestR_vies[i].h = tailleH;
   }
-
 }
 
 
@@ -258,10 +264,7 @@ void init_vies(ressources_t *ressources){
 void affichage(ressources_t *ressources,world_t *world){
 	SDL_RenderClear(ressources->ecran);        //Mise à jour de l'écran
 
-	//SDL_RenderCopy(ressources->ecran, ressources->fond, NULL, NULL);   //Affichage du fond de jeu
-
-
-	afficher_fond(ressources);
+	afficher_fond(ressources);    //Affichage du fond
 
 	affiche_mario(ressources, world);   //Affichage du mario
 	
@@ -302,6 +305,7 @@ void affiche_timer(ressources_t *ressources, world_t *world){
 
 	SDL_RenderCopy(ressources->ecran, ressources->texte_timer, NULL, &ressources->timer_pos); 
 }
+
 
 void affiche_vies(ressources_t *ressources,world_t *world){
 	for(int i=0; i<world->mario.nbVies; i++){
@@ -358,6 +362,24 @@ void affiche_pieces(ressources_t *ressources, world_t *world){
                 }
             }
         }
+	
+	
+	char nb_pieces[50];
+	sprintf(nb_pieces, "%u", world->nb_pieces);
+
+	SDL_Color color = {0,0,0,0};
+	ressources->texte_nb_pieces = charger_texte(nb_pieces, ressources->ecran, ressources->font, color);
+	int nb_piecesW, nb_piecesH;
+	SDL_QueryTexture(ressources->texte_nb_pieces, NULL, NULL, &nb_piecesW, &nb_piecesH);
+	ressources->DestR_nb_pieces[1].x = 40;
+	ressources->DestR_nb_pieces[1].y = 75;
+	ressources->DestR_nb_pieces[1].w = nb_piecesW;
+	ressources->DestR_nb_pieces[1].h = nb_piecesH;
+	
+
+	SDL_RenderCopy(ressources->ecran, ressources->texte_nb_pieces, NULL, &ressources->DestR_nb_pieces[1]); 
+	
+    SDL_RenderCopy(ressources->ecran, ressources->pieces, &ressources->SrcR_pieces[0], &ressources->DestR_nb_pieces[0]); 
 }
 
 
@@ -384,7 +406,7 @@ int nbWalls(char** tab, int n, int m){
 	int res = 0;
 	for(int i=0; i<n; i++){
 		for(int j=0; j<m; j++){
-			if(tab[i][j] == '1'  || tab[i][j] == '2' || tab[i][j] == '3' || tab[i][j] == '4' || tab[i][j]){
+			if(tab[i][j] == '1'  || tab[i][j] == '2' || tab[i][j] == '3' || tab[i][j] == '4'){
 				res++;
 			}
 		}

@@ -238,17 +238,11 @@ void deplacement_droite(ressources_t *ressources,world_t *world){
 	if(world->mario.x > SCREEN_WIDTH/2 ){
 		for(int i=0; i<ressources->nb_walls;i++){
 			ressources->DestR_walls[i].x -= INITIAL_SPEED;
-			
-			/*
-			if(ressources->DestR_walls[i].x < 0 - ressources->DestR_walls[i].w ){
-				free(&ressources->DestR_walls[i]);
-			}*/
 
 		}
 		
 		for(int i=0; i<ressources->nb_pieces;i++){
 			ressources->DestR_pieces[i].x -= INITIAL_SPEED;
-			//free(&ressources->DestR_walls);
 		}
 		
 		ressources->DestR_fond.x = ressources->DestR_fond.x -INITIAL_SPEED;
