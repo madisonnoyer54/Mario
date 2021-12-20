@@ -18,7 +18,7 @@
 void animation_mario(world_t *world){
 	if(world->mario.decompte > 5){
 		world->mario.decompte = 1;
-	} 
+	}
 
 	if(world->mario.d == 'd'){	
 		

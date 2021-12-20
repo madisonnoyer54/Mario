@@ -16,7 +16,6 @@ struct sprite_s{
     int w;/*!< Largeur */
     int x;/*!< Position (horizontale) de son centre */
     int y;/*!< Position (verticale) de son centre */
-	int x_tab;
     int d;/*!< Direction ( g: gauche , d: droite , q: statique vers la gauche, s: statique vers la droite) */
     int i;/*!< Image a utiliser */
     int decompte;/*!< décompte du mario par rapport au nombre de tour */
@@ -40,11 +39,8 @@ struct world_s{
     int gameover; /*!< Champ indiquant si l'on est à la fin du jeu */
     unsigned int timer; /*!< Champ pour le timer */ 
     float vy; /*!< Champ pour la vitesse */ 
-	char** tab_initial;
-	char** tab;
-	int nb_pieces;
-	int nb_walls;
-   int defilement;
+    int nb_pieces;
+  
 };
 /**
  * \brief Type qui correspond aux données du monde
@@ -77,11 +73,6 @@ int is_game_over(world_t *world);
 void init_data(world_t *world);
 
 
-
-
-void init_tab_world(world_t *world);
-
-
 /**
  * \brief La fonction vérifie si le mario a dépassé la limite gauche et le replace au bord le cas échéant
  * \param sprite le sprite
@@ -108,7 +99,7 @@ void handle_vie(world_t *world);
  * \brief La fonction met à jour les données en tenant compte de la physique du monde
  * \param world les données du monde
  */
-void update_data(world_t *world, ressources_t *ressources, menu_t *menu);
+void update_data(world_t *world, menu_t *menu,ressources_t *r);
 
 /**
  * \brief La fonction qui mets a jour la position des murs
@@ -116,40 +107,5 @@ void update_data(world_t *world, ressources_t *ressources, menu_t *menu);
  */
 void update_walls(world_t *world);
 
-
-
-int est_sur_un_mur(world_t *world);
-
-
-void supprimer_occ_tab(world_t *world, int n, int m, char c);
-
-
-
-void update_pos_mario_tab(world_t *world);
-
-
-void pos_tab_mario(world_t *world, int *n, int *m);
-
-
-/**
- * \brief retourne le nombre de murs dans le tableau
- * \param tab le tableau de caractères
- * \param n la hauteur du tableau
- * \param m la largeur du tableau
- */
-int nbWalls(char** tab, int n, int m);
-
-/**
- * \brief retourne le nombre d'etoile dans le tableau
- * \param tab le tableau de caractères
- * \param n la hauteur du tableau
- * \param m la largeur du tableau
- */
-int nbPieces(char** tab, int n, int m);
-
-
-int sprites_collide(sprite_t *sp1, sprite_t *sp2);
-
-
-void handle_sprites_collision(sprite_t *sp1, sprite_t *sp2, world_t *world, int type);
+void colli_pieces(ressources_t *r, world_t *world);
 #endif

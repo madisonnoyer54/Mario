@@ -77,9 +77,8 @@ void evenement(ressources_t *ressources,world_t *world){
 	const Uint8 *keystates = SDL_GetKeyboardState(NULL);
 	
 	switch(evenements.type){
-		case SDL_QUIT:
-			world->gameover = 1; 
-			break;
+		case SDL_QUIT:world->gameover = 1; 
+		break;
 			
 		case SDL_KEYDOWN:
 		switch(evenements.key.keysym.sym){
@@ -89,15 +88,15 @@ void evenement(ressources_t *ressources,world_t *world){
             			world->gameover =1;
             			break;
             case SDLK_LEFT:
-            	world->mario.x -= INITIAL_SPEED ;
+            	world->mario.x = world->mario.x - INITIAL_SPEED ;
 				world->mario.d = 'g'; 
-				world->mario.decompte += 1;
+				world->mario.decompte = world->mario.decompte + 1;
 
             	break;
                     
 			case SDLK_RIGHT:
 			   	world->mario.d = 'd';
-			   	world->mario.decompte += 1; 
+			   	world->mario.decompte = world->mario.decompte + 1; 
 
 				deplacement_droite(ressources,world);
 				
@@ -114,7 +113,7 @@ void evenement(ressources_t *ressources,world_t *world){
 			case SDLK_SPACE : 
 				if(keystates[SDL_SCANCODE_RIGHT] || (keystates[SDL_SCANCODE_LEFT])){   //saut oriente
 					saut(world,ressources);
-					gravite(world,ressources, 1);
+					gravite(world,ressources);
 				}
 				else{             //saut vertical
 					if(world->mario.d == 'g'){
@@ -124,7 +123,7 @@ void evenement(ressources_t *ressources,world_t *world){
 						world->mario.d = 's';
 					}
 					saut(world, ressources);
-					gravite(world, ressources, 1);
+					gravite(world, ressources);
 				}
 						
 				break;  			
@@ -158,9 +157,8 @@ void update_timer(world_t *world, menu_t *menu){
 
 
 
-void gravite(world_t *world, ressources_t *ressources, int saute){
-	//while(!est_sur_un_mur(world) || saute){
-    while (world->mario.y <487){
+void gravite(world_t *world, ressources_t *ressources){
+    while (world->mario.y <470){
     	world->mario.y += Graviter;
 		
 		if(world->mario.d == 'd'){
@@ -170,27 +168,27 @@ void gravite(world_t *world, ressources_t *ressources, int saute){
 	    }
 	     	
 		if(world->mario.d == 'g'){
-			world->mario.x -= INITIAL_SPEED;  
+			world->mario.x = world->mario.x - INITIAL_SPEED;  
 			world->mario.i = 50;  
 		}
 		
 		//Orientation du mario quand il retombe dans le cas statique
 		if(world->mario.d == 'q'){
-			world->mario.i = 50;    
+			world->mario.i = 37;    
 		}
 		if(world->mario.d == 's'){
-			world->mario.i = 15;    
+			world->mario.i = 1;    
 		}
 
 		left_overflow(&world->mario);
 		right_overflow(&world->mario);
+		colli_pieces(ressources,world);
 
 		ressources->DestR_mario.x = world->mario.x;	 
 		ressources->DestR_mario.y = world->mario.y;	
 		affichage(ressources,world);
 		SDL_RenderPresent(ressources->ecran);
 		SDL_Delay(10);
-		saute = 0;
 		
 	}
 	
@@ -202,16 +200,16 @@ void gravite(world_t *world, ressources_t *ressources, int saute){
 	}
 
         
-	world->mario.y =487;
+	world->mario.y =470;
 }
 
 void saut(world_t *world, ressources_t *ressources){
-	if(world->mario.y == 487){
+	if(world->mario.y == 470){
 		while(world->mario.y > 350){
 			world->mario.y = world->mario.y - 20 - Graviter;
 			if(world->mario.d == 'd'){
 				deplacement_droite(ressources,world);
-				world->mario.x += 10;
+				world->mario.x = world->mario.x + 10;
 				world->mario.i = 14;
 			}
 			if(world->mario.d == 'g'){
@@ -221,6 +219,7 @@ void saut(world_t *world, ressources_t *ressources){
 
 			left_overflow(&world->mario);
 			right_overflow(&world->mario);
+			colli_pieces(ressources,world);
 
 			
 			ressources->DestR_mario.x = world->mario.x;	 
@@ -229,30 +228,31 @@ void saut(world_t *world, ressources_t *ressources){
 			SDL_RenderPresent(ressources->ecran);
 			SDL_Delay(10);
 
-			update_pos_mario_tab(world);			
-
+		
 		}
 					
 	}
 }
 
 void deplacement_droite(ressources_t *ressources,world_t *world){
-	if(world->mario.x > SCREEN_WIDTH/2 ){	
-		for(int i=0; i<world->nb_walls; i++){
+	if(world->mario.x > SCREEN_WIDTH/2 ){
+		for(int i=0; i<ressources->nb_walls;i++){
 			ressources->DestR_walls[i].x -= INITIAL_SPEED;
+			
+			/*
+			if(ressources->DestR_walls[i].x < 0 - ressources->DestR_walls[i].w ){
+				free(&ressources->DestR_walls[i]);
+			}*/
 
 		}
 		
-		for(int i=0; i<world->nb_pieces; i++){
+		for(int i=0; i<ressources->nb_pieces;i++){
 			ressources->DestR_pieces[i].x -= INITIAL_SPEED;
+			//free(&ressources->DestR_walls);
 		}
 		
-		
-		ressources->DestR_fond.x -= INITIAL_SPEED;
+		ressources->DestR_fond.x = ressources->DestR_fond.x -INITIAL_SPEED;
 		world->mario.x += INITIAL_SPEED/2;
-		
-		world->defilement += INITIAL_SPEED;
-		update_pos_mario_tab(world);
 	}
 	else{
 		world->mario.x += INITIAL_SPEED;
