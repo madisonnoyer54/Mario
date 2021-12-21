@@ -156,11 +156,14 @@ void colli_walls(ressources_t *r, world_t *world){
            // r->DestR_walls[i].y = 6;
            world->mario.y= r->DestR_walls[i].y + r->DestR_walls[i].h;
            
-        }
+        }*/
+
+        /*
         // Les collision quand mario touche le dessus d'un murs 
         if((x_m >= r->DestR_walls[i].x && x_m <= r->DestR_walls[i].x + r->DestR_walls[i].w && y_m + h_m - 2<= r->DestR_walls[i].y) 
         || (x_m + w_m>= r->DestR_walls[i].x && x_m + w_m<= r->DestR_walls[i].x + r->DestR_walls[i].w && y_m + h_m - 2<= r->DestR_walls[i].y)   ){
           // world->mario.s = 1;
+          r->DestR_walls[i].y = 6;
         }*/
 
     }
