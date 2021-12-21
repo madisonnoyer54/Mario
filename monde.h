@@ -88,9 +88,17 @@ void left_overflow(sprite_t *sprite);
 void right_overflow(sprite_t *sprite);
 
 
-
+/**
+ * \brief La fonction vérifie si le mario a dépassé la limite haut et le replace au bord le cas échéant
+ * \param sprite le sprite
+ */
 void high_overflow(sprite_t *sprite);
 
+/**
+ * \brief La fonction vérifie si le mario a dépassé la limite bas et le joueur perds si c'est le cas
+ * \param sprite le sprite
+ * \param world le monde 
+ */
 void low_overflow(sprite_t *sprite, world_t *world);
 
 
@@ -116,12 +124,34 @@ void update_data(world_t *world, menu_t *menu,ressources_t *r);
  */
 void update_walls(world_t *world);
 
+/**
+ * @brief La fonction regarde si le mario a une collision avec une piece 
+ * 
+ * @param r , les ressources
+ * @param world , le monde 
+ */
 void colli_pieces(ressources_t *r, world_t *world);
 
-
+/**
+ * @brief La fonction regarde si il y a une collision avec les murs
+ * 
+ * @param r, les ressources
+ * @param world, le monde  
+ */
 void colli_walls(ressources_t *r, world_t *world);
 
+/**
+ * @brief met a jours toute les collisions
+ * 
+ * @param r, les ressources
+ * @param world, le monde 
+ */
 void update_colli(ressources_t *r, world_t *world);
 
+/**
+ * @brief met a jours tout les dépassement 
+ * 
+ * @param world, le monde 
+ */
 void overflow(world_t *world);
 #endif

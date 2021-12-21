@@ -104,6 +104,12 @@ void init_for_SDL(ressources_t *ressources);
  */
 void init_fond(ressources_t *ressources);
 
+
+/**
+ * @brief Initialisation de l'arriver
+ * 
+ * @param ressources , les ressources
+ */
 void init_arrive(ressources_t *ressources);
 
 
@@ -114,6 +120,12 @@ void init_arrive(ressources_t *ressources);
  */
 void init_mario(ressources_t *ressources, world_t *world);
 
+
+/**
+ * @brief Initialise les champignon, permet de découper la plage de sprite 
+ * 
+ * @param ressources, les ressources
+ */
 void init_champi(ressources_t *ressources);
 
 /**
@@ -158,6 +170,12 @@ void affichage(ressources_t *ressources, world_t *world);
  */
 void afficher_fond(ressources_t *ressources);
 
+
+/**
+ * @brief gére l'affichage de l'arriver
+ * 
+ * @param ressources , les ressources
+ */
 void afficher_arrive(ressources_t *ressources);
 
 
@@ -184,6 +202,12 @@ void affiche_timer(ressources_t *ressources,world_t *world);
  */
 void affiche_vies(ressources_t *ressources,world_t *world);
 
+
+/**
+ * @brief gére l'affichage du champignon 
+ * 
+ * @param ressources, les ressources
+ */
 void affiche_champi(ressources_t *ressources);
 
 
@@ -226,7 +250,14 @@ int nbWalls(char** tab, int n, int m);
  */
 int nbPieces(char** tab, int n, int m);
 
-
+/**
+ * @brief retourne le nombre de champignon dans le tableau
+ * 
+ * @param tab, le tableau 
+ * @param n , la hauteur du tableau 
+ * @param m , la largeur du tableau 
+ * @return int , le nombre de champi
+ */
 int nbChampi(char** tab, int n, int m);
 
 #endif
