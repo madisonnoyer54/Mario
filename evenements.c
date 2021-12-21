@@ -234,24 +234,29 @@ void saut(world_t *world, ressources_t *ressources){
 
 void deplacement_droite(ressources_t *ressources,world_t *world){
 	if(world->mario.x > SCREEN_WIDTH/2 ){
-		for(int i=0; i<ressources->nb_walls;i++){
-			ressources->DestR_walls[i].x -= world->vy;
-
-		}
-		
-		for(int i=0; i<ressources->nb_pieces;i++){
-			ressources->DestR_pieces[i].x -= world->vy;
-		}
-
-		for(int i= 0; i<ressources->nb_champi; i++){
-			ressources->DestR_champi[i].x -= world->vy;
-		}
-		
-		ressources->DestR_fond.x = ressources->DestR_fond.x -world->vy;
+		deplecement_element(ressources,world);
 		world->mario.x += world->vy/2;
 	}
 	else{
 		world->mario.x +=world->vy;
 	}
 	
+}
+
+void deplecement_element(ressources_t *ressources,world_t *world){
+	for(int i=0; i<ressources->nb_walls;i++){
+		ressources->DestR_walls[i].x -= world->vy;
+
+	}
+		
+	for(int i=0; i<ressources->nb_pieces;i++){
+		ressources->DestR_pieces[i].x -= world->vy;
+	}
+
+	for(int i= 0; i<ressources->nb_champi; i++){
+		ressources->DestR_champi[i].x -= world->vy;
+	}
+
+	ressources->DestR_fond.x = ressources->DestR_fond.x -world->vy;
+
 }
