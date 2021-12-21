@@ -142,11 +142,17 @@ void colli_walls(ressources_t *r, world_t *world){
         }
         // Les collision quand mario est a gauche avec le coter du murs 
         if(world->mario.d == 'g'){
-           if((y_m <= r->DestR_walls[i].y  && y_m + h_m - 2>= r->DestR_walls[i].y && x_m <= r->DestR_walls[i].x + r->DestR_walls[i].w)
-           || (y_m <= r->DestR_walls[i].y + r->DestR_walls[i].h  && y_m + h_m - 2>= r->DestR_walls[i].y + r->DestR_walls[i].h && x_m <= r->DestR_walls[i].x + r->DestR_walls[i].w )){
+           if((y_m <= r->DestR_walls[i].y  && y_m + h_m - 2>= r->DestR_walls[i].y && x_m >= r->DestR_walls[i].x + r->DestR_walls[i].w)
+           || (y_m <= r->DestR_walls[i].y + r->DestR_walls[i].h  && y_m + h_m - 2>= r->DestR_walls[i].y + r->DestR_walls[i].h && x_m >= r->DestR_walls[i].x + r->DestR_walls[i].w )){
                 world->vy = 0;
             } 
         }
+
+        /*
+        // Les collision quand mario touche le dessous d'un murs 
+        if(x_m <= r->DestR_walls[i].x && x_m + w_m>= r->DestR_walls[i].x && y_m <= r->DestR_walls[i].y+ r->DestR_walls[i].h){
+            printf("cc");
+        }*/
     }
 
     
