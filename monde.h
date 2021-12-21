@@ -40,6 +40,7 @@ struct world_s{
     unsigned int timer; /*!< Champ pour le timer */ 
     float vy; /*!< Champ pour la vitesse */ 
     int nb_pieces;
+    int gg;/*< Champ qui indique si le joueur a gagner*/
   
 };
 /**
@@ -85,6 +86,14 @@ void left_overflow(sprite_t *sprite);
  * \param sprite le sprite
  */
 void right_overflow(sprite_t *sprite);
+
+
+
+void high_overflow(sprite_t *sprite);
+
+void low_overflow(sprite_t *sprite, world_t *world);
+
+
 
 
 /**

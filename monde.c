@@ -69,10 +69,24 @@ void right_overflow(sprite_t *sprite) {
     }
 }
 
+void high_overflow(sprite_t *sprite){
+    if(sprite->y <= 0){
+        sprite->y = 0;
+    }
+}
+
+void low_overflow(sprite_t *sprite,world_t *world){
+    if(sprite->y >= 600){
+        world->gameover = 1;
+        world->gg =0;
+    }
+}
+
 
 void handle_vie(world_t *world) {
     if (world->mario.nbVies <= 0) {
         world->gameover = 1;   // La partie est terminée
+        world->gg =0; // le joueur a perdu 
     }
 }
 
@@ -174,7 +188,10 @@ void update_colli(ressources_t *r, world_t *world){
     colli_walls(r, world);
 }
 
+
 void overflow(world_t *world){
     left_overflow(&(world->mario));
     right_overflow(&(world->mario));
+    low_overflow(&(world->mario), world);
+    high_overflow(&world->mario);
 }
