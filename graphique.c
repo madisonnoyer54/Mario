@@ -83,8 +83,8 @@ void init_arrive(ressources_t *ressources){
 		ressources->SrcR_arrive.w = tailleW_f; // Largeur de l’objet en pixels 
 		ressources->SrcR_arrive.h = tailleH_f; // Hauteur de l’objet en pixels 
 
-		ressources->DestR_arrive->x = 0;
-		ressources->DestR_arrive->y = 0;
+		ressources->DestR_arrive->x = 6;
+		ressources->DestR_arrive->y = 470;
 		ressources->DestR_arrive->w = tailleW_f; // Largeur du sprite
 		ressources->DestR_arrive->h = tailleH_f; // Hauteur du sprite
 }
