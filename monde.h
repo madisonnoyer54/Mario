@@ -108,4 +108,7 @@ void update_data(world_t *world, menu_t *menu,ressources_t *r);
 void update_walls(world_t *world);
 
 void colli_pieces(ressources_t *r, world_t *world);
+
+
+void colli_walls(ressources_t *r, world_t *world);
 #endif

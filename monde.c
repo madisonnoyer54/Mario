@@ -85,11 +85,16 @@ void update_data(world_t *world, menu_t *menu,ressources_t *r){
     // Gestion e la graviter 
    
 
-    // Gestion des collisions
-    colli_pieces(r, world);
+ 
 
 
     // Gestion du déplacement des éléments
+    world->vy = INITIAL_SPEED;
+
+
+    // Gestion des collisions
+    colli_pieces(r, world);
+    colli_walls(r, world);
    
 
 	// vérifie si le joueur est en vie
@@ -108,7 +113,7 @@ void colli_pieces(ressources_t *r, world_t *world){
     int y_m = r->DestR_mario.y;
     int h_m = r->DestR_mario.h;
     int w_m = r->DestR_mario.w;
- // y_m >= r->DestR_pieces[i].y && y_m + h_m <= r->DestR_pieces[i].y && x_m <= r->DestR_pieces[i].x && x_m + w_m >= r->DestR_pieces[i].x 
+
     for(int i = 0; i < r->nb_pieces; i++){
         if( (x_m <= r->DestR_pieces[i].x && r->DestR_pieces[i].x <= x_m + w_m && r->DestR_pieces[i].y <= y_m +h_m && y_m <= r->DestR_pieces[i].y)
             ||  (x_m <= r->DestR_pieces[i].x && r->DestR_pieces[i].x <= x_m + w_m && r->DestR_pieces[i].y + r->DestR_pieces[i].h <= y_m +h_m && y_m <= r->DestR_pieces[i].y + r->DestR_pieces[i].h)
@@ -117,6 +122,32 @@ void colli_pieces(ressources_t *r, world_t *world){
             r->DestR_pieces[i].x  = -25;
             world->nb_pieces++;
            
+       }
+    }
+}
+
+void colli_walls(ressources_t *r, world_t *world){
+    int x_m = r->DestR_mario.x; 
+    int y_m = r->DestR_mario.y;
+    int h_m = r->DestR_mario.h;
+    int w_m = r->DestR_mario.w;
+
+    for(int i = 0; i < r->nb_walls; i++){
+        // Les collision quand mario est a droite avec le coter du murs 
+        if(world->mario.d == 'd'){
+            if((y_m <= r->DestR_walls[i].y  && y_m + h_m - 2>= r->DestR_walls[i].y && x_m + w_m >= r->DestR_walls[i].x )
+                ||( y_m <= r->DestR_walls[i].y +  r->DestR_walls[i].h && y_m + h_m - 2>= r->DestR_walls[i].y +r->DestR_walls[i].h && x_m + w_m >= r->DestR_walls[i].x)){
+                world->vy = 0;
+            }
+        }
+        // Les collision quand mario est a gauche avec le coter du murs 
+        if(world->mario.d == 'g'){
+           if((y_m <= r->DestR_walls[i].y  && y_m + h_m - 2>= r->DestR_walls[i].y && x_m <= r->DestR_walls[i].x + r->DestR_walls[i].w)
+           || (y_m <= r->DestR_walls[i].y + r->DestR_walls[i].h  && y_m + h_m - 2>= r->DestR_walls[i].y + r->DestR_walls[i].h && x_m <= r->DestR_walls[i].x + r->DestR_walls[i].w )){
+                world->vy = 0;
+            } 
         }
     }
+
+    
 }

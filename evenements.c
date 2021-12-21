@@ -88,7 +88,7 @@ void evenement(ressources_t *ressources,world_t *world){
             			world->gameover =1;
             			break;
             case SDLK_LEFT:
-            	world->mario.x = world->mario.x - INITIAL_SPEED ;
+            	world->mario.x = world->mario.x - world->vy ;
 				world->mario.d = 'g'; 
 				world->mario.decompte = world->mario.decompte + 1;
 
@@ -168,7 +168,7 @@ void gravite(world_t *world, ressources_t *ressources){
 	    }
 	     	
 		if(world->mario.d == 'g'){
-			world->mario.x = world->mario.x - INITIAL_SPEED;  
+			world->mario.x = world->mario.x - world->vy;  
 			world->mario.i = 50;  
 		}
 		
@@ -183,6 +183,7 @@ void gravite(world_t *world, ressources_t *ressources){
 		left_overflow(&world->mario);
 		right_overflow(&world->mario);
 		colli_pieces(ressources,world);
+		colli_walls(ressources, world);
 
 		ressources->DestR_mario.x = world->mario.x;	 
 		ressources->DestR_mario.y = world->mario.y;	
@@ -213,13 +214,14 @@ void saut(world_t *world, ressources_t *ressources){
 				world->mario.i = 14;
 			}
 			if(world->mario.d == 'g'){
-				world->mario.x = world->mario.x - INITIAL_SPEED - 10;
+				world->mario.x = world->mario.x - world->vy - 10;
 				world->mario.i = 48;
 			}
 
 			left_overflow(&world->mario);
 			right_overflow(&world->mario);
 			colli_pieces(ressources,world);
+			colli_walls(ressources, world);
 
 			
 			ressources->DestR_mario.x = world->mario.x;	 
@@ -237,19 +239,19 @@ void saut(world_t *world, ressources_t *ressources){
 void deplacement_droite(ressources_t *ressources,world_t *world){
 	if(world->mario.x > SCREEN_WIDTH/2 ){
 		for(int i=0; i<ressources->nb_walls;i++){
-			ressources->DestR_walls[i].x -= INITIAL_SPEED;
+			ressources->DestR_walls[i].x -= world->vy;
 
 		}
 		
 		for(int i=0; i<ressources->nb_pieces;i++){
-			ressources->DestR_pieces[i].x -= INITIAL_SPEED;
+			ressources->DestR_pieces[i].x -= world->vy;
 		}
 		
-		ressources->DestR_fond.x = ressources->DestR_fond.x -INITIAL_SPEED;
-		world->mario.x += INITIAL_SPEED/2;
+		ressources->DestR_fond.x = ressources->DestR_fond.x -world->vy;
+		world->mario.x += world->vy/2;
 	}
 	else{
-		world->mario.x += INITIAL_SPEED;
+		world->mario.x +=world->vy;
 	}
 	
 }
