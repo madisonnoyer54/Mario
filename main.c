@@ -76,6 +76,7 @@ int main(){
 	//TTF_CloseFont(r.fond_menu);
 	TTF_Quit();
 	
+	
 	Destroy(r);
 	// Quitter SDL
 	SDL_Quit();

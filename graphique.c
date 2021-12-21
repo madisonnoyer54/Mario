@@ -45,7 +45,9 @@ void init_for_SDL(ressources_t *ressources){
 	init_walls(ressources);
 	init_fond(ressources);
 
-	//init_champi(ressources);
+	init_champi(ressources);
+
+	init_arrive(ressources);
 
 	
 }
@@ -66,6 +68,25 @@ void init_fond(ressources_t *ressources){
 		ressources->DestR_fond.y = 0;
 		ressources->DestR_fond.w = tailleW_f*2; // Largeur du sprite
 		ressources->DestR_fond.h = tailleH_f*2; // Hauteur du sprite
+}
+
+
+void init_arrive(ressources_t *ressources){
+	int tailleW_f, tailleH_f;
+	ressources->arrive = charger_image("ressources/arrive.png", ressources->ecran );  
+
+	 SDL_QueryTexture(ressources->arrive, NULL, NULL, &tailleW_f, &tailleH_f);
+
+	
+		ressources->SrcR_arrive.x = 0;
+		ressources->SrcR_arrive.y = 0;
+		ressources->SrcR_arrive.w = tailleW_f; // Largeur de l’objet en pixels 
+		ressources->SrcR_arrive.h = tailleH_f; // Hauteur de l’objet en pixels 
+
+		ressources->DestR_arrive->x = 0;
+		ressources->DestR_arrive->y = 0;
+		ressources->DestR_arrive->w = tailleW_f; // Largeur du sprite
+		ressources->DestR_arrive->h = tailleH_f; // Hauteur du sprite
 }
 
 void init_mario(ressources_t *ressources,world_t *world){              //appelée dans evenements.c
@@ -324,7 +345,9 @@ void affichage(ressources_t *ressources,world_t *world){
 
 	affiche_pieces(ressources, world); // Affichage des pieces
 
-	//affiche_champi(ressources);
+	affiche_champi(ressources);
+
+	afficher_arrive(ressources);
 
 
 	
@@ -332,6 +355,11 @@ void affichage(ressources_t *ressources,world_t *world){
 
 void afficher_fond(ressources_t *ressources){
 	SDL_RenderCopy(ressources->ecran, ressources->fond, &ressources->SrcR_fond,&ressources->DestR_fond);
+}
+
+
+void afficher_arrive(ressources_t *ressources){
+	SDL_RenderCopy(ressources->ecran, ressources->arrive, &ressources->SrcR_arrive,ressources->DestR_arrive);
 }
 
 void affiche_mario(ressources_t *ressources,world_t *world){
@@ -455,6 +483,10 @@ void affiche_pieces(ressources_t *ressources, world_t *world){
 
 
 void Destroy(ressources_t ressources){
+	free(ressources.DestR_pieces);
+	free(ressources.DestR_walls);
+
+
 	SDL_DestroyTexture(ressources.fond);
 	SDL_DestroyTexture(ressources.mario);
 	SDL_DestroyTexture(ressources.vie);
@@ -462,12 +494,17 @@ void Destroy(ressources_t ressources){
 	SDL_DestroyTexture(ressources.walls);
 	SDL_DestroyTexture(ressources.pieces);
 	SDL_DestroyTexture(ressources.champi);
+	SDL_DestroyTexture(ressources.arrive);
+
+	// Pour le menu 
+	SDL_DestroyTexture(ressources.fond_menu);
+	SDL_DestroyTexture(ressources.texte_menu);
+	SDL_DestroyTexture(ressources.marioJaune);
+	SDL_DestroyTexture(ressources.marioRouge);
+	SDL_DestroyTexture(ressources.marioViolet);
 
 	SDL_DestroyRenderer(ressources.ecran);
 	SDL_DestroyWindow(ressources.fenetre);
-	
-	free(ressources.DestR_pieces);
-	free(ressources.DestR_walls);
 }
 
 

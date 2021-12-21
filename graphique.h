@@ -24,6 +24,7 @@ struct ressources_s{
 	SDL_Rect SrcR_fond;
 	SDL_Rect DestR_fond;
 
+
 	TTF_Font* font; 
 	
 	//Gérer l'affichage du menu
@@ -71,6 +72,14 @@ struct ressources_s{
 	SDL_Rect SrcR_champi[23];
 	SDL_Rect* DestR_champi;
 	int nb_champi;
+
+	// Pour gérer l'affichage de l'arriver
+	SDL_Texture* arrive;
+	SDL_Rect SrcR_arrive;
+	SDL_Rect* DestR_arrive;
+
+	
+
 };
 /**
  * \brief Type qui correspond aux textures du jeu
@@ -94,6 +103,8 @@ void init_for_SDL(ressources_t *ressources);
  * @param ressources, les ressources du jeu 
  */
 void init_fond(ressources_t *ressources);
+
+void init_arrive(ressources_t *ressources);
 
 
 /**
@@ -146,6 +157,8 @@ void affichage(ressources_t *ressources, world_t *world);
  * \param ressources les ressources du jeu
  */
 void afficher_fond(ressources_t *ressources);
+
+void afficher_arrive(ressources_t *ressources);
 
 
 /**
