@@ -179,10 +179,10 @@ void init_champi(ressources_t *ressources){
 		for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++){
                if('&' == tab[i][j]  ){
-                    ressources->DestR_champi[a].x =  j *tailleW_c / 6;
-		            ressources->DestR_champi[a].y =  i * tailleH_c / 8;
-		           	ressources->DestR_champi[a].w = tailleW_c / 6; // Largeur du sprite
-		            ressources->DestR_champi[a].h = tailleH_c / 8; // Hauteur du sprite
+                    ressources->DestR_champi[a].x =  j * 28;
+		            ressources->DestR_champi[a].y =  i * 30;
+		           	ressources->DestR_champi[a].w = 28; // Largeur du sprite
+		            ressources->DestR_champi[a].h = 30; // Hauteur du sprite
 					a++;
                 }
             }
