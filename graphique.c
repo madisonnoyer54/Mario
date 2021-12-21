@@ -45,6 +45,8 @@ void init_for_SDL(ressources_t *ressources){
 	init_walls(ressources);
 	init_fond(ressources);
 
+	//init_champi(ressources);
+
 	
 }
 
@@ -120,6 +122,52 @@ void init_mario(ressources_t *ressources,world_t *world){              //appelé
 }
 
 
+void init_champi(ressources_t *ressources){
+	int tailleW_c, tailleH_c; 
+
+	 // tableau de sprite 
+   ressources->champi = charger_image_transparente("ressources/champi.png", ressources->ecran);
+	
+    
+    SDL_QueryTexture(ressources->champi, NULL, NULL, &tailleW_c, &tailleH_c);
+
+		
+	int y =0;
+	int a= 0;
+    for(int i = 0; i < 5; i++) {
+		for(int j =0; j < 5; j++){
+			ressources->SrcR_champi[a].x = j* (tailleW_c/5) ;
+			ressources->SrcR_champi[a].y = y ;
+			ressources->SrcR_champi[a].w = tailleW_c/5; // Largeur de l’objet en pixels 
+			ressources->SrcR_champi[a].h = tailleH_c/5 ; // Hauteur de l’objet en pixels 
+
+				
+			a = a +1;
+		}
+    	y = y + tailleH_c/5;
+	}
+
+	char** tab;
+    int n, m;
+	a =0;
+    taille_fichier("ressources/terrain.txt",&n,&m);
+    tab = lire_fichier("ressources/terrain.txt");
+	ressources->nb_champi = nbChampi(tab, n, m);
+	ressources->DestR_champi = malloc(ressources->nb_champi * sizeof(SDL_Rect));
+
+		for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++){
+               if('&' == tab[i][j]  ){
+                    ressources->DestR_champi[a].x =  j *tailleW_c / 6;
+		            ressources->DestR_champi[a].y =  i * tailleH_c / 8;
+		           	ressources->DestR_champi[a].w = tailleW_c / 6; // Largeur du sprite
+		            ressources->DestR_champi[a].h = tailleH_c / 8; // Hauteur du sprite
+					a++;
+                }
+            }
+        }
+
+}
 
 void init_walls(ressources_t *ressources){
 	int tailleW_B, tailleH_B; 
@@ -276,6 +324,8 @@ void affichage(ressources_t *ressources,world_t *world){
 
 	affiche_pieces(ressources, world); // Affichage des pieces
 
+	//affiche_champi(ressources);
+
 
 	
 }
@@ -313,6 +363,24 @@ void affiche_vies(ressources_t *ressources,world_t *world){
 	}
 }
 
+
+void affiche_champi(ressources_t *ressources){
+	char** tab; 
+    int n = 0;
+    int m = 0; 
+	int a =0;
+    taille_fichier("ressources/terrain.txt",&n,&m);
+    tab = lire_fichier("ressources/terrain.txt");
+		for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+        
+			    if('&' == tab[i][j]){
+                 	SDL_RenderCopy(ressources->ecran, ressources->champi, &ressources->SrcR_champi[1], &ressources->DestR_champi[a]); 
+					a=a +1;
+               }
+            }
+        } 
+}
 
 void affiche_walls(ressources_t *ressources){
 	char** tab; 
@@ -393,6 +461,7 @@ void Destroy(ressources_t ressources){
 	SDL_DestroyTexture(ressources.texte_timer);
 	SDL_DestroyTexture(ressources.walls);
 	SDL_DestroyTexture(ressources.pieces);
+	SDL_DestroyTexture(ressources.champi);
 
 	SDL_DestroyRenderer(ressources.ecran);
 	SDL_DestroyWindow(ressources.fenetre);
@@ -421,6 +490,19 @@ int nbPieces(char** tab, int n, int m){
 	for(int i=0; i<n; i++){
 		for(int j=0; j<m; j++){
 			if(tab[i][j] == '*'){
+				res++;
+			}
+		}
+	}
+	return res;
+}
+
+
+int nbChampi(char** tab, int n, int m){
+	int res = 0;
+	for(int i=0; i<n; i++){
+		for(int j=0; j<m; j++){
+			if(tab[i][j] == '&'){
 				res++;
 			}
 		}

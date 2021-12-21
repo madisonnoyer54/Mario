@@ -65,6 +65,12 @@ struct ressources_s{
 	SDL_Rect DestR_nb_pieces[2];
 	SDL_Texture* texte_nb_pieces;
 	int nb_pieces;
+
+	// Pour gérer l'affichage des champignon 
+	SDL_Texture* champi;
+	SDL_Rect SrcR_champi[23];
+	SDL_Rect* DestR_champi;
+	int nb_champi;
 };
 /**
  * \brief Type qui correspond aux textures du jeu
@@ -97,6 +103,7 @@ void init_fond(ressources_t *ressources);
  */
 void init_mario(ressources_t *ressources, world_t *world);
 
+void init_champi(ressources_t *ressources);
 
 /**
  * \brief Initialise des murs de Mario, permet de découper la plage de Sprite 
@@ -164,6 +171,8 @@ void affiche_timer(ressources_t *ressources,world_t *world);
  */
 void affiche_vies(ressources_t *ressources,world_t *world);
 
+void affiche_champi(ressources_t *ressources);
+
 
 /**
  * \brief Gère l'affichage des murs
@@ -205,10 +214,6 @@ int nbWalls(char** tab, int n, int m);
 int nbPieces(char** tab, int n, int m);
 
 
-
-
-void init_test(ressources_t *ressources);
-
-void affiche_test(ressources_t *ressources);
+int nbChampi(char** tab, int n, int m);
 
 #endif
