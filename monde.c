@@ -43,7 +43,7 @@ void init_data(world_t *world){
 	// Variable de déplacement pour Mario 
 	world->mario.i = 0;
 	world->mario.decompte= 0;
-    init_sprite(&world->mario,0,470,MARIO_WIDTH,MARIO_SIZE);
+    init_sprite(&world->mario,0,478,MARIO_WIDTH,MARIO_SIZE);
 
     // variable initialisation piece 
     world->pieces.i=0;
@@ -78,9 +78,8 @@ void handle_vie(world_t *world) {
 
 
 void update_data(world_t *world, menu_t *menu,ressources_t *r){
-    // Gestion des dépassements à gauche et à droite
-    left_overflow(&(world->mario));
-    right_overflow(&(world->mario));
+    // Gestion des dépassements à gauche et à droite et en haut et en bas
+    overflow(world);
 
     // Gestion e la graviter 
    
@@ -93,9 +92,7 @@ void update_data(world_t *world, menu_t *menu,ressources_t *r){
 
 
     // Gestion des collisions
-    colli_pieces(r, world);
-    colli_walls(r, world);
-   
+    update_colli(r,world);
 
 	// vérifie si le joueur est en vie
     handle_vie(world);
@@ -170,4 +167,14 @@ void colli_walls(ressources_t *r, world_t *world){
     }
 
     
+}
+
+void update_colli(ressources_t *r, world_t *world){
+    colli_pieces(r, world);
+    colli_walls(r, world);
+}
+
+void overflow(world_t *world){
+    left_overflow(&(world->mario));
+    right_overflow(&(world->mario));
 }

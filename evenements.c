@@ -158,7 +158,7 @@ void update_timer(world_t *world, menu_t *menu){
 
 
 void gravite(world_t *world, ressources_t *ressources){
-    while (world->mario.y <470){
+    while (world->mario.y <478){
     	world->mario.y += Graviter;
 		
 		if(world->mario.d == 'd'){
@@ -180,10 +180,8 @@ void gravite(world_t *world, ressources_t *ressources){
 			world->mario.i = 1;    
 		}
 
-		left_overflow(&world->mario);
-		right_overflow(&world->mario);
-		colli_pieces(ressources,world);
-		colli_walls(ressources, world);
+		overflow(world);
+		update_colli(ressources,world);
 
 		ressources->DestR_mario.x = world->mario.x;	 
 		ressources->DestR_mario.y = world->mario.y;	
@@ -201,11 +199,11 @@ void gravite(world_t *world, ressources_t *ressources){
 	}
 
         
-	world->mario.y =470;
+	world->mario.y =478;
 }
 
 void saut(world_t *world, ressources_t *ressources){
-	if(world->mario.y == 470){
+	if(world->mario.y == 478){
 		while(world->mario.y > 350){
 			world->mario.y = world->mario.y - 20 - Graviter;
 			if(world->mario.d == 'd'){
@@ -218,10 +216,8 @@ void saut(world_t *world, ressources_t *ressources){
 				world->mario.i = 48;
 			}
 
-			left_overflow(&world->mario);
-			right_overflow(&world->mario);
-			colli_pieces(ressources,world);
-			colli_walls(ressources, world);
+			overflow(world);
+			update_colli(ressources,world);
 
 			
 			ressources->DestR_mario.x = world->mario.x;	 
@@ -245,6 +241,10 @@ void deplacement_droite(ressources_t *ressources,world_t *world){
 		
 		for(int i=0; i<ressources->nb_pieces;i++){
 			ressources->DestR_pieces[i].x -= world->vy;
+		}
+
+		for(int i= 0; i<ressources->nb_champi; i++){
+			ressources->DestR_champi[i].x -= world->vy;
 		}
 		
 		ressources->DestR_fond.x = ressources->DestR_fond.x -world->vy;

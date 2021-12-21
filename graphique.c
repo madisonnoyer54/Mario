@@ -132,8 +132,8 @@ void init_mario(ressources_t *ressources,world_t *world){              //appelé
 		}
 			ressources->DestR_mario.x = world->mario.x;
 			ressources->DestR_mario.y = world->mario.y;
-			ressources->DestR_mario.w = tailleW/9  ; // Largeur du sprite
-			ressources->DestR_mario.h = tailleH/8 ; // Hauteur du sprite
+			ressources->DestR_mario.w = tailleW/10  ; // Largeur du sprite
+			ressources->DestR_mario.h = tailleH/9 ; // Hauteur du sprite
        y = y + tailleH/8;
 	   
 	}
@@ -180,9 +180,9 @@ void init_champi(ressources_t *ressources){
             for (int j = 0; j < m; j++){
                if('&' == tab[i][j]  ){
                     ressources->DestR_champi[a].x =  j * 28;
-		            ressources->DestR_champi[a].y =  i * 30;
-		           	ressources->DestR_champi[a].w = 28; // Largeur du sprite
-		            ressources->DestR_champi[a].h = 30; // Hauteur du sprite
+		            ressources->DestR_champi[a].y =  i * 29.8;
+		           	ressources->DestR_champi[a].w = 38; // Largeur du sprite
+		            ressources->DestR_champi[a].h = 40; // Hauteur du sprite
 					a++;
                 }
             }

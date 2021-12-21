@@ -111,4 +111,8 @@ void colli_pieces(ressources_t *r, world_t *world);
 
 
 void colli_walls(ressources_t *r, world_t *world);
+
+void update_colli(ressources_t *r, world_t *world);
+
+void overflow(world_t *world);
 #endif
