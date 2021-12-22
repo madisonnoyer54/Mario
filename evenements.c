@@ -264,12 +264,16 @@ void deplacement_element(ressources_t *ressources,world_t *world){
 }
 
 
-/*
+
 void deplacement_champi(ressources_t *r){
 	for(int i = 0; i<r->nb_champi; i++){
-		if(r->DestR_champi[i].x ){
-
+		if(r->DestR_champi[i].x - r->DestR_mario.x >=0 && r->DestR_champi[i].x - r->DestR_mario.x<= 400){
+			r->DestR_champi[i].x = r->DestR_champi[i].x -2;
 		}
+		if(r->DestR_champi[i].x -  r->DestR_mario.x <= 0 && r->DestR_champi[i].x -  r->DestR_mario.x >= -400){
+			r->DestR_champi[i].x = r->DestR_champi[i].x +2;
+		}
+	
 	}
 	
-}*/
+}

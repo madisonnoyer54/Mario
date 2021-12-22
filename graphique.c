@@ -393,6 +393,7 @@ void affiche_vies(ressources_t *ressources,world_t *world){
 
 
 void affiche_champi(ressources_t *ressources){
+	 deplacement_champi(ressources);
 	char** tab; 
     int n = 0;
     int m = 0; 
