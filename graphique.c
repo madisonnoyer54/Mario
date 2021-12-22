@@ -45,7 +45,7 @@ void init_for_SDL(ressources_t *ressources){
 	init_walls(ressources);
 	init_fond(ressources);
 
-	//init_champi(ressources);
+	init_champi(ressources);
 
 	init_arrive(ressources);
 
@@ -345,7 +345,7 @@ void affichage(ressources_t *ressources,world_t *world){
 
 	affiche_pieces(ressources, world); // Affichage des pieces
 
-	//affiche_champi(ressources);
+	affiche_champi(ressources);
 
 	afficher_arrive(ressources);
 
