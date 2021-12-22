@@ -195,10 +195,28 @@ void colli_arrive(ressources_t *r, world_t *world){
 }
 
 
+void colli_champi(ressources_t *r, world_t *world){
+    int x_m = r->DestR_mario.x; 
+    int y_m = r->DestR_mario.y;
+    int h_m = r->DestR_mario.h;
+    int w_m = r->DestR_mario.w;
+
+    for(int i=0; i<r->nb_champi; i++){
+        if((x_m >= r->DestR_champi[i].x && x_m <= r->DestR_champi[i].x + r->DestR_champi[i].w && h_m + y_m >= r->DestR_champi[i].y &&  y_m <= r->DestR_champi[i].y)
+        || (x_m + w_m>= r->DestR_champi[i].x && x_m + w_m<= r->DestR_champi[i].x + r->DestR_champi[i].w && h_m + y_m >= r->DestR_champi[i].y &&  y_m <= r->DestR_champi[i].y) ){
+            world->mario.nbVies =  world->mario.nbVies -1;
+           
+        }
+    }
+    
+}
+
+
 void update_colli(ressources_t *r, world_t *world){
     colli_pieces(r, world);
     colli_walls(r, world);
     colli_arrive(r,world);
+    colli_champi(r,world);
 }
 
 

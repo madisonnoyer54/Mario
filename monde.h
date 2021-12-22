@@ -142,6 +142,8 @@ void colli_walls(ressources_t *r, world_t *world);
 
 void colli_arrive(ressources_t *r, world_t *world);
 
+void colli_champi(ressources_t *r, world_t *world);
+
 /**
  * @brief met a jours toute les collisions
  * 
