@@ -183,6 +183,8 @@ void init_champi(ressources_t *ressources){
 		            ressources->DestR_champi[a].y =  i * 29.8;
 		           	ressources->DestR_champi[a].w = 38; // Largeur du sprite
 		            ressources->DestR_champi[a].h = 40; // Hauteur du sprite
+
+					SDL_RenderCopy(ressources->ecran, ressources->champi, &ressources->SrcR_champi[1], &ressources->DestR_champi[a]);
 					a++;
                 }
             }
@@ -394,21 +396,7 @@ void affiche_vies(ressources_t *ressources,world_t *world){
 
 void affiche_champi(ressources_t *ressources, world_t *world){
 	deplacement_champi(ressources, world);
-	char** tab; 
-    int n = 0;
-    int m = 0; 
-	int a =0;
-    taille_fichier("ressources/terrain.txt",&n,&m);
-    tab = lire_fichier("ressources/terrain.txt");
-		for (int i = 0; i < n; i++) {
-            for (int j = 0; j < m; j++) {
-        
-			    if('&' == tab[i][j]){
-                 	SDL_RenderCopy(ressources->ecran, ressources->champi, &ressources->SrcR_champi[1], &ressources->DestR_champi[a]); 
-					a=a +1;
-               }
-            }
-        } 
+	
 }
 
 void affiche_walls(ressources_t *ressources){

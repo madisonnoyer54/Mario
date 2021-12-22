@@ -266,27 +266,34 @@ void deplacement_element(ressources_t *ressources,world_t *world){
 
 
 void deplacement_champi(ressources_t *r, world_t *world){
+	char d;
 	for(int i = 0; i<r->nb_champi; i++){
 		if(r->DestR_champi[i].x - r->DestR_mario.x >=0 && r->DestR_champi[i].x - r->DestR_mario.x<= 400){
 			r->DestR_champi[i].x = r->DestR_champi[i].x -2;
+			d = 'd';
 		}
 		if(r->DestR_champi[i].x -  r->DestR_mario.x <= 0 && r->DestR_champi[i].x -  r->DestR_mario.x >= -400){
 			r->DestR_champi[i].x = r->DestR_champi[i].x +2;
+			d ='g';
 		}
 		else{
 			if(world->decompte  <=150){
 				r->DestR_champi[i].x = r->DestR_champi[i].x +1;
 				world->decompte = world->decompte +1;
+				d = 'd';
 			}
 			if(world->decompte  > 150){
 				r->DestR_champi[i].x = r->DestR_champi[i].x -1;
 				world->decompte = world->decompte +1;
+				d ='g';
 				if(world->decompte  ==300){
 					world->decompte = 0;
 				}
 			}
 			
 		}
+
+		animation_champi(d,r,i,world->decompte);
 	
 	}
 	

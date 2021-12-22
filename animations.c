@@ -62,3 +62,19 @@ void animation_pieces(world_t *world){
 }
 
 
+void animation_champi(char d, ressources_t *r, int i, int decompte){
+	int de;
+	
+	if(d == 'd'){
+		de = decompte%11;
+		SDL_RenderCopy(r->ecran, r->champi, &r->SrcR_champi[de], &r->DestR_champi[i]); 
+	}
+	if(d == 'g'){
+		de = decompte%11 +12; 
+		if(de == 22){
+			de = 13;
+		}
+		SDL_RenderCopy(r->ecran, r->champi, &r->SrcR_champi[de], &r->DestR_champi[i]); 
+	}
+
+}

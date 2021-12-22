@@ -205,6 +205,7 @@ void colli_champi(ressources_t *r, world_t *world){
         if((x_m >= r->DestR_champi[i].x && x_m <= r->DestR_champi[i].x + r->DestR_champi[i].w && h_m + y_m >= r->DestR_champi[i].y &&  y_m <= r->DestR_champi[i].y)
         || (x_m + w_m>= r->DestR_champi[i].x && x_m + w_m<= r->DestR_champi[i].x + r->DestR_champi[i].w && h_m + y_m >= r->DestR_champi[i].y &&  y_m <= r->DestR_champi[i].y) ){
             world->mario.nbVies =  world->mario.nbVies -1;
+            world->mario.x =0;
            
         }
     }
