@@ -183,9 +183,21 @@ void colli_walls(ressources_t *r, world_t *world){
     
 }
 
+void colli_arrive(ressources_t *r, world_t *world){
+    int x_m = r->DestR_mario.x; 
+    int w_m = r->DestR_mario.w;
+
+    if(x_m + w_m >= r->DestR_arrive.x && x_m + w_m <= r->DestR_arrive.x + r->DestR_arrive.w ){
+        world->gameover = 1;
+        world->gg = 1;
+    }  
+}
+
+
 void update_colli(ressources_t *r, world_t *world){
     colli_pieces(r, world);
     colli_walls(r, world);
+    colli_arrive(r,world);
 }
 
 

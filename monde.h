@@ -33,7 +33,6 @@ typedef struct sprite_s sprite_t;
  */
 struct world_s{
     sprite_t mario; /*!< Champ qui correspond au sprite de mario */
-    sprite_t panel; /*!< Champ qui correspond au sprite du panneau d'arrivée */
     sprite_t walls; /*!< Champ qui correspond au tableau du sprites de murs */
     sprite_t pieces; /*!< Champ qui correspond au sprite des pieces */
     int gameover; /*!< Champ indiquant si l'on est à la fin du jeu */
@@ -139,6 +138,8 @@ void colli_pieces(ressources_t *r, world_t *world);
  * @param world, le monde  
  */
 void colli_walls(ressources_t *r, world_t *world);
+
+void colli_arrive(ressources_t *r, world_t *world);
 
 /**
  * @brief met a jours toute les collisions
