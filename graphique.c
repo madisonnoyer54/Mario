@@ -73,7 +73,7 @@ void init_fond(ressources_t *ressources){
 
 void init_arrive(ressources_t *ressources){
 	int tailleW_r, tailleH_r;
-	ressources->arrive = charger_image("ressources/arrive.png", ressources->ecran );  
+	ressources->arrive = charger_image_transparente("ressources/arrive.png", ressources->ecran);  
 
 	 SDL_QueryTexture(ressources->arrive, NULL, NULL, &tailleW_r, &tailleH_r);
 
@@ -83,10 +83,10 @@ void init_arrive(ressources_t *ressources){
 		ressources->SrcR_arrive.w = tailleW_r; // Largeur de l’objet en pixels 
 		ressources->SrcR_arrive.h = tailleH_r; // Hauteur de l’objet en pixels 
 
-		ressources->DestR_arrive.x = 10;
-		ressources->DestR_arrive.y = 100;
-		ressources->DestR_arrive.w = tailleW_r*100; // Largeur du sprite
-		ressources->DestR_arrive.h = tailleH_r*100; // Hauteur du sprite
+		ressources->DestR_arrive.x = 3000;
+		ressources->DestR_arrive.y = 159;
+		ressources->DestR_arrive.w = tailleW_r*3; // Largeur du sprite
+		ressources->DestR_arrive.h = tailleH_r*3; // Hauteur du sprite
 }
 
 void init_mario(ressources_t *ressources,world_t *world){              //appelée dans evenements.c

@@ -258,6 +258,8 @@ void deplacement_element(ressources_t *ressources,world_t *world){
 	}
 
 	ressources->DestR_fond.x = ressources->DestR_fond.x -world->vy;
+	
+	ressources->DestR_arrive.x -= world->vy;
 
 }
 
