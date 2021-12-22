@@ -77,7 +77,5 @@ void affiche_menu(ressources_t *ressources){
 }
 
 void affiche_texte_menu(ressources_t *ressources){
-	
-	
 	SDL_RenderCopy(ressources->ecran, ressources->texte_menu, NULL, &ressources->texte_menu_pos);
 }

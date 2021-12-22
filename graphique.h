@@ -76,7 +76,8 @@ struct ressources_s{
 	// Pour gérer l'affichage de l'arriver
 	SDL_Texture* arrive;
 	SDL_Rect SrcR_arrive;
-	SDL_Rect* DestR_arrive;
+	SDL_Rect DestR_arrive;
+
 
 	
 
