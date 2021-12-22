@@ -345,7 +345,7 @@ void affichage(ressources_t *ressources,world_t *world){
 
 	affiche_pieces(ressources, world); // Affichage des pieces
 
-	affiche_champi(ressources);
+	affiche_champi(ressources, world);
 
 	afficher_arrive(ressources);
 
@@ -392,8 +392,8 @@ void affiche_vies(ressources_t *ressources,world_t *world){
 }
 
 
-void affiche_champi(ressources_t *ressources){
-	 deplacement_champi(ressources);
+void affiche_champi(ressources_t *ressources, world_t *world){
+	deplacement_champi(ressources, world);
 	char** tab; 
     int n = 0;
     int m = 0; 

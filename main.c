@@ -29,6 +29,7 @@ int main(){
 	world_t world;
 	ressources_t r;
 	menu_t menu;
+	world.decompte = 0;
 
 	// Initialisation de la SDL
 	if(SDL_Init(SDL_INIT_VIDEO) < 0){

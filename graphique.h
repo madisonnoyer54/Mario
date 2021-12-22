@@ -209,7 +209,7 @@ void affiche_vies(ressources_t *ressources,world_t *world);
  * 
  * @param ressources, les ressources
  */
-void affiche_champi(ressources_t *ressources);
+void affiche_champi(ressources_t *ressources, world_t *world);
 
 
 /**

@@ -40,6 +40,7 @@ struct world_s{
     float vy; /*!< Champ pour la vitesse */ 
     int nb_pieces;
     int gg;/*< Champ qui indique si le joueur a gagner*/
+    int decompte;
   
 };
 /**

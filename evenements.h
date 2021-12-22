@@ -78,5 +78,5 @@ void deplacement_droite(ressources_t *ressources,world_t *world);
 
 void deplacement_element(ressources_t *ressources,world_t *world);
 
-void deplacement_champi(ressources_t *r);
+void deplacement_champi(ressources_t *r, world_t *world);
 #endif

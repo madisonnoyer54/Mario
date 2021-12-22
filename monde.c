@@ -36,7 +36,7 @@ void init_data(world_t *world){
 	
 	//Initialisation du nombre de vies
   	world->mario.nbVies= 3;
-
+    
     
  
   
@@ -103,6 +103,7 @@ void update_data(world_t *world, menu_t *menu,ressources_t *r){
 
     // Gestion du déplacement des éléments
     world->vy = INITIAL_SPEED;
+ 
 
 
     // Gestion des collisions
