@@ -51,6 +51,7 @@ int main(){
 	  evenement_menu(&r, &menu, &world);
 	  SDL_RenderPresent(r.ecran);
 	  SDL_Delay(10);
+	 
 	}
 	   
 	    

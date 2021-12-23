@@ -270,11 +270,13 @@ void deplacement_champi(ressources_t *r, world_t *world){
 	for(int i = 0; i<r->nb_champi; i++){
 		if(r->DestR_champi[i].x - r->DestR_mario.x >=0 && r->DestR_champi[i].x - r->DestR_mario.x<= 400){
 			r->DestR_champi[i].x = r->DestR_champi[i].x -2;
-			d = 'd';
+			d = 'g';
+			world->decompte = world->decompte +1;
 		}
 		if(r->DestR_champi[i].x -  r->DestR_mario.x <= 0 && r->DestR_champi[i].x -  r->DestR_mario.x >= -400){
 			r->DestR_champi[i].x = r->DestR_champi[i].x +2;
-			d ='g';
+			d ='d';
+			world->decompte = world->decompte +1;
 		}
 		else{
 			if(world->decompte  <=150){
@@ -286,7 +288,7 @@ void deplacement_champi(ressources_t *r, world_t *world){
 				r->DestR_champi[i].x = r->DestR_champi[i].x -1;
 				world->decompte = world->decompte +1;
 				d ='g';
-				if(world->decompte  ==300){
+				if(world->decompte  >=300){
 					world->decompte = 0;
 				}
 			}

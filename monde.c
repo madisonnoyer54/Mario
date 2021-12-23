@@ -131,7 +131,7 @@ void colli_pieces(ressources_t *r, world_t *world){
             ||  (x_m <= r->DestR_pieces[i].x && r->DestR_pieces[i].x <= x_m + w_m && r->DestR_pieces[i].y + r->DestR_pieces[i].h <= y_m +h_m && y_m <= r->DestR_pieces[i].y + r->DestR_pieces[i].h)
             ||  (x_m <= r->DestR_pieces[i].x + r->DestR_pieces[i].w && r->DestR_pieces[i].x + r->DestR_pieces[i].w <= x_m + w_m && r->DestR_pieces[i].y <= y_m +h_m && y_m <= r->DestR_pieces[i].y)
             ||  (x_m <= r->DestR_pieces[i].x +r->DestR_pieces[i].w && r->DestR_pieces[i].x + r->DestR_pieces[i].w <= x_m + w_m && r->DestR_pieces[i].y + r->DestR_pieces[i].h<= y_m +h_m && y_m <= r->DestR_pieces[i].y + r->DestR_pieces[i].h)){
-            r->DestR_pieces[i].x  = -25;
+            r->DestR_pieces[i].x  = -225;
             world->nb_pieces++;
            
        }
@@ -211,6 +211,7 @@ void colli_champi(ressources_t *r, world_t *world){
     }
     
 }
+
 
 
 void update_colli(ressources_t *r, world_t *world){
