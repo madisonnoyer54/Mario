@@ -208,6 +208,7 @@ void colli_champi(ressources_t *r, world_t *world){
             world->mario.x =0;
            
         }
+        
     }
     
 }
