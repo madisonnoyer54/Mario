@@ -144,6 +144,12 @@ void colli_arrive(ressources_t *r, world_t *world);
 
 void colli_champi(ressources_t *r, world_t *world);
 
+int down_collide(ressources_t *r);
+
+int up_collide(ressources_t *r);
+
+void update_gravite(ressources_t *r, world_t *world);
+
 /**
  * @brief met a jours toute les collisions
  * 

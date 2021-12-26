@@ -68,6 +68,9 @@ int main(){
 
 		// Mise à jour des données liée à la physique du monde
 		update_data(&world, &menu, &r);
+		
+		//Màj de la gravite du monde
+		update_gravite(&r, &world);
 
 		// Pause de 10 ms pour controler la vitesse de rafraichissement
 		SDL_Delay(10);

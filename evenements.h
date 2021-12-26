@@ -57,8 +57,9 @@ void update_timer(world_t *world, menu_t *menu);
  * 
  * @param world, le monde 
  * @param ressources, les ressources du jeu  
+ * @param g, le type de gravite (1 pour gravite du monde et 2 pour saut)
  */
-void gravite(world_t *world, ressources_t *ressources);
+void gravite(world_t *world, ressources_t *ressources, int g);
 
 /**
  * @brief permet au mario de sauter 

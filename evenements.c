@@ -88,15 +88,15 @@ void evenement(ressources_t *ressources,world_t *world){
             			world->gameover =1;
             			break;
             case SDLK_LEFT:
-            	world->mario.x = world->mario.x - world->vy ;
+            	world->mario.x -= world->vy ;
 				world->mario.d = 'g'; 
-				world->mario.decompte = world->mario.decompte + 1;
+				world->mario.decompte++;
 
             	break;
                     
 			case SDLK_RIGHT:
 			   	world->mario.d = 'd';
-			   	world->mario.decompte = world->mario.decompte + 1; 
+			   	world->mario.decompte++; 
 
 				deplacement_droite(ressources,world);
 				
@@ -113,7 +113,6 @@ void evenement(ressources_t *ressources,world_t *world){
 			case SDLK_SPACE : 
 				if(keystates[SDL_SCANCODE_RIGHT] || (keystates[SDL_SCANCODE_LEFT])){   //saut oriente
 					saut(world,ressources);
-					gravite(world,ressources);
 				}
 				else{             //saut vertical
 					if(world->mario.d == 'g'){
@@ -122,8 +121,8 @@ void evenement(ressources_t *ressources,world_t *world){
 					if(world->mario.d == 'd'){
 						world->mario.d = 's';
 					}
+					
 					saut(world, ressources);
-					gravite(world, ressources);
 				}
 						
 				break;  			
@@ -157,27 +156,22 @@ void update_timer(world_t *world, menu_t *menu){
 
 
 
-void gravite(world_t *world, ressources_t *ressources){
-    while (world->mario.y <478){
+void gravite(world_t *world, ressources_t *ressources, int g){
     	world->mario.y += Graviter;
 		
 		if(world->mario.d == 'd'){
-			deplacement_droite(ressources,world);
+			if(g == 2){
+				deplacement_droite(ressources,world);
+			}
 			world->mario.i = 15; 
 
 	    }
 	     	
 		if(world->mario.d == 'g'){
-			world->mario.x = world->mario.x - world->vy;  
+			if(g == 2){
+				world->mario.x -= world->vy;  
+			}
 			world->mario.i = 50;  
-		}
-		
-		//Orientation du mario quand il retombe dans le cas statique
-		if(world->mario.d == 'q'){
-			world->mario.i = 37;    
-		}
-		if(world->mario.d == 's'){
-			world->mario.i = 1;    
 		}
 
 		overflow(world);
@@ -188,27 +182,15 @@ void gravite(world_t *world, ressources_t *ressources){
 		affichage(ressources,world);
 		SDL_RenderPresent(ressources->ecran);
 		SDL_Delay(10);
-		
-	}
-	
-	if(world->mario.d == 'd' || world->mario.d == 's'){
-		world->mario.i = 6;
-	}
-	if(world->mario.d == 'g' || world->mario.d == 'q'){
-		world->mario.i = 42;
-	}
-
-        
-	world->mario.y =478;
 }
 
 void saut(world_t *world, ressources_t *ressources){
-	if(world->mario.y == 478){
-		while(world->mario.y > 350){
+	int y = world->mario.y;
+		while(world->mario.y > y-128){
 			world->mario.y = world->mario.y - 20 - Graviter;
 			if(world->mario.d == 'd'){
 				deplacement_droite(ressources,world);
-				world->mario.x = world->mario.x + 10;
+				world->mario.x += 10;
 				world->mario.i = 14;
 			}
 			if(world->mario.d == 'g'){
@@ -228,7 +210,8 @@ void saut(world_t *world, ressources_t *ressources){
 
 		
 		}
-					
+	while(!down_collide(ressources)){
+		gravite(world, ressources, 2);
 	}
 }
 

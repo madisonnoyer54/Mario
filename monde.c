@@ -43,7 +43,7 @@ void init_data(world_t *world){
 	// Variable de déplacement pour Mario 
 	world->mario.i = 0;
 	world->mario.decompte= 0;
-    init_sprite(&world->mario,0,478,MARIO_WIDTH,MARIO_SIZE);
+    init_sprite(&world->mario, 15, 478, MARIO_WIDTH, MARIO_SIZE);
 
     // variable initialisation piece 
     world->pieces.i=0;
@@ -64,8 +64,8 @@ void left_overflow(sprite_t *sprite) {
 
 
 void right_overflow(sprite_t *sprite) {
-    if (sprite->x + sprite->w > SCREEN_WIDTH) {     // Si la bordure droite dépasse le bord droit de l'écran
-        sprite->x = (SCREEN_WIDTH - sprite->w);
+    if (sprite->x + sprite->w > SCREEN_WIDTH - 100) {     // Si la bordure droite dépasse le bord droit de l'écran
+        sprite->x = (SCREEN_WIDTH - sprite->w - 100);
     }
 }
 
@@ -86,7 +86,7 @@ void low_overflow(sprite_t *sprite,world_t *world){
 void handle_vie(world_t *world) {
     if (world->mario.nbVies <= 0) {
         world->gameover = 1;   // La partie est terminée
-        world->gg =0; // le joueur a perdu 
+        world->gg = 0; // le joueur a perdu 
     }
 }
 
@@ -97,9 +97,19 @@ void update_data(world_t *world, menu_t *menu,ressources_t *r){
 
     // Gestion e la graviter 
    
-
- 
-
+    if (!down_collide(r)){
+		
+		gravite(world, r, 1);
+		
+		if(world->mario.d == 'd' || world->mario.d == 's'){
+			world->mario.i = 6;
+		}
+		if(world->mario.d == 'g' || world->mario.d == 'q'){
+			world->mario.i = 42;
+		}
+	}
+	
+	animation_mario(world);
 
     // Gestion du déplacement des éléments
     world->vy = INITIAL_SPEED;
@@ -116,6 +126,9 @@ void update_data(world_t *world, menu_t *menu,ressources_t *r){
 	update_timer(world, menu);
 
     // vérifier les murs 
+	
+	
+		
     
 }
 
@@ -145,43 +158,70 @@ void colli_walls(ressources_t *r, world_t *world){
     int w_m = r->DestR_mario.w;
 
     for(int i = 0; i < r->nb_walls; i++){
-        // Les collision quand mario est a droite avec le coter du murs 
+        // Les collision quand mario est a droite du mur
          if(world->mario.d == 'd'){
-            if((y_m <= r->DestR_walls[i].y  && y_m + h_m - 2>= r->DestR_walls[i].y && x_m + w_m >= r->DestR_walls[i].x && x_m + w_m <= r->DestR_walls[i].x + r->DestR_walls[i].w )
+            if((y_m <= r->DestR_walls[i].y  && y_m + h_m - 2 >= r->DestR_walls[i].y && x_m + w_m >= r->DestR_walls[i].x && x_m + w_m <= r->DestR_walls[i].x + r->DestR_walls[i].w )
                 ||( y_m <= r->DestR_walls[i].y +  r->DestR_walls[i].h && y_m + h_m - 2>= r->DestR_walls[i].y +r->DestR_walls[i].h && x_m + w_m >= r->DestR_walls[i].x  && x_m  <= r->DestR_walls[i].x)){
                 world->vy = 0;
             }
         }
 
-        // Les collision quand mario est a gauche avec le coter du murs 
+        // Les collision quand mario est a gauche du mur 
         if(world->mario.d == 'g'){
-           if((y_m <= r->DestR_walls[i].y  && y_m + h_m - 2>= r->DestR_walls[i].y && x_m <= r->DestR_walls[i].x + r->DestR_walls[i].w && x_m + w_m >= r->DestR_walls[i].x + r->DestR_walls[i].w)
+           if((y_m <= r->DestR_walls[i].y  && y_m + h_m - 2 >= r->DestR_walls[i].y && x_m <= r->DestR_walls[i].x + r->DestR_walls[i].w && x_m + w_m >= r->DestR_walls[i].x + r->DestR_walls[i].w)
            || (y_m <= r->DestR_walls[i].y + r->DestR_walls[i].h  && y_m + h_m - 2>= r->DestR_walls[i].y + r->DestR_walls[i].h && x_m >= r->DestR_walls[i].x + r->DestR_walls[i].w && x_m + w_m <= r->DestR_walls[i].x + r->DestR_walls[i].w )){
                 world->vy = 0;
             } 
         }
+		
+		//Collision en dessous du mur
+		if((x_m <= r->DestR_walls[i].x &&  x_m + w_m >= r->DestR_walls[i].x && y_m <= r->DestR_walls[i].y + r->DestR_walls[i].h && y_m + h_m - 2>= r->DestR_walls[i].y + r->DestR_walls[i].h)
+        ||(x_m <= r->DestR_walls[i].x +r->DestR_walls[i].w &&  x_m + w_m >= r->DestR_walls[i].x +r->DestR_walls[i].w && y_m <= r->DestR_walls[i].y + r->DestR_walls[i].h && y_m + h_m - 2>= r->DestR_walls[i].y + r->DestR_walls[i].h)  ){
+           //printf("coord mario = %u %u     coord mur = %u %u\n", world->mario.x, world->mario.y, r->DestR_walls[i].x, r->DestR_walls[i].y);
+			//world->mario.y = r->DestR_walls[i].y + r->DestR_walls[i].h + 2;
+        }
+    } 
+}
 
-        /*
-        // Les collision quand mario touche le dessous d'un murs 
+int up_collide(ressources_t *r){
+	int x_m = r->DestR_mario.x; 
+    int y_m = r->DestR_mario.y;
+    int h_m = r->DestR_mario.h;
+    int w_m = r->DestR_mario.w;
+	
+	for(int i = 0; i < r->nb_walls; i++){
+	// Les collision quand mario touche le dessous d'un murs 
         if((x_m <= r->DestR_walls[i].x &&  x_m + w_m >= r->DestR_walls[i].x && y_m <= r->DestR_walls[i].y + r->DestR_walls[i].h && y_m + h_m - 2>= r->DestR_walls[i].y + r->DestR_walls[i].h)
         ||(x_m <= r->DestR_walls[i].x +r->DestR_walls[i].w &&  x_m + w_m >= r->DestR_walls[i].x +r->DestR_walls[i].w && y_m <= r->DestR_walls[i].y + r->DestR_walls[i].h && y_m + h_m - 2>= r->DestR_walls[i].y + r->DestR_walls[i].h)  ){
-          //world->mario.y= r->DestR_walls[i].y + r->DestR_walls[i].h ;
-           
-        }*/
-
-        /*
-        // Les collision quand mario touche le dessus d'un murs 
-        if((x_m >= r->DestR_walls[i].x && x_m <= r->DestR_walls[i].x + r->DestR_walls[i].w && y_m + h_m + 2>= r->DestR_walls[i].y && y_m + h_m + 2<= r->DestR_walls[i].y + r->DestR_walls[i].h) 
-        || (x_m + w_m>= r->DestR_walls[i].x && x_m + w_m<= r->DestR_walls[i].x + r->DestR_walls[i].w && y_m + h_m + 2>= r->DestR_walls[i].y && y_m + h_m + 2<= r->DestR_walls[i].y + r->DestR_walls[i].h)   ){
-          // world->s = 1;
-        }else{
-             world->s = 0;
+           return 1;
         }
-        */
+	}
+	return 0;
+}
 
-    }
+int down_collide(ressources_t *r){
+	int x_m = r->DestR_mario.x; 
+    int y_m = r->DestR_mario.y;
+    int h_m = r->DestR_mario.h;
+    int w_m = r->DestR_mario.w;
+	
+	for(int i = 0; i < r->nb_walls; i++){
+	
+	// Les collision quand mario touche le dessus d'un murs 
+        if((x_m - 2 >= r->DestR_walls[i].x && x_m <= r->DestR_walls[i].x + r->DestR_walls[i].w  && y_m + h_m + 2>= r->DestR_walls[i].y && y_m + h_m + 2<= r->DestR_walls[i].y + r->DestR_walls[i].h) 
+        || (x_m + w_m - 2 >= r->DestR_walls[i].x && x_m + w_m<= r->DestR_walls[i].x + r->DestR_walls[i].w && y_m + h_m + 2>= r->DestR_walls[i].y && y_m + h_m + 2<= r->DestR_walls[i].y + r->DestR_walls[i].h)   ){
+          //printf("down_collide %u\n", i);
+			return 1;
+			
+        }
+	}
+	return 0;
+}
 
-    
+void update_gravite(ressources_t *r, world_t *world){
+	if(!down_collide(r)){
+			gravite(world, r, 1);
+	}
 }
 
 void colli_arrive(ressources_t *r, world_t *world){

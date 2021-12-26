@@ -356,12 +356,12 @@ void affichage(ressources_t *ressources,world_t *world){
 }
 
 void afficher_fond(ressources_t *ressources){
-	SDL_RenderCopy(ressources->ecran, ressources->fond, &ressources->SrcR_fond,&ressources->DestR_fond);
+	SDL_RenderCopy(ressources->ecran, ressources->fond, &ressources->SrcR_fond, &ressources->DestR_fond);
 }
 
 
 void afficher_arrive(ressources_t *ressources){
-	SDL_RenderCopy(ressources->ecran, ressources->arrive, &ressources->SrcR_arrive,&ressources->DestR_arrive);
+	SDL_RenderCopy(ressources->ecran, ressources->arrive, &ressources->SrcR_arrive, &ressources->DestR_arrive);
 }
 
 void affiche_mario(ressources_t *ressources,world_t *world){
