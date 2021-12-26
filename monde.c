@@ -196,17 +196,21 @@ void colli_arrive(ressources_t *r, world_t *world){
 
 
 void colli_champi(ressources_t *r, world_t *world){
-    int x_m = r->DestR_mario.x; 
-    int y_m = r->DestR_mario.y;
+    int x_m = world->mario.x; 
+    int y_m = world->mario.y;
     int h_m = r->DestR_mario.h;
     int w_m = r->DestR_mario.w;
 
     for(int i=0; i<r->nb_champi; i++){
         if((x_m >= r->DestR_champi[i].x && x_m <= r->DestR_champi[i].x + r->DestR_champi[i].w && h_m + y_m >= r->DestR_champi[i].y &&  y_m <= r->DestR_champi[i].y)
-        || (x_m + w_m>= r->DestR_champi[i].x && x_m + w_m<= r->DestR_champi[i].x + r->DestR_champi[i].w && h_m + y_m >= r->DestR_champi[i].y &&  y_m <= r->DestR_champi[i].y) ){
-            world->mario.nbVies =  world->mario.nbVies -1;
-            world->mario.x =0;
-           
+        || (x_m + w_m>= r->DestR_champi[i].x && x_m + w_m<= r->DestR_champi[i].x + r->DestR_champi[i].w && h_m + y_m >= r->DestR_champi[i].y &&  y_m <= r->DestR_champi[i].y)){
+            world->mario.nbVies--;
+            world->mario.x = 0;
+            world->mario.y = 478;
+			r->DestR_mario.x = 0;
+			r->DestR_mario.y = 478;
+            x_m = 0;
+			y_m = 0;
         }
         
     }

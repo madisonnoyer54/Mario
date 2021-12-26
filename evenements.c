@@ -243,7 +243,7 @@ void deplacement_droite(ressources_t *ressources,world_t *world){
 	
 }
 
-void deplacement_element(ressources_t *ressources,world_t *world){
+void deplacement_element(ressources_t *ressources, world_t *world){
 	for(int i=0; i<ressources->nb_walls;i++){
 		ressources->DestR_walls[i].x -= world->vy;
 
@@ -279,7 +279,7 @@ void deplacement_champi(ressources_t *r, world_t *world){
 			world->decompte = world->decompte +1;
 		}
 		else{
-			if(world->decompte  <=150){
+			if(world->decompte  <= 150){
 				r->DestR_champi[i].x = r->DestR_champi[i].x +1;
 				world->decompte = world->decompte +1;
 				d = 'd';
@@ -288,7 +288,7 @@ void deplacement_champi(ressources_t *r, world_t *world){
 				r->DestR_champi[i].x = r->DestR_champi[i].x -1;
 				world->decompte = world->decompte +1;
 				d ='g';
-				if(world->decompte  >=300){
+				if(world->decompte  >= 300){
 					world->decompte = 0;
 				}
 			}
