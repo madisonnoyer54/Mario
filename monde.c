@@ -173,7 +173,7 @@ void colli_walls(ressources_t *r, world_t *world){
 		if((x_m <= r->DestR_walls[i].x &&  x_m + w_m >= r->DestR_walls[i].x && y_m <= r->DestR_walls[i].y + r->DestR_walls[i].h && y_m + h_m - 2>= r->DestR_walls[i].y + r->DestR_walls[i].h)
         ||(x_m <= r->DestR_walls[i].x +r->DestR_walls[i].w &&  x_m + w_m >= r->DestR_walls[i].x +r->DestR_walls[i].w && y_m <= r->DestR_walls[i].y + r->DestR_walls[i].h && y_m + h_m - 2>= r->DestR_walls[i].y + r->DestR_walls[i].h)  ){
            //printf("coord mario = %u %u     coord mur = %u %u\n", world->mario.x, world->mario.y, r->DestR_walls[i].x, r->DestR_walls[i].y);
-			//world->mario.y = r->DestR_walls[i].y + r->DestR_walls[i].h + 2;
+			world->mario.y = r->DestR_walls[i].y + r->DestR_walls[i].h + 2;
         }
     } 
 }
