@@ -41,7 +41,7 @@ struct world_s{
     int nb_pieces;
     int gg;/*< Champ qui indique si le joueur a gagner*/
     int decompte;
-  
+    int niveau;
 };
 /**
  * \brief Type qui correspond aux données du monde
@@ -149,6 +149,8 @@ int down_collide(ressources_t *r);
 int up_collide(ressources_t *r);
 
 void update_gravite(ressources_t *r, world_t *world);
+
+void changement_niveau(ressources_t *r, world_t *world);
 
 /**
  * @brief met a jours toute les collisions

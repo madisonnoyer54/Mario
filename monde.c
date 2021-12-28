@@ -49,7 +49,7 @@ void init_data(world_t *world){
     world->pieces.i=0;
     world->nb_pieces = 0;
     
-
+	world->niveau = 1;
    
 
 	
@@ -124,11 +124,6 @@ void update_data(world_t *world, menu_t *menu,ressources_t *r){
 
 	// vérifie le timer
 	update_timer(world, menu);
-
-    // vérifier les murs 
-	
-	
-		
     
 }
 
@@ -206,13 +201,9 @@ int down_collide(ressources_t *r){
     int w_m = r->DestR_mario.w;
 	
 	for(int i = 0; i < r->nb_walls; i++){
-	
-	// Les collision quand mario touche le dessus d'un murs 
-        if((x_m - 2 >= r->DestR_walls[i].x && x_m <= r->DestR_walls[i].x + r->DestR_walls[i].w  && y_m + h_m + 2>= r->DestR_walls[i].y && y_m + h_m + 2<= r->DestR_walls[i].y + r->DestR_walls[i].h) 
-        || (x_m + w_m - 2 >= r->DestR_walls[i].x && x_m + w_m<= r->DestR_walls[i].x + r->DestR_walls[i].w && y_m + h_m + 2>= r->DestR_walls[i].y && y_m + h_m + 2<= r->DestR_walls[i].y + r->DestR_walls[i].h)   ){
-          //printf("down_collide %u\n", i);
+        if((x_m - 2 >= r->DestR_walls[i].x && x_m <= r->DestR_walls[i].x + r->DestR_walls[i].w  && y_m + h_m + 2 >= r->DestR_walls[i].y && y_m + h_m + 2<= r->DestR_walls[i].y + r->DestR_walls[i].h) 
+        || (x_m + w_m - 2 >= r->DestR_walls[i].x && x_m + w_m<= r->DestR_walls[i].x + r->DestR_walls[i].w && y_m + h_m + 2 >= r->DestR_walls[i].y && y_m + h_m + 2<= r->DestR_walls[i].y + r->DestR_walls[i].h)   ){
 			return 1;
-			
         }
 	}
 	return 0;
@@ -229,9 +220,37 @@ void colli_arrive(ressources_t *r, world_t *world){
     int w_m = r->DestR_mario.w;
 
     if(x_m + w_m >= r->DestR_arrive.x && x_m + w_m <= r->DestR_arrive.x + r->DestR_arrive.w ){
-        world->gameover = 1;
-        world->gg = 1;
+        
+		changement_niveau(r, world);
+		
     }  
+}
+
+void changement_niveau(ressources_t *r, world_t *world){
+	world->niveau++;
+	
+	world->mario.nbVies = 3;
+	
+	world->nb_pieces = 0;
+		
+	world->mario.x = 15;
+	world->mario.y = 478;
+		
+	for(int i=0; i<r->nb_walls;i++){
+		r->DestR_walls[i].x -= 2200;
+	}
+		
+	for(int i=0; i<r->nb_pieces;i++){
+		r->DestR_pieces[i].x -= 2200;
+	}
+
+	for(int i= 0; i<r->nb_champi; i++){
+		r->DestR_champi[i].x -= 2200;
+	}
+
+	r->DestR_fond.x -= 2200;
+	
+	r->DestR_arrive.x += 5500;
 }
 
 
@@ -246,9 +265,9 @@ void colli_champi(ressources_t *r, world_t *world){
         || (x_m + w_m>= r->DestR_champi[i].x && x_m + w_m<= r->DestR_champi[i].x + r->DestR_champi[i].w && h_m + y_m >= r->DestR_champi[i].y &&  y_m <= r->DestR_champi[i].y)){
             world->mario.nbVies--;
             world->mario.x = 0;
-            world->mario.y = 478;
+            world->mario.y = 200;
 			r->DestR_mario.x = 0;
-			r->DestR_mario.y = 478;
+			r->DestR_mario.y = 200;
             x_m = 0;
 			y_m = 0;
         }
