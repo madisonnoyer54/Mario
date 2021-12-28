@@ -186,7 +186,7 @@ void gravite(world_t *world, ressources_t *ressources, int g){
 
 void saut(world_t *world, ressources_t *ressources){
 	int y = world->mario.y;
-		while(world->mario.y > y-128){
+		while((world->mario.y > y-128) && (!up_collide(ressources))){
 			world->mario.y = world->mario.y - 20 - Graviter;
 			if(world->mario.d == 'd'){
 				deplacement_droite(ressources,world);
