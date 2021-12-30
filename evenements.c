@@ -251,35 +251,47 @@ void deplacement_element(ressources_t *ressources, world_t *world){
 void deplacement_champi(ressources_t *r, world_t *world){
 	char d;
 	for(int i = 0; i<r->nb_champi; i++){
-		if(r->DestR_champi[i].x - r->DestR_mario.x >=0 && r->DestR_champi[i].x - r->DestR_mario.x<= 400){
-			r->DestR_champi[i].x = r->DestR_champi[i].x -2;
-			d = 'g';
-			world->decompte = world->decompte +1;
-		}
-		if(r->DestR_champi[i].x -  r->DestR_mario.x <= 0 && r->DestR_champi[i].x -  r->DestR_mario.x >= -400){
-			r->DestR_champi[i].x = r->DestR_champi[i].x +2;
-			d ='d';
-			world->decompte = world->decompte +1;
-		}
-		else{
-			if(world->decompte  <= 150){
-				r->DestR_champi[i].x = r->DestR_champi[i].x +1;
-				world->decompte = world->decompte +1;
-				d = 'd';
+		if(down_collide_champi(r, i)){
+			if(r->DestR_champi[i].x - r->DestR_mario.x >=0 && r->DestR_champi[i].x - r->DestR_mario.x <= 400){
+				r->DestR_champi[i].x -= 2;
+				d = 'g';
+				world->decompte++;
 			}
-			if(world->decompte  > 150){
-				r->DestR_champi[i].x = r->DestR_champi[i].x -1;
-				world->decompte = world->decompte +1;
-				d ='g';
-				if(world->decompte  >= 300){
-					world->decompte = 0;
+			if(r->DestR_champi[i].x -  r->DestR_mario.x <= 0 && r->DestR_champi[i].x - r->DestR_mario.x >= -400){
+				r->DestR_champi[i].x += 2;
+				d ='d';
+				world->decompte++;
+			}
+			else{
+				if(world->decompte  <= 150){
+					r->DestR_champi[i].x++;
+					world->decompte++;
+					d = 'd';
 				}
-			}
+				if(world->decompte  > 150){
+					r->DestR_champi[i].x--;
+					world->decompte++;
+					d ='g';
+					if(world->decompte  >= 300){
+						world->decompte = 0;
+					}
+				}
 			
-		}
-
-		animation_champi(d,r,i,world->decompte);
-	
+			}
+			 
+			animation_champi(d, r, i, world->decompte, 0);
+			 
+		 }
+		 else{
+			 while(r->DestR_champi[i].y < 600){
+			 	r->DestR_champi[i].y += Graviter;
+				SDL_RenderCopy(r->ecran, r->champi, &r->SrcR_champi[22], &r->DestR_champi[i]);
+				SDL_RenderPresent(r->ecran);
+				SDL_Delay(1);
+			 }
+			 r->DestR_champi[i].x = -1234;
+		 }
 	}
+	
 	
 }

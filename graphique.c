@@ -396,7 +396,6 @@ void affiche_vies(ressources_t *ressources,world_t *world){
 
 void affiche_champi(ressources_t *ressources, world_t *world){
 	deplacement_champi(ressources, world);
-	
 }
 
 void affiche_walls(ressources_t *ressources){

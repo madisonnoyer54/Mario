@@ -57,7 +57,7 @@ int main(){
 	    
 
 	// Boucle principale
-	while(!is_game_over(&world)){
+	while(!is_game_over(&world) && !is_game_win(&world)){
 		// Affichage des élement 
 		affichage(&r, &world);
 

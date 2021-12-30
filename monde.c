@@ -24,6 +24,10 @@ void init_sprite(sprite_t *sprite, int x, int y, int w, int h) {
     sprite->h = h;   
 }
 
+int is_game_win(world_t *world){
+	return world->gg;	
+}
+
 
 int is_game_over(world_t *world){
     return world->gameover;
@@ -33,6 +37,7 @@ void init_data(world_t *world){
 	
 	//Initialisation des données utiles à la boucle de jeu
 	world->gameover = 0;
+	world->gg = 0;
 	
 	//Initialisation du nombre de vies
   	world->mario.nbVies= 3;
@@ -64,8 +69,8 @@ void left_overflow(sprite_t *sprite) {
 
 
 void right_overflow(sprite_t *sprite) {
-    if (sprite->x + sprite->w > SCREEN_WIDTH - 100) {     // Si la bordure droite dépasse le bord droit de l'écran
-        sprite->x = (SCREEN_WIDTH - sprite->w - 100);
+    if (sprite->x + sprite->w > SCREEN_WIDTH - 300) {     // Si la bordure droite dépasse le bord droit de l'écran
+        sprite->x = (SCREEN_WIDTH - sprite->w - 300);
     }
 }
 
@@ -168,14 +173,6 @@ void colli_walls(ressources_t *r, world_t *world){
                 world->vy = 0;
             } 
         }
-		
-		//Collision en dessous du mur
-		if((x_m <= r->DestR_walls[i].x &&  x_m + w_m >= r->DestR_walls[i].x && y_m <= r->DestR_walls[i].y + r->DestR_walls[i].h && y_m + h_m - 2>= r->DestR_walls[i].y + r->DestR_walls[i].h)
-        ||(x_m <= r->DestR_walls[i].x +r->DestR_walls[i].w &&  x_m + w_m >= r->DestR_walls[i].x +r->DestR_walls[i].w && y_m <= r->DestR_walls[i].y + r->DestR_walls[i].h && y_m + h_m - 2>= r->DestR_walls[i].y + r->DestR_walls[i].h)  ){
-           //printf("coord mario = %u %u     coord mur = %u %u\n", world->mario.x, world->mario.y, r->DestR_walls[i].x, r->DestR_walls[i].y);
-			//world->mario.y = r->DestR_walls[i].y + r->DestR_walls[i].h + 2;
-			printf("collide !\n");
-        }
     } 
 }
 
@@ -210,6 +207,22 @@ int down_collide(ressources_t *r){
 	return 0;
 }
 
+int down_collide_champi(ressources_t *r, int c){
+	int x_m = r->DestR_champi[c].x; 
+    int y_m = r->DestR_champi[c].y;
+    int h_m = r->DestR_champi[c].h;
+    int w_m = r->DestR_champi[c].w;
+	
+	for(int i = 0; i < r->nb_walls; i++){
+        if((x_m - 2 >= r->DestR_walls[i].x && x_m <= r->DestR_walls[i].x + r->DestR_walls[i].w  && y_m + h_m + 2 >= r->DestR_walls[i].y && y_m + h_m + 2<= r->DestR_walls[i].y + r->DestR_walls[i].h) 
+        || (x_m + w_m - 2 >= r->DestR_walls[i].x && x_m + w_m<= r->DestR_walls[i].x + r->DestR_walls[i].w && y_m + h_m + 2 >= r->DestR_walls[i].y && y_m + h_m + 2<= r->DestR_walls[i].y + r->DestR_walls[i].h)   ){
+			return 1;
+        }
+	}
+	return 0;
+}
+	
+
 void update_gravite(ressources_t *r, world_t *world){
 	if(!down_collide(r)){
 			gravite(world, r, 1);
@@ -228,30 +241,42 @@ void colli_arrive(ressources_t *r, world_t *world){
 }
 
 void changement_niveau(ressources_t *r, world_t *world){
-	world->niveau++;
-	
-	world->mario.nbVies = 3;
-	
-	world->nb_pieces = 0;
+	if(world->niveau == 3){
+		world->gg = 1;
 		
-	world->mario.x = 15;
-	world->mario.y = 478;
-		
-	for(int i=0; i<r->nb_walls;i++){
-		r->DestR_walls[i].x -= 2200;
 	}
+	else{
+		world->niveau++;
+	
+		world->mario.nbVies = 3;
+	
+		world->nb_pieces = 0;
 		
-	for(int i=0; i<r->nb_pieces;i++){
-		r->DestR_pieces[i].x -= 2200;
-	}
+		world->mario.x = 15;
+		
+		if(world->niveau == 3){
+			world->mario.y = 10;
+		}
+		else{
+			world->mario.y = 478;
+		}
+		
+		for(int i=0; i<r->nb_walls;i++){
+			r->DestR_walls[i].x -= 2100;
+		}
+		
+		for(int i=0; i<r->nb_pieces;i++){
+			r->DestR_pieces[i].x -= 2100;
+		}
 
-	for(int i= 0; i<r->nb_champi; i++){
-		r->DestR_champi[i].x -= 2200;
-	}
+		for(int i= 0; i<r->nb_champi; i++){
+			r->DestR_champi[i].x -= 2100;
+		}
 
-	r->DestR_fond.x -= 2200;
+		r->DestR_fond.x -= 2100;
 	
-	r->DestR_arrive.x += 5500;
+		r->DestR_arrive.x += 6000;
+	}
 }
 
 
@@ -262,17 +287,25 @@ void colli_champi(ressources_t *r, world_t *world){
     int w_m = r->DestR_mario.w;
 
     for(int i=0; i<r->nb_champi; i++){
+		
         if((x_m >= r->DestR_champi[i].x && x_m <= r->DestR_champi[i].x + r->DestR_champi[i].w && h_m + y_m >= r->DestR_champi[i].y &&  y_m <= r->DestR_champi[i].y)
         || (x_m + w_m>= r->DestR_champi[i].x && x_m + w_m<= r->DestR_champi[i].x + r->DestR_champi[i].w && h_m + y_m >= r->DestR_champi[i].y &&  y_m <= r->DestR_champi[i].y)){
-            world->mario.nbVies--;
-            world->mario.x = 0;
-            world->mario.y = 200;
-			r->DestR_mario.x = 0;
-			r->DestR_mario.y = 200;
-            x_m = 0;
-			y_m = 0;
-        }
-        
+			if((x_m - 2 >= r->DestR_champi[i].x && x_m <= r->DestR_champi[i].x + r->DestR_champi[i].w  && y_m + h_m + 2 >= r->DestR_champi[i].y && y_m + h_m + 2<= r->DestR_champi[i].y + r->DestR_champi[i].h) 
+        	|| (x_m + w_m - 2 >= r->DestR_champi[i].x && x_m + w_m<= r->DestR_champi[i].x + r->DestR_champi[i].w && y_m + h_m + 2 >= r->DestR_champi[i].y && y_m + h_m + 2<= r->DestR_champi[i].y + r->DestR_champi[i].h)   ){
+				animation_champi('d', r, i, world->decompte, 1);
+				r->DestR_champi[i].x = -1200;
+			}
+			else{
+            	world->mario.nbVies--;
+            	world->mario.x = 0;
+            	world->mario.y = 200;
+				r->DestR_mario.x = 0;
+				r->DestR_mario.y = 200;
+            	x_m = 0;
+				y_m = 0;
+				printf("Vous avez perdu une vie ! Plus que %u !\n", world->mario.nbVies);
+			}
+		}
     }
     
 }

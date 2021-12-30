@@ -29,7 +29,7 @@ void animation_mario(world_t *world);
  */
 void animation_pieces(world_t *world);
 
-void animation_champi(char d, ressources_t *r, int i, int decompte);
+void animation_champi(char d, ressources_t *r, int i, int decompte, int ecrase);
 
 
 #endif

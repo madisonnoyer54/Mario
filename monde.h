@@ -60,6 +60,14 @@ typedef struct world_s world_t;
 void init_sprite(sprite_t *sprite, int x, int y, int w, int h);
 
 
+
+
+
+
+int is_game_win(world_t *world);
+
+
+
 /**
  * \brief La fonction indique si le jeu est fini en fonction des données du monde
  * \param world les données du monde
@@ -145,6 +153,8 @@ void colli_arrive(ressources_t *r, world_t *world);
 void colli_champi(ressources_t *r, world_t *world);
 
 int down_collide(ressources_t *r);
+
+int down_collide_champi(ressources_t *r, int c);
 
 int up_collide(ressources_t *r);
 
