@@ -19,15 +19,15 @@ struct ressources_s{
    	SDL_Window* fenetre;
    	SDL_Renderer* ecran;
 
-	//gérer l'affichage du fond
+	//Gestion de l'affichage du fond
    	SDL_Texture* fond;
 	SDL_Rect SrcR_fond;
 	SDL_Rect DestR_fond;
 
-
+	//Font generale du jeu
 	TTF_Font* font; 
 	
-	//Gérer l'affichage du menu
+	//Gestion de l'affichage du menu
 	SDL_Texture* fond_menu;
 	SDL_Texture* texte_menu;
 	TTF_Font* font_menu;
@@ -39,27 +39,27 @@ struct ressources_s{
 	SDL_Rect SrcR_marioMenu[3];
 	SDL_Rect DestR_marioMenu[3];
 
-	//Gérer affichage du timer
+	//Gestion de l'affichage du timer
 	SDL_Texture* texte_timer;
 	SDL_Rect timer_pos;
 
-	//Gérer affichage des vies
+	//Gestion de l'affichage des vies
 	SDL_Texture* vie;
 	SDL_Rect SrcR_vie;
 	SDL_Rect DestR_vies[3];
     
-  	// Pour gérer l'affichage du Mario 
+  	//Gestion de l'affichage du Mario 
    	SDL_Texture* mario;
    	SDL_Rect SrcR_mario[72];
 	SDL_Rect DestR_mario;
 
-	// Pour gérer l'affichage des murs
+	//Gestion de l'affichage des murs
 	SDL_Texture* walls;
 	SDL_Rect SrcR_walls[6];
 	SDL_Rect* DestR_walls;
 	int nb_walls;
 
-	// Pour gérer l'affichage des pieces
+	//Gestion de l'affichage des pieces
 	SDL_Texture* pieces;
 	SDL_Rect SrcR_pieces[6];
 	SDL_Rect* DestR_pieces;
@@ -67,18 +67,22 @@ struct ressources_s{
 	SDL_Texture* texte_nb_pieces;
 	int nb_pieces;
 
-	// Pour gérer l'affichage des champis
+	//Gestion de l'affichage des champis
 	SDL_Texture* champi;
 	SDL_Rect SrcR_champi[23];
 	SDL_Rect* DestR_champi;
 	int nb_champi;
 
-	// Pour gérer l'affichage de l'arriver
+	//Gestion de l'affichage de l'arrive
 	SDL_Texture* arrive;
 	SDL_Rect SrcR_arrive;
 	SDL_Rect DestR_arrive;
+	
+	//Gestion de l'affichage du num de niveau
+	SDL_Texture* texte_niv;
+	SDL_Rect niv_pos;
 
-	//Gérer affichage du texte de fin
+	//Gestion de l'affichage du texte de fin
 	SDL_Texture* texte_fin;
 	SDL_Rect fin_pos;
 
@@ -191,6 +195,14 @@ void affiche_mario(ressources_t *ressources,world_t *world);
  * \param world le monde
  */
 void affiche_timer(ressources_t *ressources,world_t *world);
+
+
+/**
+ * \brief Gère l'affichage du numero de niveau
+ * \param ressources les ressources du jeu
+ * \param world le monde
+ */
+void affiche_niveau(ressources_t *ressources, world_t *world);
 
 
 /**

@@ -236,7 +236,7 @@ void colli_arrive(ressources_t *r, world_t *world){
     int x_m = r->DestR_mario.x; 
     int w_m = r->DestR_mario.w;
 
-    if(x_m + w_m >= r->DestR_arrive.x && x_m + w_m <= r->DestR_arrive.x + r->DestR_arrive.w ){
+    if(x_m + w_m >= r->DestR_arrive.x && x_m + w_m <= r->DestR_arrive.x + r->DestR_arrive.w){
 		changement_niveau(r, world);
     }  
 }

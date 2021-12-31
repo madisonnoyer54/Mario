@@ -353,9 +353,9 @@ void affichage(ressources_t *ressources,world_t *world){
 
 	affiche_champi(ressources, world);   //Affichage des champis
  
-	afficher_arrive(ressources);     //Affiche de l'arrivee
+	afficher_arrive(ressources);     //Affichage de l'arrive
 
-
+	affiche_niveau(ressources, world);     //Affichage du numero de niveau
 	
 }
 
@@ -377,7 +377,6 @@ void affiche_timer(ressources_t *ressources, world_t *world){
 	char timer[50];
 	sprintf(timer, "Timer : %d", world->timer);
 	
-	
 	SDL_Color color = {0,0,0,0};
 	ressources->texte_timer = charger_texte(timer, ressources->ecran, ressources->font, color);
 	int timerW, timerH;
@@ -390,8 +389,24 @@ void affiche_timer(ressources_t *ressources, world_t *world){
 	SDL_RenderCopy(ressources->ecran, ressources->texte_timer, NULL, &ressources->timer_pos); 
 }
 
+void affiche_niveau(ressources_t *ressources, world_t *world){
+	char niveau[50];
+	sprintf(niveau, "Niv %d", world->niveau);
+	
+	SDL_Color color = {0,0,0,0};
+	ressources->texte_niv = charger_texte(niveau, ressources->ecran, ressources->font, color);
+	int w, h;
+	SDL_QueryTexture(ressources->texte_niv, NULL, NULL, &w, &h);
+	ressources->niv_pos.x = 1120;
+	ressources->niv_pos.y = 10;
+	ressources->niv_pos.w = w;
+	ressources->niv_pos.h = h;
+	
+	SDL_RenderCopy(ressources->ecran, ressources->texte_niv, NULL, &ressources->niv_pos);
+}
 
-void affiche_vies(ressources_t *ressources,world_t *world){
+
+void affiche_vies(ressources_t *ressources, world_t *world){
 	for(int i=0; i<world->mario.nbVies; i++){
 		SDL_RenderCopy(ressources->ecran, ressources->vie, &ressources->SrcR_vie, &ressources->DestR_vies[i]);
 	}
@@ -407,7 +422,7 @@ void affiche_walls(ressources_t *ressources){
     int n = 0;
     int m = 0; 
 	int a =0;
-    taille_fichier("ressources/terrain.txt",&n,&m);
+    taille_fichier("ressources/terrain.txt", &n, &m);
     tab = lire_fichier("ressources/terrain.txt");
 		for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
