@@ -77,15 +77,16 @@ void evenement(ressources_t *ressources,world_t *world){
 	const Uint8 *keystates = SDL_GetKeyboardState(NULL);
 	
 	switch(evenements.type){
-		case SDL_QUIT:world->gameover = 1; 
-		break;
+		case SDL_QUIT:
+			world->fin = 1; 
+			break;
 			
 		case SDL_KEYDOWN:
 		switch(evenements.key.keysym.sym){
 			case SDLK_ESCAPE:
 
             		case SDLK_q:
-            			world->gameover =1;
+            			world->fin =1;
             			break;
             case SDLK_LEFT:
             	world->mario.x -= world->vy ;
@@ -186,16 +187,23 @@ void gravite(world_t *world, ressources_t *ressources, int g){
 
 void saut(world_t *world, ressources_t *ressources){
 	int y = world->mario.y;
+	
 		while((world->mario.y > y-128) && (!up_collide(ressources))){
 			world->mario.y = world->mario.y - 20 - Graviter;
 			if(world->mario.d == 'd'){
 				deplacement_droite(ressources,world);
 				world->mario.x += 10;
-				world->mario.i = 14;
+				world->mario.i = 0;
 			}
 			if(world->mario.d == 'g'){
 				world->mario.x = world->mario.x - world->vy - 10;
-				world->mario.i = 48;
+				world->mario.i = 36;
+			}
+			if(world->mario.d == 's'){
+				world->mario.i = 0;
+			}
+			if(world->mario.d == 'q'){
+				world->mario.i = 36;
 			}
 
 			overflow(world);
@@ -210,8 +218,17 @@ void saut(world_t *world, ressources_t *ressources){
 
 		
 		}
+	
+	
 	while(!down_collide(ressources)){
 		gravite(world, ressources, 2);
+	}
+	
+	if(world->mario.d == 'd' || world->mario.d == 's'){
+		world->mario.i = 18;
+	}
+	else{
+		world->mario.i = 54;
 	}
 }
 
@@ -294,4 +311,50 @@ void deplacement_champi(ressources_t *r, world_t *world){
 	}
 	
 	
+}
+
+
+
+
+void fin_du_jeu(ressources_t *ressources, world_t *world){
+  if(!world->fin){
+	if(is_game_over(world)){            //Le jeu s'est fini car le joueur a perdu
+		ressources->font = TTF_OpenFont("ressources/Minecraft.ttf", 45);
+		SDL_Color color = {0,0,0,0};
+		char message[] = "VOUS AVEZ PERDU ! RETENTEZ VOTRE CHANCE !";
+		ressources->texte_fin = charger_texte(message, ressources->ecran, ressources->font, color);
+		int w, h;
+		SDL_QueryTexture(ressources->texte_fin, NULL, NULL, &w, &h);
+		ressources->fin_pos.x = (SCREEN_WIDTH-w)/2;
+		ressources->fin_pos.y = (SCREEN_HEIGHT-h)/2;
+		ressources->fin_pos.w = w;
+		ressources->fin_pos.h = h;
+		
+		while(!world->fin){
+			SDL_RenderCopy(ressources->ecran, ressources->texte_fin, NULL, &ressources->fin_pos); 
+			SDL_RenderPresent(ressources->ecran);
+			SDL_Delay(10);
+			evenement(ressources, world);
+		}
+	}
+	if(is_game_win(world)){           //Le jeu s'est fini car le joueur a gagne les 3 niveaux
+		ressources->font = TTF_OpenFont("ressources/Minecraft.ttf", 45);
+		SDL_Color color = {0,0,0,0};
+		char message[] = "FELICITATIONS ! VOUS AVEZ GAGNE !";
+		ressources->texte_fin = charger_texte(message, ressources->ecran, ressources->font, color);
+		int w, h;
+		SDL_QueryTexture(ressources->texte_fin, NULL, NULL, &w, &h);
+		ressources->fin_pos.x = (SCREEN_WIDTH-w)/2;
+		ressources->fin_pos.y = (SCREEN_HEIGHT-h)/2;
+		ressources->fin_pos.w = w;
+		ressources->fin_pos.h = h;
+		
+		while(!world->fin){
+			SDL_RenderCopy(ressources->ecran, ressources->texte_fin, NULL, &ressources->fin_pos); 
+			SDL_RenderPresent(ressources->ecran);
+			SDL_Delay(10);
+			evenement(ressources, world);
+		}
+	}
+  }
 }

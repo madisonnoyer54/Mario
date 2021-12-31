@@ -17,6 +17,31 @@
 #include "menu.h" 
 
 
+
+void init_data(world_t *world){
+	
+	// Initialisation des données utiles à la boucle de jeu
+	world->gameover = 0;
+	world->gg = 0;
+	world->fin = 0;
+	
+	// Initialisation du nombre de vies
+  	world->mario.nbVies= 3;
+    
+	// Variable de déplacement pour Mario 
+	world->mario.i = 0;
+	world->mario.decompte= 0;
+    init_sprite(&world->mario, 15, 478, MARIO_WIDTH, MARIO_SIZE);
+
+    // Variable initialisation piece 
+    world->pieces.i=0;
+    world->nb_pieces = 0;
+    
+	// Variable initialisation du numero de niveau
+	world->niveau = 1;
+	
+}
+
 void init_sprite(sprite_t *sprite, int x, int y, int w, int h) {
     sprite->x = x;
     sprite->y = y;
@@ -33,31 +58,8 @@ int is_game_over(world_t *world){
     return world->gameover;
 }
 
-void init_data(world_t *world){
-	
-	//Initialisation des données utiles à la boucle de jeu
-	world->gameover = 0;
-	world->gg = 0;
-	
-	//Initialisation du nombre de vies
-  	world->mario.nbVies= 3;
-    
-    
- 
-  
-	// Variable de déplacement pour Mario 
-	world->mario.i = 0;
-	world->mario.decompte= 0;
-    init_sprite(&world->mario, 15, 478, MARIO_WIDTH, MARIO_SIZE);
-
-    // variable initialisation piece 
-    world->pieces.i=0;
-    world->nb_pieces = 0;
-    
-	world->niveau = 1;
-   
-
-	
+int is_game_closed(world_t *world){
+	return world->fin;
 }
 
 
@@ -81,9 +83,12 @@ void high_overflow(sprite_t *sprite){
 }
 
 void low_overflow(sprite_t *sprite,world_t *world){
-    if(sprite->y >= 600){
-        world->gameover = 1;
-        world->gg =0;
+    if(sprite->y >= 550){
+        world->mario.nbVies--;
+        world->mario.x = 0;
+        world->mario.y = 200;
+        printf("Vous avez perdu une vie ! Plus que %u !\n", world->mario.nbVies);
+    	
     }
 }
 
@@ -97,10 +102,10 @@ void handle_vie(world_t *world) {
 
 
 void update_data(world_t *world, menu_t *menu,ressources_t *r){
-    // Gestion des dépassements à gauche et à droite et en haut et en bas
+    // Gestion des dépassements de l'ecran
     overflow(world);
 
-    // Gestion e la graviter 
+    // Gestion de la graviter 
    
     if (!down_collide(r)){
 		
@@ -118,16 +123,14 @@ void update_data(world_t *world, menu_t *menu,ressources_t *r){
 
     // Gestion du déplacement des éléments
     world->vy = INITIAL_SPEED;
- 
-
 
     // Gestion des collisions
     update_colli(r,world);
 
-	// vérifie si le joueur est en vie
+	// Vérifie si le joueur est en vie
     handle_vie(world);
 
-	// vérifie le timer
+	// Màj du timer
 	update_timer(world, menu);
     
 }
@@ -234,9 +237,7 @@ void colli_arrive(ressources_t *r, world_t *world){
     int w_m = r->DestR_mario.w;
 
     if(x_m + w_m >= r->DestR_arrive.x && x_m + w_m <= r->DestR_arrive.x + r->DestR_arrive.w ){
-        
 		changement_niveau(r, world);
-		
     }  
 }
 

@@ -25,25 +25,28 @@ void init_for_SDL(ressources_t *ressources){
 	ressources->fenetre = SDL_CreateWindow("Fenetre SDL", SDL_WINDOWPOS_CENTERED,SDL_WINDOWPOS_CENTERED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_RESIZABLE);
 	if(ressources->fenetre == NULL)      //Si erreur
 	{
-		printf("Erreur de la creation d’une fenetre: %s",SDL_GetError());
+		printf("Erreur de la creation d’une fenetre: %s", SDL_GetError());
 		SDL_Quit();
 	}
+	
+	SDL_SetWindowTitle(ressources->fenetre, "Notre jeu"); 
 	
 
 	ressources->ecran = SDL_CreateRenderer(ressources->fenetre, -1, SDL_RENDERER_ACCELERATED);  	// Mise en place un contexte de rendu de l’écran
 
-	//ressources->fond = charger_image("ressources/fond.bmp", ressources->ecran );          //Chargement du fond de jeu
-
 	ressources->fond_menu = charger_image("ressources/fond_menu.bmp", ressources->ecran);    //Chargement fond de menu
 	
 	//Initialisation des données 
+	
+	init_fond(ressources);
+	
 	init_vies(ressources);
+	
 	init_timer(ressources);
 
 	init_pieces(ressources);
 
 	init_walls(ressources);
-	init_fond(ressources);
 
 	init_champi(ressources);
 
@@ -84,7 +87,7 @@ void init_arrive(ressources_t *ressources){
 		ressources->SrcR_arrive.h = tailleH_r; // Hauteur de l’objet en pixels 
 
 		ressources->DestR_arrive.x = 7000;
-		ressources->DestR_arrive.y = 159;
+		ressources->DestR_arrive.y = 68;
 		ressources->DestR_arrive.w = tailleW_r*3; // Largeur du sprite
 		ressources->DestR_arrive.h = tailleH_r*3; // Hauteur du sprite
 }
@@ -97,15 +100,19 @@ void init_mario(ressources_t *ressources,world_t *world){              //appelé
 	switch(world->mario.couleur){
 		case 0:
 			ressources->mario = charger_image_transparente("ressources/mario.png", ressources->ecran);
+			printf("Vous avez choisi le mario rouge, bon choix !\n");
 			break;
 		case 1:
 			ressources->mario = charger_image_transparente("ressources/marioViolet.png", ressources->ecran);
+			printf("Vous avez choisi le mario violet, bon choix !\n");
 			break;
 		case 2:
 			ressources->mario = charger_image_transparente("ressources/marioJaune.png", ressources->ecran);
+			printf("Vous avez choisi le mario jaune, bon choix !\n");
 			break;
 		default:   //par defaut, on applique le mario normal (rouge)
 			ressources->mario = charger_image_transparente("ressources/mario.png", ressources->ecran);
+			printf("Vous n'avez choisi aucun personnage, le mario rouge est choisi par defaut !\n");
 			break;
 	}
 
@@ -128,17 +135,17 @@ void init_mario(ressources_t *ressources,world_t *world){              //appelé
 			ressources->SrcR_mario[a].h = tailleH/8 ; // Hauteur de l’objet en pixels 
 
 		
-			a = a +1;
+			a++;
 		}
 			ressources->DestR_mario.x = world->mario.x;
 			ressources->DestR_mario.y = world->mario.y;
 			ressources->DestR_mario.w = tailleW/10  ; // Largeur du sprite
 			ressources->DestR_mario.h = tailleH/9 ; // Hauteur du sprite
-       y = y + tailleH/8;
+       y += tailleH/8;
 	   
 	}
 	
-	world->mario.i =6;
+	world->mario.i = 6;
 
 }
 
@@ -147,14 +154,14 @@ void init_champi(ressources_t *ressources){
 	int tailleW_c, tailleH_c; 
 
 	 // tableau de sprite 
-   ressources->champi = charger_image_transparente("ressources/champi.png", ressources->ecran);
+    ressources->champi = charger_image_transparente("ressources/champi.png", ressources->ecran);
 	
     
     SDL_QueryTexture(ressources->champi, NULL, NULL, &tailleW_c, &tailleH_c);
 
 		
-	int y =0;
-	int a= 0;
+	int y = 0;
+	int a = 0;
     for(int i = 0; i < 5; i++) {
 		for(int j =0; j < 5; j++){
 			ressources->SrcR_champi[a].x = j* (tailleW_c/5) ;
@@ -165,12 +172,12 @@ void init_champi(ressources_t *ressources){
 				
 			a = a +1;
 		}
-    	y = y + tailleH_c/5;
+    	y += tailleH_c/5;
 	}
 
 	char** tab;
     int n, m;
-	a =0;
+	a = 0;
     taille_fichier("ressources/terrain.txt",&n,&m);
     tab = lire_fichier("ressources/terrain.txt");
 	ressources->nb_champi = nbChampi(tab, n, m);
@@ -210,17 +217,16 @@ void init_walls(ressources_t *ressources){
 			ressources->SrcR_walls[a].y = y ;
 			ressources->SrcR_walls[a].w = tailleW_B/2; // Largeur de l’objet en pixels 
 			ressources->SrcR_walls[a].h = tailleH_B/3 ; // Hauteur de l’objet en pixels 
-
-				
-			a = a +1;
+	
+			a++;
 		}
-    	y = y + tailleH_B/3;
+    	y += tailleH_B/3;
 	}
 
 	char** tab;
     int n, m;
-	a =0;
-    taille_fichier("ressources/terrain.txt",&n,&m);
+	a = 0;
+    taille_fichier("ressources/terrain.txt", &n, &m);
     tab = lire_fichier("ressources/terrain.txt");
 	ressources->nb_walls = nbWalls(tab, n, m);
 	ressources->DestR_walls = malloc(ressources->nb_walls * sizeof(SDL_Rect));
@@ -254,15 +260,13 @@ void init_pieces(ressources_t *ressources){
 			ressources->SrcR_pieces[j].y = 0 ;
 			ressources->SrcR_pieces[j].w = tailleW_p/5; // Largeur de l’objet en pixels 
 			ressources->SrcR_pieces[j].h = tailleH_p ; // Hauteur de l’objet en pixels 
-
-				
 		}
 	
 
 	char **tab;
     int n, m;
 	int a = 0;
-    taille_fichier("ressources/terrain.txt",&n,&m);
+    taille_fichier("ressources/terrain.txt", &n, &m);
     tab = lire_fichier("ressources/terrain.txt");
 	ressources->nb_pieces = nbPieces(tab, n, m);
 	ressources->DestR_pieces = malloc(ressources->nb_pieces * sizeof(SDL_Rect));
@@ -347,9 +351,9 @@ void affichage(ressources_t *ressources,world_t *world){
 
 	affiche_pieces(ressources, world); // Affichage des pieces
 
-	affiche_champi(ressources, world);
-
-	afficher_arrive(ressources);
+	affiche_champi(ressources, world);   //Affichage des champis
+ 
+	afficher_arrive(ressources);     //Affiche de l'arrivee
 
 
 	
@@ -479,6 +483,7 @@ void Destroy(ressources_t ressources){
 	SDL_DestroyTexture(ressources.mario);
 	SDL_DestroyTexture(ressources.vie);
 	SDL_DestroyTexture(ressources.texte_timer);
+	SDL_DestroyTexture(ressources.texte_fin);
 	SDL_DestroyTexture(ressources.walls);
 	SDL_DestroyTexture(ressources.pieces);
 	SDL_DestroyTexture(ressources.champi);
@@ -534,6 +539,3 @@ int nbChampi(char** tab, int n, int m){
 	}
 	return res;
 }
-
-
-

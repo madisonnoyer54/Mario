@@ -67,7 +67,7 @@ struct ressources_s{
 	SDL_Texture* texte_nb_pieces;
 	int nb_pieces;
 
-	// Pour gérer l'affichage des champignon 
+	// Pour gérer l'affichage des champis
 	SDL_Texture* champi;
 	SDL_Rect SrcR_champi[23];
 	SDL_Rect* DestR_champi;
@@ -78,8 +78,9 @@ struct ressources_s{
 	SDL_Rect SrcR_arrive;
 	SDL_Rect DestR_arrive;
 
-
-	
+	//Gérer affichage du texte de fin
+	SDL_Texture* texte_fin;
+	SDL_Rect fin_pos;
 
 };
 /**
@@ -99,17 +100,15 @@ void init_for_SDL(ressources_t *ressources);
 
 
 /**
- * @brief initialise le fond du jeux 
- * 
- * @param ressources, les ressources du jeu 
+ * \brief initialise le fond du jeux 
+ * \param ressources, les ressources du jeu 
  */
 void init_fond(ressources_t *ressources);
 
 
 /**
- * @brief Initialisation de l'arriver
- * 
- * @param ressources , les ressources
+ * \brief Initialisation de l'arriver
+ * \param ressources , les ressources
  */
 void init_arrive(ressources_t *ressources);
 
@@ -123,9 +122,8 @@ void init_mario(ressources_t *ressources, world_t *world);
 
 
 /**
- * @brief Initialise les champignon, permet de découper la plage de sprite 
- * 
- * @param ressources, les ressources
+ * \brief Initialise les champignon, permet de découper la plage de sprite 
+ * \param ressources, les ressources
  */
 void init_champi(ressources_t *ressources);
 
@@ -173,9 +171,8 @@ void afficher_fond(ressources_t *ressources);
 
 
 /**
- * @brief gére l'affichage de l'arriver
- * 
- * @param ressources , les ressources
+ * \brief gére l'affichage de l'arriver
+ * \param ressources , les ressources
  */
 void afficher_arrive(ressources_t *ressources);
 
@@ -205,9 +202,8 @@ void affiche_vies(ressources_t *ressources,world_t *world);
 
 
 /**
- * @brief gére l'affichage du champignon 
- * 
- * @param ressources, les ressources
+ * \brief gére l'affichage du champignon 
+ * \param ressources, les ressources
  */
 void affiche_champi(ressources_t *ressources, world_t *world);
 
@@ -252,12 +248,11 @@ int nbWalls(char** tab, int n, int m);
 int nbPieces(char** tab, int n, int m);
 
 /**
- * @brief retourne le nombre de champignon dans le tableau
- * 
- * @param tab, le tableau 
- * @param n , la hauteur du tableau 
- * @param m , la largeur du tableau 
- * @return int , le nombre de champi
+ * \brief retourne le nombre de champignon dans le tableau
+ * \param tab, le tableau 
+ * \param n , la hauteur du tableau 
+ * \param m , la largeur du tableau 
+ * \return int , le nombre de champi
  */
 int nbChampi(char** tab, int n, int m);
 

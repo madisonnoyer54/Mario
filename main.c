@@ -57,11 +57,11 @@ int main(){
 	    
 
 	// Boucle principale
-	while(!is_game_over(&world) && !is_game_win(&world)){
+	while(!is_game_over(&world) && !is_game_win(&world) && !is_game_closed(&world)){
 		// Affichage des élement 
 		affichage(&r, &world);
 
-		// evenement du joueur 
+		// Evenement du joueur 
 		evenement(&r,&world);
 
 		SDL_RenderPresent(r.ecran);
@@ -69,22 +69,30 @@ int main(){
 		// Mise à jour des données liée à la physique du monde
 		update_data(&world, &menu, &r);
 		
-		//Màj de la gravite du monde
+		// Màj de la gravite du monde
 		update_gravite(&r, &world);
 
 		// Pause de 10 ms pour controler la vitesse de rafraichissement
 		SDL_Delay(10);
 	}
 	
+	// Gestion de la fin du jeu
+	fin_du_jeu(&r, &world);
+	
+	
 	//Quitter TTF_Font
 	TTF_CloseFont(r.font);
-	//TTF_CloseFont(r.fond_menu);
+	TTF_CloseFont(r.font_menu);
 	TTF_Quit();
 	
 	
+	//Destruction des textures
 	Destroy(r);
+	
+	
 	// Quitter SDL
 	SDL_Quit();
+	
 
 	return 0;
 }
