@@ -1,0 +1,480 @@
+\hypertarget{monde_8h}{}\doxysection{monde.\+h File Reference}
+\label{monde_8h}\index{monde.h@{monde.h}}
+
+
+Module de gestion des données du monde (en-\/tête).  
+
+
+{\ttfamily \#include \char`\"{}menu.\+h\char`\"{}}\newline
+Include dependency graph for monde.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structsprite__s}{sprite\+\_\+s}}
+\begin{DoxyCompactList}\small\item\em Représentation d\textquotesingle{}un sprite du jeu. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structworld__s}{world\+\_\+s}}
+\begin{DoxyCompactList}\small\item\em Représentation du monde du jeu. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{monde_8h_a5371414b10358aeda7c6bcec8196342f}\label{monde_8h_a5371414b10358aeda7c6bcec8196342f}} 
+typedef struct \mbox{\hyperlink{structsprite__s}{sprite\+\_\+s}} \mbox{\hyperlink{monde_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Type qui correspont au sprite du jeu. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{monde_8h_ad55869c5e54f717062ec699d20fa8886}\label{monde_8h_ad55869c5e54f717062ec699d20fa8886}} 
+typedef struct \mbox{\hyperlink{structworld__s}{world\+\_\+s}} \mbox{\hyperlink{monde_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Type qui correspond aux données du monde. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{monde_8h_a5676e72ded3c1a993c4c975ef9958288}{init\+\_\+data}} (\mbox{\hyperlink{monde_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$world)
+\begin{DoxyCompactList}\small\item\em La fonction initialise les données du monde. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{monde_8h_a7edf5248c9929108f571836fb92f204a}{init\+\_\+sprite}} (\mbox{\hyperlink{monde_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t}} $\ast$sprite, int x, int y, int w, int h)
+\begin{DoxyCompactList}\small\item\em La fonction initialise les données d\textquotesingle{}un sprite. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{monde_8h_ad134283eee6e74db325502c228335e2e}{is\+\_\+game\+\_\+closed}} (\mbox{\hyperlink{monde_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$world)
+\begin{DoxyCompactList}\small\item\em La fonction verifie si le jeu est ferme. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{monde_8h_afa5fe1c8dfda3f94ed5e5d0ff6e34145}{is\+\_\+game\+\_\+win}} (\mbox{\hyperlink{monde_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$world)
+\begin{DoxyCompactList}\small\item\em La fonction verifie si le jeu est gagne. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{monde_8h_a87c51ee2e71f0707b7c964afc414f556}{is\+\_\+game\+\_\+over}} (\mbox{\hyperlink{monde_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$world)
+\begin{DoxyCompactList}\small\item\em La fonction indique si le jeu est fini en fonction des données du monde. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{monde_8h_a7acb60b716d577279f87d14168a0e940}{left\+\_\+overflow}} (\mbox{\hyperlink{monde_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t}} $\ast$sprite)
+\begin{DoxyCompactList}\small\item\em La fonction vérifie si le mario a dépassé la limite gauche et le replace au bord le cas échéant. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{monde_8h_ade39d2fc338b703e3629d5dfc439ceef}{right\+\_\+overflow}} (\mbox{\hyperlink{monde_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t}} $\ast$sprite)
+\begin{DoxyCompactList}\small\item\em La fonction vérifie si le mario a dépassé la limite droite et le replace au bord le cas échéant. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{monde_8h_adceb8a6b6b6193921c7ffd796a49454b}{high\+\_\+overflow}} (\mbox{\hyperlink{monde_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t}} $\ast$sprite)
+\begin{DoxyCompactList}\small\item\em La fonction vérifie si le mario a dépassé la limite haut et le replace au bord le cas échéant. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{monde_8h_abd419046c586951972b886070ad9d5af}{low\+\_\+overflow}} (\mbox{\hyperlink{monde_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t}} $\ast$sprite, \mbox{\hyperlink{monde_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$world)
+\begin{DoxyCompactList}\small\item\em La fonction vérifie si le mario a dépassé la limite bas et le joueur perds si c\textquotesingle{}est le cas. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{monde_8h_ac40f1a0cd4fed1c4ca638232f19e1040}{handle\+\_\+vie}} (\mbox{\hyperlink{monde_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$world)
+\begin{DoxyCompactList}\small\item\em La fonction vérifie la vie du joueur et si elle est épuisée, fait perdre la partie. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{monde_8h_a86c5c2c8c4c6ac9c44540197b11c1af3}{update\+\_\+data}} (\mbox{\hyperlink{monde_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$world, \mbox{\hyperlink{menu_8h_aed08c6d5d5b5d87ad2368f169239217c}{menu\+\_\+t}} $\ast$menu, \mbox{\hyperlink{graphique_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} $\ast$r)
+\begin{DoxyCompactList}\small\item\em La fonction met à jour les données en tenant compte de la physique du monde. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{monde_8h_a1127cba1580be54784247f3c1afb562f}{update\+\_\+walls}} (\mbox{\hyperlink{monde_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$world)
+\begin{DoxyCompactList}\small\item\em La fonction qui mets a jour la position des murs. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{monde_8h_ae16fe23283441f976dabdcb2afabb752}{colli\+\_\+pieces}} (\mbox{\hyperlink{graphique_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} $\ast$r, \mbox{\hyperlink{monde_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$world)
+\begin{DoxyCompactList}\small\item\em La fonction regarde si le mario a une collision avec une piece. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{monde_8h_ac49941961f2f2f0dfecee94e3aa386be}{colli\+\_\+walls}} (\mbox{\hyperlink{graphique_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} $\ast$r, \mbox{\hyperlink{monde_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$world)
+\begin{DoxyCompactList}\small\item\em La fonction regarde si il y a une collision avec les murs. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{monde_8h_a88b3d82e675a7a022c73154fd20a44bf}{colli\+\_\+arrive}} (\mbox{\hyperlink{graphique_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} $\ast$r, \mbox{\hyperlink{monde_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$world)
+\begin{DoxyCompactList}\small\item\em La fonction regarde si il y a une collision avec l\textquotesingle{}arrivee. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{monde_8h_a3ef082adedb76c4da8ff2213c64c7158}{colli\+\_\+champi}} (\mbox{\hyperlink{graphique_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} $\ast$r, \mbox{\hyperlink{monde_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$world)
+\begin{DoxyCompactList}\small\item\em La fonction regarde si il y a une collision avec les champis. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{monde_8h_a2c49bc7a51f64489def24f608d25df95}{down\+\_\+collide}} (\mbox{\hyperlink{graphique_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} $\ast$r)
+\begin{DoxyCompactList}\small\item\em La fonction verifie si mario est sur un mur. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{monde_8h_afea026bbf20fcc154bb11e82820c2783}{down\+\_\+collide\+\_\+champi}} (\mbox{\hyperlink{graphique_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} $\ast$r, int c)
+\begin{DoxyCompactList}\small\item\em La fonction verifie si le champi est sur un mur. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{monde_8h_a45046acd924febdf41916363f43009cc}{up\+\_\+collide}} (\mbox{\hyperlink{graphique_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} $\ast$r)
+\begin{DoxyCompactList}\small\item\em La fonction verifie si mario touche le bas d\textquotesingle{}un mur. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{monde_8h_ae478526b90a6faeb3cc6d1bd04e5a8b4}{update\+\_\+gravite}} (\mbox{\hyperlink{graphique_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} $\ast$r, \mbox{\hyperlink{monde_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$world)
+\begin{DoxyCompactList}\small\item\em La fonction met a jour la gravite. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{monde_8h_a482e11cce58ef1f442a7a043463581ef}{changement\+\_\+niveau}} (\mbox{\hyperlink{graphique_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} $\ast$r, \mbox{\hyperlink{monde_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$world)
+\begin{DoxyCompactList}\small\item\em La fonction change le niveau. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{monde_8h_a1463f12c48cff5fcc0d458bb29156cbe}{update\+\_\+colli}} (\mbox{\hyperlink{graphique_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} $\ast$r, \mbox{\hyperlink{monde_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$world)
+\begin{DoxyCompactList}\small\item\em met a jours toutes les collisions \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{monde_8h_a24232654cdc818e0fbb4fff9ed2d8b96}{overflow}} (\mbox{\hyperlink{monde_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$world)
+\begin{DoxyCompactList}\small\item\em met a jours tout les dépassement \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Module de gestion des données du monde (en-\/tête). 
+
+\begin{DoxyAuthor}{Author}
+Juliette Schilling / Madison Noyer 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{monde_8h_a482e11cce58ef1f442a7a043463581ef}\label{monde_8h_a482e11cce58ef1f442a7a043463581ef}} 
+\index{monde.h@{monde.h}!changement\_niveau@{changement\_niveau}}
+\index{changement\_niveau@{changement\_niveau}!monde.h@{monde.h}}
+\doxysubsubsection{\texorpdfstring{changement\_niveau()}{changement\_niveau()}}
+{\footnotesize\ttfamily void changement\+\_\+niveau (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{graphique_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} $\ast$}]{r,  }\item[{\mbox{\hyperlink{monde_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$}]{world }\end{DoxyParamCaption})}
+
+
+
+La fonction change le niveau. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em r} & les ressources \\
+\hline
+{\em world} & le monde \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{monde_8h_a88b3d82e675a7a022c73154fd20a44bf}\label{monde_8h_a88b3d82e675a7a022c73154fd20a44bf}} 
+\index{monde.h@{monde.h}!colli\_arrive@{colli\_arrive}}
+\index{colli\_arrive@{colli\_arrive}!monde.h@{monde.h}}
+\doxysubsubsection{\texorpdfstring{colli\_arrive()}{colli\_arrive()}}
+{\footnotesize\ttfamily void colli\+\_\+arrive (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{graphique_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} $\ast$}]{r,  }\item[{\mbox{\hyperlink{monde_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$}]{world }\end{DoxyParamCaption})}
+
+
+
+La fonction regarde si il y a une collision avec l\textquotesingle{}arrivee. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em r,les} & ressources \\
+\hline
+{\em world,le} & monde ~\newline
+ \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{monde_8h_a3ef082adedb76c4da8ff2213c64c7158}\label{monde_8h_a3ef082adedb76c4da8ff2213c64c7158}} 
+\index{monde.h@{monde.h}!colli\_champi@{colli\_champi}}
+\index{colli\_champi@{colli\_champi}!monde.h@{monde.h}}
+\doxysubsubsection{\texorpdfstring{colli\_champi()}{colli\_champi()}}
+{\footnotesize\ttfamily void colli\+\_\+champi (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{graphique_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} $\ast$}]{r,  }\item[{\mbox{\hyperlink{monde_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$}]{world }\end{DoxyParamCaption})}
+
+
+
+La fonction regarde si il y a une collision avec les champis. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em r,les} & ressources \\
+\hline
+{\em world,le} & monde ~\newline
+ \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{monde_8h_ae16fe23283441f976dabdcb2afabb752}\label{monde_8h_ae16fe23283441f976dabdcb2afabb752}} 
+\index{monde.h@{monde.h}!colli\_pieces@{colli\_pieces}}
+\index{colli\_pieces@{colli\_pieces}!monde.h@{monde.h}}
+\doxysubsubsection{\texorpdfstring{colli\_pieces()}{colli\_pieces()}}
+{\footnotesize\ttfamily void colli\+\_\+pieces (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{graphique_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} $\ast$}]{r,  }\item[{\mbox{\hyperlink{monde_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$}]{world }\end{DoxyParamCaption})}
+
+
+
+La fonction regarde si le mario a une collision avec une piece. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em r,les} & ressources \\
+\hline
+{\em world,le} & monde \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{monde_8h_ac49941961f2f2f0dfecee94e3aa386be}\label{monde_8h_ac49941961f2f2f0dfecee94e3aa386be}} 
+\index{monde.h@{monde.h}!colli\_walls@{colli\_walls}}
+\index{colli\_walls@{colli\_walls}!monde.h@{monde.h}}
+\doxysubsubsection{\texorpdfstring{colli\_walls()}{colli\_walls()}}
+{\footnotesize\ttfamily void colli\+\_\+walls (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{graphique_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} $\ast$}]{r,  }\item[{\mbox{\hyperlink{monde_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$}]{world }\end{DoxyParamCaption})}
+
+
+
+La fonction regarde si il y a une collision avec les murs. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em r,les} & ressources \\
+\hline
+{\em world,le} & monde ~\newline
+ \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{monde_8h_a2c49bc7a51f64489def24f608d25df95}\label{monde_8h_a2c49bc7a51f64489def24f608d25df95}} 
+\index{monde.h@{monde.h}!down\_collide@{down\_collide}}
+\index{down\_collide@{down\_collide}!monde.h@{monde.h}}
+\doxysubsubsection{\texorpdfstring{down\_collide()}{down\_collide()}}
+{\footnotesize\ttfamily int down\+\_\+collide (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{graphique_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} $\ast$}]{r }\end{DoxyParamCaption})}
+
+
+
+La fonction verifie si mario est sur un mur. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em r} & les ressources \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 si le oui, 0 sinon 
+\end{DoxyReturn}
+\mbox{\Hypertarget{monde_8h_afea026bbf20fcc154bb11e82820c2783}\label{monde_8h_afea026bbf20fcc154bb11e82820c2783}} 
+\index{monde.h@{monde.h}!down\_collide\_champi@{down\_collide\_champi}}
+\index{down\_collide\_champi@{down\_collide\_champi}!monde.h@{monde.h}}
+\doxysubsubsection{\texorpdfstring{down\_collide\_champi()}{down\_collide\_champi()}}
+{\footnotesize\ttfamily int down\+\_\+collide\+\_\+champi (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{graphique_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} $\ast$}]{r,  }\item[{int}]{c }\end{DoxyParamCaption})}
+
+
+
+La fonction verifie si le champi est sur un mur. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em r} & les ressources \\
+\hline
+{\em c} & le champi a verifier \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 si le oui, 0 sinon 
+\end{DoxyReturn}
+\mbox{\Hypertarget{monde_8h_ac40f1a0cd4fed1c4ca638232f19e1040}\label{monde_8h_ac40f1a0cd4fed1c4ca638232f19e1040}} 
+\index{monde.h@{monde.h}!handle\_vie@{handle\_vie}}
+\index{handle\_vie@{handle\_vie}!monde.h@{monde.h}}
+\doxysubsubsection{\texorpdfstring{handle\_vie()}{handle\_vie()}}
+{\footnotesize\ttfamily void handle\+\_\+vie (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{monde_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$}]{world }\end{DoxyParamCaption})}
+
+
+
+La fonction vérifie la vie du joueur et si elle est épuisée, fait perdre la partie. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em world} & les données du monde \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{monde_8h_adceb8a6b6b6193921c7ffd796a49454b}\label{monde_8h_adceb8a6b6b6193921c7ffd796a49454b}} 
+\index{monde.h@{monde.h}!high\_overflow@{high\_overflow}}
+\index{high\_overflow@{high\_overflow}!monde.h@{monde.h}}
+\doxysubsubsection{\texorpdfstring{high\_overflow()}{high\_overflow()}}
+{\footnotesize\ttfamily void high\+\_\+overflow (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{monde_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t}} $\ast$}]{sprite }\end{DoxyParamCaption})}
+
+
+
+La fonction vérifie si le mario a dépassé la limite haut et le replace au bord le cas échéant. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sprite} & le sprite \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{monde_8h_a5676e72ded3c1a993c4c975ef9958288}\label{monde_8h_a5676e72ded3c1a993c4c975ef9958288}} 
+\index{monde.h@{monde.h}!init\_data@{init\_data}}
+\index{init\_data@{init\_data}!monde.h@{monde.h}}
+\doxysubsubsection{\texorpdfstring{init\_data()}{init\_data()}}
+{\footnotesize\ttfamily void init\+\_\+data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{monde_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$}]{world }\end{DoxyParamCaption})}
+
+
+
+La fonction initialise les données du monde. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em world} & le monde \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{monde_8h_a7edf5248c9929108f571836fb92f204a}\label{monde_8h_a7edf5248c9929108f571836fb92f204a}} 
+\index{monde.h@{monde.h}!init\_sprite@{init\_sprite}}
+\index{init\_sprite@{init\_sprite}!monde.h@{monde.h}}
+\doxysubsubsection{\texorpdfstring{init\_sprite()}{init\_sprite()}}
+{\footnotesize\ttfamily void init\+\_\+sprite (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{monde_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t}} $\ast$}]{sprite,  }\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{w,  }\item[{int}]{h }\end{DoxyParamCaption})}
+
+
+
+La fonction initialise les données d\textquotesingle{}un sprite. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sprite} & le sprite \\
+\hline
+{\em x} & l\textquotesingle{}abscisse du centre du sprite \\
+\hline
+{\em y} & l\textquotesingle{}ordonnée du centre du sprite \\
+\hline
+{\em w} & la largeur du sprite \\
+\hline
+{\em h} & la hauteur du sprite \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{monde_8h_ad134283eee6e74db325502c228335e2e}\label{monde_8h_ad134283eee6e74db325502c228335e2e}} 
+\index{monde.h@{monde.h}!is\_game\_closed@{is\_game\_closed}}
+\index{is\_game\_closed@{is\_game\_closed}!monde.h@{monde.h}}
+\doxysubsubsection{\texorpdfstring{is\_game\_closed()}{is\_game\_closed()}}
+{\footnotesize\ttfamily int is\+\_\+game\+\_\+closed (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{monde_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$}]{world }\end{DoxyParamCaption})}
+
+
+
+La fonction verifie si le jeu est ferme. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em world} & le monde \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 si le jeu est fini, 0 sinon 
+\end{DoxyReturn}
+\mbox{\Hypertarget{monde_8h_a87c51ee2e71f0707b7c964afc414f556}\label{monde_8h_a87c51ee2e71f0707b7c964afc414f556}} 
+\index{monde.h@{monde.h}!is\_game\_over@{is\_game\_over}}
+\index{is\_game\_over@{is\_game\_over}!monde.h@{monde.h}}
+\doxysubsubsection{\texorpdfstring{is\_game\_over()}{is\_game\_over()}}
+{\footnotesize\ttfamily int is\+\_\+game\+\_\+over (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{monde_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$}]{world }\end{DoxyParamCaption})}
+
+
+
+La fonction indique si le jeu est fini en fonction des données du monde. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em world} & les données du monde \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 si le jeu est fini, 0 sinon 
+\end{DoxyReturn}
+\mbox{\Hypertarget{monde_8h_afa5fe1c8dfda3f94ed5e5d0ff6e34145}\label{monde_8h_afa5fe1c8dfda3f94ed5e5d0ff6e34145}} 
+\index{monde.h@{monde.h}!is\_game\_win@{is\_game\_win}}
+\index{is\_game\_win@{is\_game\_win}!monde.h@{monde.h}}
+\doxysubsubsection{\texorpdfstring{is\_game\_win()}{is\_game\_win()}}
+{\footnotesize\ttfamily int is\+\_\+game\+\_\+win (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{monde_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$}]{world }\end{DoxyParamCaption})}
+
+
+
+La fonction verifie si le jeu est gagne. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em world} & le monde \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 si le jeu est fini, 0 sinon 
+\end{DoxyReturn}
+\mbox{\Hypertarget{monde_8h_a7acb60b716d577279f87d14168a0e940}\label{monde_8h_a7acb60b716d577279f87d14168a0e940}} 
+\index{monde.h@{monde.h}!left\_overflow@{left\_overflow}}
+\index{left\_overflow@{left\_overflow}!monde.h@{monde.h}}
+\doxysubsubsection{\texorpdfstring{left\_overflow()}{left\_overflow()}}
+{\footnotesize\ttfamily void left\+\_\+overflow (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{monde_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t}} $\ast$}]{sprite }\end{DoxyParamCaption})}
+
+
+
+La fonction vérifie si le mario a dépassé la limite gauche et le replace au bord le cas échéant. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sprite} & le sprite \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{monde_8h_abd419046c586951972b886070ad9d5af}\label{monde_8h_abd419046c586951972b886070ad9d5af}} 
+\index{monde.h@{monde.h}!low\_overflow@{low\_overflow}}
+\index{low\_overflow@{low\_overflow}!monde.h@{monde.h}}
+\doxysubsubsection{\texorpdfstring{low\_overflow()}{low\_overflow()}}
+{\footnotesize\ttfamily void low\+\_\+overflow (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{monde_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t}} $\ast$}]{sprite,  }\item[{\mbox{\hyperlink{monde_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$}]{world }\end{DoxyParamCaption})}
+
+
+
+La fonction vérifie si le mario a dépassé la limite bas et le joueur perds si c\textquotesingle{}est le cas. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sprite} & le sprite \\
+\hline
+{\em world} & le monde \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{monde_8h_a24232654cdc818e0fbb4fff9ed2d8b96}\label{monde_8h_a24232654cdc818e0fbb4fff9ed2d8b96}} 
+\index{monde.h@{monde.h}!overflow@{overflow}}
+\index{overflow@{overflow}!monde.h@{monde.h}}
+\doxysubsubsection{\texorpdfstring{overflow()}{overflow()}}
+{\footnotesize\ttfamily void overflow (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{monde_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$}]{world }\end{DoxyParamCaption})}
+
+
+
+met a jours tout les dépassement 
+
+
+\begin{DoxyParams}{Parameters}
+{\em world,le} & monde \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{monde_8h_ade39d2fc338b703e3629d5dfc439ceef}\label{monde_8h_ade39d2fc338b703e3629d5dfc439ceef}} 
+\index{monde.h@{monde.h}!right\_overflow@{right\_overflow}}
+\index{right\_overflow@{right\_overflow}!monde.h@{monde.h}}
+\doxysubsubsection{\texorpdfstring{right\_overflow()}{right\_overflow()}}
+{\footnotesize\ttfamily void right\+\_\+overflow (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{monde_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t}} $\ast$}]{sprite }\end{DoxyParamCaption})}
+
+
+
+La fonction vérifie si le mario a dépassé la limite droite et le replace au bord le cas échéant. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sprite} & le sprite \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{monde_8h_a45046acd924febdf41916363f43009cc}\label{monde_8h_a45046acd924febdf41916363f43009cc}} 
+\index{monde.h@{monde.h}!up\_collide@{up\_collide}}
+\index{up\_collide@{up\_collide}!monde.h@{monde.h}}
+\doxysubsubsection{\texorpdfstring{up\_collide()}{up\_collide()}}
+{\footnotesize\ttfamily int up\+\_\+collide (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{graphique_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} $\ast$}]{r }\end{DoxyParamCaption})}
+
+
+
+La fonction verifie si mario touche le bas d\textquotesingle{}un mur. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em r} & les ressources \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 si le oui, 0 sinon 
+\end{DoxyReturn}
+\mbox{\Hypertarget{monde_8h_a1463f12c48cff5fcc0d458bb29156cbe}\label{monde_8h_a1463f12c48cff5fcc0d458bb29156cbe}} 
+\index{monde.h@{monde.h}!update\_colli@{update\_colli}}
+\index{update\_colli@{update\_colli}!monde.h@{monde.h}}
+\doxysubsubsection{\texorpdfstring{update\_colli()}{update\_colli()}}
+{\footnotesize\ttfamily void update\+\_\+colli (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{graphique_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} $\ast$}]{r,  }\item[{\mbox{\hyperlink{monde_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$}]{world }\end{DoxyParamCaption})}
+
+
+
+met a jours toutes les collisions 
+
+
+\begin{DoxyParams}{Parameters}
+{\em r,les} & ressources \\
+\hline
+{\em world,le} & monde \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{monde_8h_a86c5c2c8c4c6ac9c44540197b11c1af3}\label{monde_8h_a86c5c2c8c4c6ac9c44540197b11c1af3}} 
+\index{monde.h@{monde.h}!update\_data@{update\_data}}
+\index{update\_data@{update\_data}!monde.h@{monde.h}}
+\doxysubsubsection{\texorpdfstring{update\_data()}{update\_data()}}
+{\footnotesize\ttfamily void update\+\_\+data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{monde_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$}]{world,  }\item[{\mbox{\hyperlink{menu_8h_aed08c6d5d5b5d87ad2368f169239217c}{menu\+\_\+t}} $\ast$}]{menu,  }\item[{\mbox{\hyperlink{graphique_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} $\ast$}]{r }\end{DoxyParamCaption})}
+
+
+
+La fonction met à jour les données en tenant compte de la physique du monde. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em world} & les données du monde \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{monde_8h_ae478526b90a6faeb3cc6d1bd04e5a8b4}\label{monde_8h_ae478526b90a6faeb3cc6d1bd04e5a8b4}} 
+\index{monde.h@{monde.h}!update\_gravite@{update\_gravite}}
+\index{update\_gravite@{update\_gravite}!monde.h@{monde.h}}
+\doxysubsubsection{\texorpdfstring{update\_gravite()}{update\_gravite()}}
+{\footnotesize\ttfamily void update\+\_\+gravite (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{graphique_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} $\ast$}]{r,  }\item[{\mbox{\hyperlink{monde_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$}]{world }\end{DoxyParamCaption})}
+
+
+
+La fonction met a jour la gravite. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em r} & les ressources \\
+\hline
+{\em world} & le monde \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{monde_8h_a1127cba1580be54784247f3c1afb562f}\label{monde_8h_a1127cba1580be54784247f3c1afb562f}} 
+\index{monde.h@{monde.h}!update\_walls@{update\_walls}}
+\index{update\_walls@{update\_walls}!monde.h@{monde.h}}
+\doxysubsubsection{\texorpdfstring{update\_walls()}{update\_walls()}}
+{\footnotesize\ttfamily void update\+\_\+walls (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{monde_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$}]{world }\end{DoxyParamCaption})}
+
+
+
+La fonction qui mets a jour la position des murs. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em world} & les données du monde \\
+\hline
+\end{DoxyParams}

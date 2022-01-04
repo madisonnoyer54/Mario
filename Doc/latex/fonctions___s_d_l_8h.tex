@@ -1,0 +1,97 @@
+\hypertarget{fonctions___s_d_l_8h}{}\doxysection{fonctions\+\_\+\+S\+D\+L.\+h File Reference}
+\label{fonctions___s_d_l_8h}\index{fonctions\_SDL.h@{fonctions\_SDL.h}}
+
+
+Module de gestion des fonctions S\+DL (en-\/tête).  
+
+
+{\ttfamily \#include $<$S\+D\+L2/\+S\+D\+L.\+h$>$}\newline
+{\ttfamily \#include $<$S\+D\+L2/\+S\+D\+L\+\_\+ttf.\+h$>$}\newline
+Include dependency graph for fonctions\+\_\+\+S\+D\+L.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+S\+D\+L\+\_\+\+Texture $\ast$ \mbox{\hyperlink{fonctions___s_d_l_8h_adf18746ceb0dc561c82e730969790cc0}{charger\+\_\+image}} (const char $\ast$nomfichier, S\+D\+L\+\_\+\+Renderer $\ast$renderer)
+\begin{DoxyCompactList}\small\item\em La fonction permet de charger l\textquotesingle{}image. \end{DoxyCompactList}\item 
+S\+D\+L\+\_\+\+Texture $\ast$ \mbox{\hyperlink{fonctions___s_d_l_8h_aae15a31c03635139cd908cf7cc42dd86}{charger\+\_\+image\+\_\+transparente}} (const char $\ast$nomfichier, S\+D\+L\+\_\+\+Renderer $\ast$renderer)
+\begin{DoxyCompactList}\small\item\em La fonction permet de charger l\textquotesingle{}image avec le fond transparent. \end{DoxyCompactList}\item 
+S\+D\+L\+\_\+\+Texture $\ast$ \mbox{\hyperlink{fonctions___s_d_l_8h_a39e53f57f19e4764859c48df3178f085}{charger\+\_\+texte}} (const char $\ast$message, S\+D\+L\+\_\+\+Renderer $\ast$renderer, T\+T\+F\+\_\+\+Font $\ast$font, S\+D\+L\+\_\+\+Color color)
+\begin{DoxyCompactList}\small\item\em La fonction permet de charger le texte. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Module de gestion des fonctions S\+DL (en-\/tête). 
+
+\begin{DoxyAuthor}{Author}
+Juliette Schilling / Madison Noyer 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{fonctions___s_d_l_8h_adf18746ceb0dc561c82e730969790cc0}\label{fonctions___s_d_l_8h_adf18746ceb0dc561c82e730969790cc0}} 
+\index{fonctions\_SDL.h@{fonctions\_SDL.h}!charger\_image@{charger\_image}}
+\index{charger\_image@{charger\_image}!fonctions\_SDL.h@{fonctions\_SDL.h}}
+\doxysubsubsection{\texorpdfstring{charger\_image()}{charger\_image()}}
+{\footnotesize\ttfamily S\+D\+L\+\_\+\+Texture$\ast$ charger\+\_\+image (\begin{DoxyParamCaption}\item[{const char $\ast$}]{nomfichier,  }\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer }\end{DoxyParamCaption})}
+
+
+
+La fonction permet de charger l\textquotesingle{}image. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nomfichier} & nom de l\textquotesingle{}image a charger \\
+\hline
+{\em renderer} & le renderer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+returne la texture 
+\end{DoxyReturn}
+\mbox{\Hypertarget{fonctions___s_d_l_8h_aae15a31c03635139cd908cf7cc42dd86}\label{fonctions___s_d_l_8h_aae15a31c03635139cd908cf7cc42dd86}} 
+\index{fonctions\_SDL.h@{fonctions\_SDL.h}!charger\_image\_transparente@{charger\_image\_transparente}}
+\index{charger\_image\_transparente@{charger\_image\_transparente}!fonctions\_SDL.h@{fonctions\_SDL.h}}
+\doxysubsubsection{\texorpdfstring{charger\_image\_transparente()}{charger\_image\_transparente()}}
+{\footnotesize\ttfamily S\+D\+L\+\_\+\+Texture$\ast$ charger\+\_\+image\+\_\+transparente (\begin{DoxyParamCaption}\item[{const char $\ast$}]{nomfichier,  }\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer }\end{DoxyParamCaption})}
+
+
+
+La fonction permet de charger l\textquotesingle{}image avec le fond transparent. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nomfichier} & nom de l\textquotesingle{}image a charger \\
+\hline
+{\em renderer} & le renderer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+returne la texture 
+\end{DoxyReturn}
+\mbox{\Hypertarget{fonctions___s_d_l_8h_a39e53f57f19e4764859c48df3178f085}\label{fonctions___s_d_l_8h_a39e53f57f19e4764859c48df3178f085}} 
+\index{fonctions\_SDL.h@{fonctions\_SDL.h}!charger\_texte@{charger\_texte}}
+\index{charger\_texte@{charger\_texte}!fonctions\_SDL.h@{fonctions\_SDL.h}}
+\doxysubsubsection{\texorpdfstring{charger\_texte()}{charger\_texte()}}
+{\footnotesize\ttfamily S\+D\+L\+\_\+\+Texture$\ast$ charger\+\_\+texte (\begin{DoxyParamCaption}\item[{const char $\ast$}]{message,  }\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{T\+T\+F\+\_\+\+Font $\ast$}]{font,  }\item[{S\+D\+L\+\_\+\+Color}]{color }\end{DoxyParamCaption})}
+
+
+
+La fonction permet de charger le texte. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & message a charger \\
+\hline
+{\em renderer} & le renderer \\
+\hline
+{\em font} & le police à utiliser \\
+\hline
+{\em color} & la couleur à utiliser \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+returne la texture 
+\end{DoxyReturn}

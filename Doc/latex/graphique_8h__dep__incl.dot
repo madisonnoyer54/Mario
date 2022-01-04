@@ -1,0 +1,45 @@
+digraph "graphique.h"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="graphique.h",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Module de gestion de l'affichage graphique (en-tête)."];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="menu.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$menu_8h.html",tooltip="Module de gestion du menu du jeu."];
+  Node2 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="monde.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$monde_8h.html",tooltip="Module de gestion des données du monde (en-tête)."];
+  Node3 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node3 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node4 [label="animations.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$animations_8h.html",tooltip="Module de gestion des animations (en-tête)."];
+  Node4 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node4 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node5 [label="evenements.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$evenements_8c.html",tooltip="Module de gestion des animations."];
+  Node4 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node6 [label="graphique.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$graphique_8c.html",tooltip="Module de gestion de l'affichage graphique."];
+  Node4 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node7 [label="main.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$main_8c.html",tooltip="Programme principal."];
+  Node4 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node8 [label="monde.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$monde_8c.html",tooltip="Module de gestion des données du monde."];
+  Node3 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node3 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node3 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node3 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node9 [label="tests.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$tests_8c.html",tooltip="Module monde (tests)."];
+  Node2 -> Node10 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node10 [label="evenements.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$evenements_8h.html",tooltip="Module de gestion des evenements (en-tête)."];
+  Node10 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node10 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node10 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node10 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node10 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node2 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node2 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node2 -> Node11 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node11 [label="menu.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$menu_8c.html",tooltip="Module de gestion du menu de jeu."];
+  Node2 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node1 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node1 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node1 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node1 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+}

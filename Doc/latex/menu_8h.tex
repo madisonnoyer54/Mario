@@ -1,0 +1,91 @@
+\hypertarget{menu_8h}{}\doxysection{menu.\+h File Reference}
+\label{menu_8h}\index{menu.h@{menu.h}}
+
+
+Module de gestion du menu du jeu.  
+
+
+{\ttfamily \#include $<$S\+D\+L2/\+S\+D\+L\+\_\+ttf.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}graphique.\+h\char`\"{}}\newline
+Include dependency graph for menu.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structmenu__s}{menu\+\_\+s}}
+\begin{DoxyCompactList}\small\item\em Representation du menu. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{menu_8h_aed08c6d5d5b5d87ad2368f169239217c}\label{menu_8h_aed08c6d5d5b5d87ad2368f169239217c}} 
+typedef struct \mbox{\hyperlink{structmenu__s}{menu\+\_\+s}} \mbox{\hyperlink{menu_8h_aed08c6d5d5b5d87ad2368f169239217c}{menu\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Type qui correspond au menu du jeu. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{menu_8h_a0efc534f49b55e98b89afc7daf6d5a9b}{init\+\_\+menu}} (\mbox{\hyperlink{menu_8h_aed08c6d5d5b5d87ad2368f169239217c}{menu\+\_\+t}} $\ast$menu, \mbox{\hyperlink{graphique_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} $\ast$ressources)
+\begin{DoxyCompactList}\small\item\em initialise le menu du jeu \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{menu_8h_a39e5224b2dbe85b0d19072af935653ef}{affiche\+\_\+menu}} (\mbox{\hyperlink{graphique_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} $\ast$ressources)
+\begin{DoxyCompactList}\small\item\em affiche le menu du jeu \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{menu_8h_a935629a07972858e9c23673b799cdb92}{affiche\+\_\+texte\+\_\+menu}} (\mbox{\hyperlink{graphique_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} $\ast$ressources)
+\begin{DoxyCompactList}\small\item\em affiche le texte du menu \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Module de gestion du menu du jeu. 
+
+\begin{DoxyAuthor}{Author}
+Juliette Schilling / Madison Noyer 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{menu_8h_a39e5224b2dbe85b0d19072af935653ef}\label{menu_8h_a39e5224b2dbe85b0d19072af935653ef}} 
+\index{menu.h@{menu.h}!affiche\_menu@{affiche\_menu}}
+\index{affiche\_menu@{affiche\_menu}!menu.h@{menu.h}}
+\doxysubsubsection{\texorpdfstring{affiche\_menu()}{affiche\_menu()}}
+{\footnotesize\ttfamily void affiche\+\_\+menu (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{graphique_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} $\ast$}]{ressources }\end{DoxyParamCaption})}
+
+
+
+affiche le menu du jeu 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ressources,les} & ressources du jeu \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{menu_8h_a935629a07972858e9c23673b799cdb92}\label{menu_8h_a935629a07972858e9c23673b799cdb92}} 
+\index{menu.h@{menu.h}!affiche\_texte\_menu@{affiche\_texte\_menu}}
+\index{affiche\_texte\_menu@{affiche\_texte\_menu}!menu.h@{menu.h}}
+\doxysubsubsection{\texorpdfstring{affiche\_texte\_menu()}{affiche\_texte\_menu()}}
+{\footnotesize\ttfamily void affiche\+\_\+texte\+\_\+menu (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{graphique_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} $\ast$}]{ressources }\end{DoxyParamCaption})}
+
+
+
+affiche le texte du menu 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ressources,le} & ressources du jeux \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{menu_8h_a0efc534f49b55e98b89afc7daf6d5a9b}\label{menu_8h_a0efc534f49b55e98b89afc7daf6d5a9b}} 
+\index{menu.h@{menu.h}!init\_menu@{init\_menu}}
+\index{init\_menu@{init\_menu}!menu.h@{menu.h}}
+\doxysubsubsection{\texorpdfstring{init\_menu()}{init\_menu()}}
+{\footnotesize\ttfamily void init\+\_\+menu (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{menu_8h_aed08c6d5d5b5d87ad2368f169239217c}{menu\+\_\+t}} $\ast$}]{menu,  }\item[{\mbox{\hyperlink{graphique_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} $\ast$}]{ressources }\end{DoxyParamCaption})}
+
+
+
+initialise le menu du jeu 
+
+
+\begin{DoxyParams}{Parameters}
+{\em menu,le} & menu \\
+\hline
+{\em ressources,les} & ressources du jeu \\
+\hline
+\end{DoxyParams}

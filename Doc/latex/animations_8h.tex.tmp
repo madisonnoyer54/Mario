@@ -1,0 +1,92 @@
+\hypertarget{animations_8h}{}\doxysection{animations.\+h File Reference}
+\label{animations_8h}\index{animations.h@{animations.h}}
+
+
+Module de gestion des animations (en-\/tête).  
+
+
+{\ttfamily \#include $<$S\+D\+L2/\+S\+D\+L.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}fonctions\+\_\+\+S\+D\+L.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}fonctions\+\_\+fichiers.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}constantes.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}monde.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}graphique.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}animations.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}evenements.\+h\char`\"{}}\newline
+Include dependency graph for animations.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{animations_8h_aca8938c14cf89354048c43f387d36b7c}{animation\+\_\+mario}} (\mbox{\hyperlink{monde_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$world)
+\begin{DoxyCompactList}\small\item\em La fonction gère l\textquotesingle{}animation du mario. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{animations_8h_a50f12c25480bf56c6cba8aa43e53036d}{animation\+\_\+pieces}} (\mbox{\hyperlink{monde_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$world)
+\begin{DoxyCompactList}\small\item\em La fonction gère l\textquotesingle{}animation des pieces. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{animations_8h_a686d59cb6e428ee807f866e5ee957136}{animation\+\_\+champi}} (char d, \mbox{\hyperlink{graphique_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} $\ast$r, int i, int decompte, int ecrase)
+\begin{DoxyCompactList}\small\item\em La fonction gère l\textquotesingle{}animation des champis. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Module de gestion des animations (en-\/tête). 
+
+\begin{DoxyAuthor}{Author}
+Juliette Schilling / Madison Noyer 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{animations_8h_a686d59cb6e428ee807f866e5ee957136}\label{animations_8h_a686d59cb6e428ee807f866e5ee957136}} 
+\index{animations.h@{animations.h}!animation\_champi@{animation\_champi}}
+\index{animation\_champi@{animation\_champi}!animations.h@{animations.h}}
+\doxysubsubsection{\texorpdfstring{animation\_champi()}{animation\_champi()}}
+{\footnotesize\ttfamily void animation\+\_\+champi (\begin{DoxyParamCaption}\item[{char}]{d,  }\item[{\mbox{\hyperlink{graphique_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} $\ast$}]{r,  }\item[{int}]{i,  }\item[{int}]{decompte,  }\item[{int}]{ecrase }\end{DoxyParamCaption})}
+
+
+
+La fonction gère l\textquotesingle{}animation des champis. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em d} & la direction du champi \\
+\hline
+{\em r} & les ressources \\
+\hline
+{\em i} & le numero de champi à animer \\
+\hline
+{\em decompte} & le decompte \\
+\hline
+{\em ecrase} & si le champi s\textquotesingle{}ecrase (1) ou pas (0) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{animations_8h_aca8938c14cf89354048c43f387d36b7c}\label{animations_8h_aca8938c14cf89354048c43f387d36b7c}} 
+\index{animations.h@{animations.h}!animation\_mario@{animation\_mario}}
+\index{animation\_mario@{animation\_mario}!animations.h@{animations.h}}
+\doxysubsubsection{\texorpdfstring{animation\_mario()}{animation\_mario()}}
+{\footnotesize\ttfamily void animation\+\_\+mario (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{monde_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$}]{world }\end{DoxyParamCaption})}
+
+
+
+La fonction gère l\textquotesingle{}animation du mario. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em world} & le monde \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{animations_8h_a50f12c25480bf56c6cba8aa43e53036d}\label{animations_8h_a50f12c25480bf56c6cba8aa43e53036d}} 
+\index{animations.h@{animations.h}!animation\_pieces@{animation\_pieces}}
+\index{animation\_pieces@{animation\_pieces}!animations.h@{animations.h}}
+\doxysubsubsection{\texorpdfstring{animation\_pieces()}{animation\_pieces()}}
+{\footnotesize\ttfamily void animation\+\_\+pieces (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{monde_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$}]{world }\end{DoxyParamCaption})}
+
+
+
+La fonction gère l\textquotesingle{}animation des pieces. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em world} & le monde \\
+\hline
+\end{DoxyParams}

@@ -1,0 +1,453 @@
+\hypertarget{graphique_8c}{}\doxysection{graphique.\+c File Reference}
+\label{graphique_8c}\index{graphique.c@{graphique.c}}
+
+
+Module de gestion de l\textquotesingle{}affichage graphique.  
+
+
+{\ttfamily \#include \char`\"{}fonctions\+\_\+\+S\+D\+L.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}fonctions\+\_\+fichiers.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}constantes.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}monde.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}graphique.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}animations.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}evenements.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$S\+D\+L2/\+S\+D\+L.\+h$>$}\newline
+{\ttfamily \#include $<$S\+D\+L2/\+S\+D\+L\+\_\+image.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+Include dependency graph for graphique.\+c\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{graphique_8c_ae7bef2f788d2b8a446d65417dcdbd8e0}{init\+\_\+for\+\_\+\+S\+DL}} (\mbox{\hyperlink{graphique_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} $\ast$ressources)
+\begin{DoxyCompactList}\small\item\em La fonction initialise les textures nécessaires à l\textquotesingle{}affichage graphique du jeu. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{graphique_8c_ada1cadb5ada7f6896ac76ec3f8421131}{init\+\_\+fond}} (\mbox{\hyperlink{graphique_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} $\ast$ressources)
+\begin{DoxyCompactList}\small\item\em initialise le fond du jeux \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{graphique_8c_aeed5491b202724ea52eb17890c643b1b}{init\+\_\+arrive}} (\mbox{\hyperlink{graphique_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} $\ast$ressources)
+\begin{DoxyCompactList}\small\item\em Initialisation de l\textquotesingle{}arriver. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{graphique_8c_a9661666bb2bbba0a6f4550f0b6c4121a}{init\+\_\+mario}} (\mbox{\hyperlink{graphique_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} $\ast$ressources, \mbox{\hyperlink{monde_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$world)
+\begin{DoxyCompactList}\small\item\em Initialise le tableau de Mario, permet de découper la plage de Sprite. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{graphique_8c_afa0e5a4ab5e4af28089105a0ed3600a0}{init\+\_\+champi}} (\mbox{\hyperlink{graphique_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} $\ast$ressources)
+\begin{DoxyCompactList}\small\item\em Initialise les champignon, permet de découper la plage de sprite. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{graphique_8c_a13ca87b62a431f96ca552f81a8917cf4}{init\+\_\+walls}} (\mbox{\hyperlink{graphique_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} $\ast$ressources)
+\begin{DoxyCompactList}\small\item\em Initialise des murs de Mario, permet de découper la plage de Sprite. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{graphique_8c_a528d0f393dbf3847cd21d941eab5f72e}{init\+\_\+pieces}} (\mbox{\hyperlink{graphique_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} $\ast$ressources)
+\begin{DoxyCompactList}\small\item\em Initialise des piece de Mario, permet de découper la plage de Sprite. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{graphique_8c_a812921e67fcfcf45c14ffb3a950cf4e3}{init\+\_\+timer}} (\mbox{\hyperlink{graphique_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} $\ast$ressources)
+\begin{DoxyCompactList}\small\item\em La fonction initialise le timer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{graphique_8c_a5f961309a3dc6dcd0c89c16128b928ed}{init\+\_\+vies}} (\mbox{\hyperlink{graphique_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} $\ast$ressources)
+\begin{DoxyCompactList}\small\item\em La fonction initialise les données S\+DL pour l\textquotesingle{}affichage des vies. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{graphique_8c_a78d14a88dbcdee3adccc73ef439d752a}{affichage}} (\mbox{\hyperlink{graphique_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} $\ast$ressources, \mbox{\hyperlink{monde_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$world)
+\begin{DoxyCompactList}\small\item\em La fonction affiche nécessaires à l\textquotesingle{}affichage graphique du jeu. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{graphique_8c_a6c76c37c1afb686b5c2d85a2f5489176}{afficher\+\_\+fond}} (\mbox{\hyperlink{graphique_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} $\ast$ressources)
+\begin{DoxyCompactList}\small\item\em La fonction affiche le fond du jeu. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{graphique_8c_a59e62b71014b4ab7996f833860042c30}{afficher\+\_\+arrive}} (\mbox{\hyperlink{graphique_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} $\ast$ressources)
+\begin{DoxyCompactList}\small\item\em gére l\textquotesingle{}affichage de l\textquotesingle{}arriver \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{graphique_8c_a303838380b90fcb6b0a797bdeb44b0ce}{affiche\+\_\+mario}} (\mbox{\hyperlink{graphique_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} $\ast$ressources, \mbox{\hyperlink{monde_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$world)
+\begin{DoxyCompactList}\small\item\em Gère l\textquotesingle{}affichage du mario. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{graphique_8c_ab2aab8dd43450cae3ef268b0d01f50ac}{affiche\+\_\+timer}} (\mbox{\hyperlink{graphique_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} $\ast$ressources, \mbox{\hyperlink{monde_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$world)
+\begin{DoxyCompactList}\small\item\em Gère l\textquotesingle{}affichage du timer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{graphique_8c_af64967194077f561ada50f81d5c625a4}{affiche\+\_\+niveau}} (\mbox{\hyperlink{graphique_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} $\ast$ressources, \mbox{\hyperlink{monde_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$world)
+\begin{DoxyCompactList}\small\item\em Gère l\textquotesingle{}affichage du numero de niveau. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{graphique_8c_a885e762d101193f4716559417e9d5ad3}{affiche\+\_\+vies}} (\mbox{\hyperlink{graphique_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} $\ast$ressources, \mbox{\hyperlink{monde_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$world)
+\begin{DoxyCompactList}\small\item\em Gère l\textquotesingle{}affichage des vies. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{graphique_8c_a0804fda81bf23014946c3477f651d28d}{affiche\+\_\+champi}} (\mbox{\hyperlink{graphique_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} $\ast$ressources, \mbox{\hyperlink{monde_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$world)
+\begin{DoxyCompactList}\small\item\em gére l\textquotesingle{}affichage du champignon \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{graphique_8c_a6db33e8f7a009e36507824d11703428f}{affiche\+\_\+walls}} (\mbox{\hyperlink{graphique_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} $\ast$ressources)
+\begin{DoxyCompactList}\small\item\em Gère l\textquotesingle{}affichage des murs. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{graphique_8c_a7003eb0c7be4d7d9d49d5c987d73fe09}{affiche\+\_\+pieces}} (\mbox{\hyperlink{graphique_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} $\ast$ressources, \mbox{\hyperlink{monde_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$world)
+\begin{DoxyCompactList}\small\item\em Gère l\textquotesingle{}affichage des pieces. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{graphique_8c_a1ca87720aaa0c7e91bd6e13039802225}{Destroy}} (\mbox{\hyperlink{graphique_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} ressources)
+\begin{DoxyCompactList}\small\item\em La fonction detruit les textures, le window et le renderer nécessaires à l\textquotesingle{}affichage graphique du jeu. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{graphique_8c_ac8b13b977a664685275b181d837bc1ef}{nb\+Walls}} (char $\ast$$\ast$tab, int n, int m)
+\begin{DoxyCompactList}\small\item\em retourne le nombre de murs dans le tableau \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{graphique_8c_a3e8466479e967b1d0ce0537b8c126254}{nb\+Pieces}} (char $\ast$$\ast$tab, int n, int m)
+\begin{DoxyCompactList}\small\item\em retourne le nombre d\textquotesingle{}etoile dans le tableau \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{graphique_8c_a505b6f67fafc833b2150ab28394b4d8c}{nb\+Champi}} (char $\ast$$\ast$tab, int n, int m)
+\begin{DoxyCompactList}\small\item\em retourne le nombre de champignon dans le tableau \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Module de gestion de l\textquotesingle{}affichage graphique. 
+
+\begin{DoxyAuthor}{Author}
+Juliette Schilling / Madison Noyer. 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{graphique_8c_a78d14a88dbcdee3adccc73ef439d752a}\label{graphique_8c_a78d14a88dbcdee3adccc73ef439d752a}} 
+\index{graphique.c@{graphique.c}!affichage@{affichage}}
+\index{affichage@{affichage}!graphique.c@{graphique.c}}
+\doxysubsubsection{\texorpdfstring{affichage()}{affichage()}}
+{\footnotesize\ttfamily void affichage (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{graphique_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} $\ast$}]{ressources,  }\item[{\mbox{\hyperlink{monde_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$}]{world }\end{DoxyParamCaption})}
+
+
+
+La fonction affiche nécessaires à l\textquotesingle{}affichage graphique du jeu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ressources} & les ressources du jeu \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{graphique_8c_a0804fda81bf23014946c3477f651d28d}\label{graphique_8c_a0804fda81bf23014946c3477f651d28d}} 
+\index{graphique.c@{graphique.c}!affiche\_champi@{affiche\_champi}}
+\index{affiche\_champi@{affiche\_champi}!graphique.c@{graphique.c}}
+\doxysubsubsection{\texorpdfstring{affiche\_champi()}{affiche\_champi()}}
+{\footnotesize\ttfamily void affiche\+\_\+champi (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{graphique_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} $\ast$}]{ressources,  }\item[{\mbox{\hyperlink{monde_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$}]{world }\end{DoxyParamCaption})}
+
+
+
+gére l\textquotesingle{}affichage du champignon 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ressources,les} & ressources \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{graphique_8c_a303838380b90fcb6b0a797bdeb44b0ce}\label{graphique_8c_a303838380b90fcb6b0a797bdeb44b0ce}} 
+\index{graphique.c@{graphique.c}!affiche\_mario@{affiche\_mario}}
+\index{affiche\_mario@{affiche\_mario}!graphique.c@{graphique.c}}
+\doxysubsubsection{\texorpdfstring{affiche\_mario()}{affiche\_mario()}}
+{\footnotesize\ttfamily void affiche\+\_\+mario (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{graphique_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} $\ast$}]{ressources,  }\item[{\mbox{\hyperlink{monde_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$}]{world }\end{DoxyParamCaption})}
+
+
+
+Gère l\textquotesingle{}affichage du mario. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ressources} & les ressources du jeu \\
+\hline
+{\em world} & le monde \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{graphique_8c_af64967194077f561ada50f81d5c625a4}\label{graphique_8c_af64967194077f561ada50f81d5c625a4}} 
+\index{graphique.c@{graphique.c}!affiche\_niveau@{affiche\_niveau}}
+\index{affiche\_niveau@{affiche\_niveau}!graphique.c@{graphique.c}}
+\doxysubsubsection{\texorpdfstring{affiche\_niveau()}{affiche\_niveau()}}
+{\footnotesize\ttfamily void affiche\+\_\+niveau (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{graphique_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} $\ast$}]{ressources,  }\item[{\mbox{\hyperlink{monde_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$}]{world }\end{DoxyParamCaption})}
+
+
+
+Gère l\textquotesingle{}affichage du numero de niveau. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ressources} & les ressources du jeu \\
+\hline
+{\em world} & le monde \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{graphique_8c_a7003eb0c7be4d7d9d49d5c987d73fe09}\label{graphique_8c_a7003eb0c7be4d7d9d49d5c987d73fe09}} 
+\index{graphique.c@{graphique.c}!affiche\_pieces@{affiche\_pieces}}
+\index{affiche\_pieces@{affiche\_pieces}!graphique.c@{graphique.c}}
+\doxysubsubsection{\texorpdfstring{affiche\_pieces()}{affiche\_pieces()}}
+{\footnotesize\ttfamily void affiche\+\_\+pieces (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{graphique_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} $\ast$}]{ressources,  }\item[{\mbox{\hyperlink{monde_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$}]{world }\end{DoxyParamCaption})}
+
+
+
+Gère l\textquotesingle{}affichage des pieces. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ressources} & les ressources du jeu \\
+\hline
+{\em world} & le monde \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{graphique_8c_ab2aab8dd43450cae3ef268b0d01f50ac}\label{graphique_8c_ab2aab8dd43450cae3ef268b0d01f50ac}} 
+\index{graphique.c@{graphique.c}!affiche\_timer@{affiche\_timer}}
+\index{affiche\_timer@{affiche\_timer}!graphique.c@{graphique.c}}
+\doxysubsubsection{\texorpdfstring{affiche\_timer()}{affiche\_timer()}}
+{\footnotesize\ttfamily void affiche\+\_\+timer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{graphique_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} $\ast$}]{ressources,  }\item[{\mbox{\hyperlink{monde_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$}]{world }\end{DoxyParamCaption})}
+
+
+
+Gère l\textquotesingle{}affichage du timer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ressources} & les ressources du jeu \\
+\hline
+{\em world} & le monde \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{graphique_8c_a885e762d101193f4716559417e9d5ad3}\label{graphique_8c_a885e762d101193f4716559417e9d5ad3}} 
+\index{graphique.c@{graphique.c}!affiche\_vies@{affiche\_vies}}
+\index{affiche\_vies@{affiche\_vies}!graphique.c@{graphique.c}}
+\doxysubsubsection{\texorpdfstring{affiche\_vies()}{affiche\_vies()}}
+{\footnotesize\ttfamily void affiche\+\_\+vies (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{graphique_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} $\ast$}]{ressources,  }\item[{\mbox{\hyperlink{monde_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$}]{world }\end{DoxyParamCaption})}
+
+
+
+Gère l\textquotesingle{}affichage des vies. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ressources} & les ressources du jeu \\
+\hline
+{\em world} & le monde \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{graphique_8c_a6db33e8f7a009e36507824d11703428f}\label{graphique_8c_a6db33e8f7a009e36507824d11703428f}} 
+\index{graphique.c@{graphique.c}!affiche\_walls@{affiche\_walls}}
+\index{affiche\_walls@{affiche\_walls}!graphique.c@{graphique.c}}
+\doxysubsubsection{\texorpdfstring{affiche\_walls()}{affiche\_walls()}}
+{\footnotesize\ttfamily void affiche\+\_\+walls (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{graphique_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} $\ast$}]{ressources }\end{DoxyParamCaption})}
+
+
+
+Gère l\textquotesingle{}affichage des murs. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ressources} & les ressources du jeu \\
+\hline
+{\em world} & le monde \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{graphique_8c_a59e62b71014b4ab7996f833860042c30}\label{graphique_8c_a59e62b71014b4ab7996f833860042c30}} 
+\index{graphique.c@{graphique.c}!afficher\_arrive@{afficher\_arrive}}
+\index{afficher\_arrive@{afficher\_arrive}!graphique.c@{graphique.c}}
+\doxysubsubsection{\texorpdfstring{afficher\_arrive()}{afficher\_arrive()}}
+{\footnotesize\ttfamily void afficher\+\_\+arrive (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{graphique_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} $\ast$}]{ressources }\end{DoxyParamCaption})}
+
+
+
+gére l\textquotesingle{}affichage de l\textquotesingle{}arriver 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ressources,les} & ressources \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{graphique_8c_a6c76c37c1afb686b5c2d85a2f5489176}\label{graphique_8c_a6c76c37c1afb686b5c2d85a2f5489176}} 
+\index{graphique.c@{graphique.c}!afficher\_fond@{afficher\_fond}}
+\index{afficher\_fond@{afficher\_fond}!graphique.c@{graphique.c}}
+\doxysubsubsection{\texorpdfstring{afficher\_fond()}{afficher\_fond()}}
+{\footnotesize\ttfamily void afficher\+\_\+fond (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{graphique_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} $\ast$}]{ressources }\end{DoxyParamCaption})}
+
+
+
+La fonction affiche le fond du jeu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ressources} & les ressources du jeu \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{graphique_8c_a1ca87720aaa0c7e91bd6e13039802225}\label{graphique_8c_a1ca87720aaa0c7e91bd6e13039802225}} 
+\index{graphique.c@{graphique.c}!Destroy@{Destroy}}
+\index{Destroy@{Destroy}!graphique.c@{graphique.c}}
+\doxysubsubsection{\texorpdfstring{Destroy()}{Destroy()}}
+{\footnotesize\ttfamily void Destroy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{graphique_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}}}]{ressources }\end{DoxyParamCaption})}
+
+
+
+La fonction detruit les textures, le window et le renderer nécessaires à l\textquotesingle{}affichage graphique du jeu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ressources} & les ressources du jeu (S\+DL) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{graphique_8c_aeed5491b202724ea52eb17890c643b1b}\label{graphique_8c_aeed5491b202724ea52eb17890c643b1b}} 
+\index{graphique.c@{graphique.c}!init\_arrive@{init\_arrive}}
+\index{init\_arrive@{init\_arrive}!graphique.c@{graphique.c}}
+\doxysubsubsection{\texorpdfstring{init\_arrive()}{init\_arrive()}}
+{\footnotesize\ttfamily void init\+\_\+arrive (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{graphique_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} $\ast$}]{ressources }\end{DoxyParamCaption})}
+
+
+
+Initialisation de l\textquotesingle{}arriver. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ressources,les} & ressources \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{graphique_8c_afa0e5a4ab5e4af28089105a0ed3600a0}\label{graphique_8c_afa0e5a4ab5e4af28089105a0ed3600a0}} 
+\index{graphique.c@{graphique.c}!init\_champi@{init\_champi}}
+\index{init\_champi@{init\_champi}!graphique.c@{graphique.c}}
+\doxysubsubsection{\texorpdfstring{init\_champi()}{init\_champi()}}
+{\footnotesize\ttfamily void init\+\_\+champi (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{graphique_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} $\ast$}]{ressources }\end{DoxyParamCaption})}
+
+
+
+Initialise les champignon, permet de découper la plage de sprite. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ressources,les} & ressources \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{graphique_8c_ada1cadb5ada7f6896ac76ec3f8421131}\label{graphique_8c_ada1cadb5ada7f6896ac76ec3f8421131}} 
+\index{graphique.c@{graphique.c}!init\_fond@{init\_fond}}
+\index{init\_fond@{init\_fond}!graphique.c@{graphique.c}}
+\doxysubsubsection{\texorpdfstring{init\_fond()}{init\_fond()}}
+{\footnotesize\ttfamily void init\+\_\+fond (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{graphique_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} $\ast$}]{ressources }\end{DoxyParamCaption})}
+
+
+
+initialise le fond du jeux 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ressources,les} & ressources du jeu \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{graphique_8c_ae7bef2f788d2b8a446d65417dcdbd8e0}\label{graphique_8c_ae7bef2f788d2b8a446d65417dcdbd8e0}} 
+\index{graphique.c@{graphique.c}!init\_for\_SDL@{init\_for\_SDL}}
+\index{init\_for\_SDL@{init\_for\_SDL}!graphique.c@{graphique.c}}
+\doxysubsubsection{\texorpdfstring{init\_for\_SDL()}{init\_for\_SDL()}}
+{\footnotesize\ttfamily void init\+\_\+for\+\_\+\+S\+DL (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{graphique_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} $\ast$}]{ressources }\end{DoxyParamCaption})}
+
+
+
+La fonction initialise les textures nécessaires à l\textquotesingle{}affichage graphique du jeu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ressources} & les ressources du jeu \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{graphique_8c_a9661666bb2bbba0a6f4550f0b6c4121a}\label{graphique_8c_a9661666bb2bbba0a6f4550f0b6c4121a}} 
+\index{graphique.c@{graphique.c}!init\_mario@{init\_mario}}
+\index{init\_mario@{init\_mario}!graphique.c@{graphique.c}}
+\doxysubsubsection{\texorpdfstring{init\_mario()}{init\_mario()}}
+{\footnotesize\ttfamily void init\+\_\+mario (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{graphique_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} $\ast$}]{ressources,  }\item[{\mbox{\hyperlink{monde_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$}]{world }\end{DoxyParamCaption})}
+
+
+
+Initialise le tableau de Mario, permet de découper la plage de Sprite. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ressources} & les ressources du jeu \\
+\hline
+{\em world} & le monde \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{graphique_8c_a528d0f393dbf3847cd21d941eab5f72e}\label{graphique_8c_a528d0f393dbf3847cd21d941eab5f72e}} 
+\index{graphique.c@{graphique.c}!init\_pieces@{init\_pieces}}
+\index{init\_pieces@{init\_pieces}!graphique.c@{graphique.c}}
+\doxysubsubsection{\texorpdfstring{init\_pieces()}{init\_pieces()}}
+{\footnotesize\ttfamily void init\+\_\+pieces (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{graphique_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} $\ast$}]{ressources }\end{DoxyParamCaption})}
+
+
+
+Initialise des piece de Mario, permet de découper la plage de Sprite. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ressources} & les ressources du jeu \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{graphique_8c_a812921e67fcfcf45c14ffb3a950cf4e3}\label{graphique_8c_a812921e67fcfcf45c14ffb3a950cf4e3}} 
+\index{graphique.c@{graphique.c}!init\_timer@{init\_timer}}
+\index{init\_timer@{init\_timer}!graphique.c@{graphique.c}}
+\doxysubsubsection{\texorpdfstring{init\_timer()}{init\_timer()}}
+{\footnotesize\ttfamily void init\+\_\+timer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{graphique_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} $\ast$}]{ressources }\end{DoxyParamCaption})}
+
+
+
+La fonction initialise le timer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ressources} & les ressources du jeu \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{graphique_8c_a5f961309a3dc6dcd0c89c16128b928ed}\label{graphique_8c_a5f961309a3dc6dcd0c89c16128b928ed}} 
+\index{graphique.c@{graphique.c}!init\_vies@{init\_vies}}
+\index{init\_vies@{init\_vies}!graphique.c@{graphique.c}}
+\doxysubsubsection{\texorpdfstring{init\_vies()}{init\_vies()}}
+{\footnotesize\ttfamily void init\+\_\+vies (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{graphique_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} $\ast$}]{ressources }\end{DoxyParamCaption})}
+
+
+
+La fonction initialise les données S\+DL pour l\textquotesingle{}affichage des vies. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ressources} & les ressources du jeu \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{graphique_8c_a13ca87b62a431f96ca552f81a8917cf4}\label{graphique_8c_a13ca87b62a431f96ca552f81a8917cf4}} 
+\index{graphique.c@{graphique.c}!init\_walls@{init\_walls}}
+\index{init\_walls@{init\_walls}!graphique.c@{graphique.c}}
+\doxysubsubsection{\texorpdfstring{init\_walls()}{init\_walls()}}
+{\footnotesize\ttfamily void init\+\_\+walls (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{graphique_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} $\ast$}]{ressources }\end{DoxyParamCaption})}
+
+
+
+Initialise des murs de Mario, permet de découper la plage de Sprite. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ressources} & les ressources du jeu \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{graphique_8c_a505b6f67fafc833b2150ab28394b4d8c}\label{graphique_8c_a505b6f67fafc833b2150ab28394b4d8c}} 
+\index{graphique.c@{graphique.c}!nbChampi@{nbChampi}}
+\index{nbChampi@{nbChampi}!graphique.c@{graphique.c}}
+\doxysubsubsection{\texorpdfstring{nbChampi()}{nbChampi()}}
+{\footnotesize\ttfamily int nb\+Champi (\begin{DoxyParamCaption}\item[{char $\ast$$\ast$}]{tab,  }\item[{int}]{n,  }\item[{int}]{m }\end{DoxyParamCaption})}
+
+
+
+retourne le nombre de champignon dans le tableau 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tab,le} & tableau \\
+\hline
+{\em n,la} & hauteur du tableau \\
+\hline
+{\em m,la} & largeur du tableau \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int , le nombre de champi 
+\end{DoxyReturn}
+\mbox{\Hypertarget{graphique_8c_a3e8466479e967b1d0ce0537b8c126254}\label{graphique_8c_a3e8466479e967b1d0ce0537b8c126254}} 
+\index{graphique.c@{graphique.c}!nbPieces@{nbPieces}}
+\index{nbPieces@{nbPieces}!graphique.c@{graphique.c}}
+\doxysubsubsection{\texorpdfstring{nbPieces()}{nbPieces()}}
+{\footnotesize\ttfamily int nb\+Pieces (\begin{DoxyParamCaption}\item[{char $\ast$$\ast$}]{tab,  }\item[{int}]{n,  }\item[{int}]{m }\end{DoxyParamCaption})}
+
+
+
+retourne le nombre d\textquotesingle{}etoile dans le tableau 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tab} & le tableau de caractères \\
+\hline
+{\em n} & la hauteur du tableau \\
+\hline
+{\em m} & la largeur du tableau \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{graphique_8c_ac8b13b977a664685275b181d837bc1ef}\label{graphique_8c_ac8b13b977a664685275b181d837bc1ef}} 
+\index{graphique.c@{graphique.c}!nbWalls@{nbWalls}}
+\index{nbWalls@{nbWalls}!graphique.c@{graphique.c}}
+\doxysubsubsection{\texorpdfstring{nbWalls()}{nbWalls()}}
+{\footnotesize\ttfamily int nb\+Walls (\begin{DoxyParamCaption}\item[{char $\ast$$\ast$}]{tab,  }\item[{int}]{n,  }\item[{int}]{m }\end{DoxyParamCaption})}
+
+
+
+retourne le nombre de murs dans le tableau 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tab} & le tableau de caractères \\
+\hline
+{\em n} & la hauteur du tableau \\
+\hline
+{\em m} & la largeur du tableau \\
+\hline
+\end{DoxyParams}

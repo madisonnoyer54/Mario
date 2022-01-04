@@ -1,0 +1,243 @@
+\hypertarget{evenements_8h}{}\doxysection{evenements.\+h File Reference}
+\label{evenements_8h}\index{evenements.h@{evenements.h}}
+
+
+Module de gestion des evenements (en-\/tête).  
+
+
+{\ttfamily \#include \char`\"{}menu.\+h\char`\"{}}\newline
+Include dependency graph for evenements.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{evenements_8h_a535751cd09e2d637a71ac74e841536ab}{evenement\+\_\+menu}} (\mbox{\hyperlink{graphique_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} $\ast$ressources, \mbox{\hyperlink{menu_8h_aed08c6d5d5b5d87ad2368f169239217c}{menu\+\_\+t}} $\ast$menu, \mbox{\hyperlink{monde_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$world)
+\begin{DoxyCompactList}\small\item\em La fonction gère les évènements du menu du jeu. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{evenements_8h_a7796b9c8dc8f0e5af70034a1f70b4b51}{choix\+\_\+mario}} (\mbox{\hyperlink{graphique_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} $\ast$ressources, \mbox{\hyperlink{monde_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$world, int x, int y)
+\begin{DoxyCompactList}\small\item\em La fonction gère le choix du personnage. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{evenements_8h_a0040c0bf88ef6a26c2aa9e34c1f0c064}{evenement}} (\mbox{\hyperlink{graphique_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} $\ast$ressources, \mbox{\hyperlink{monde_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$world)
+\begin{DoxyCompactList}\small\item\em La fonction gère les évènements du jeu. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{evenements_8h_a062bac19f9fbea4c61b8d983419f88f4}{timer\+\_\+menu}} (\mbox{\hyperlink{menu_8h_aed08c6d5d5b5d87ad2368f169239217c}{menu\+\_\+t}} $\ast$menu)
+\begin{DoxyCompactList}\small\item\em le timer du menu \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{evenements_8h_aa76f5ae97720a4cf1867700af3e52f21}\label{evenements_8h_aa76f5ae97720a4cf1867700af3e52f21}} 
+unsigned int \mbox{\hyperlink{evenements_8h_aa76f5ae97720a4cf1867700af3e52f21}{timer}} ()
+\begin{DoxyCompactList}\small\item\em La fonction cherche le temps écoulé dans le jeu. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{evenements_8h_aa97f5ebbab1bcbfb2950a3468cb70ce7}{update\+\_\+timer}} (\mbox{\hyperlink{monde_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$world, \mbox{\hyperlink{menu_8h_aed08c6d5d5b5d87ad2368f169239217c}{menu\+\_\+t}} $\ast$menu)
+\begin{DoxyCompactList}\small\item\em La fonction met à jour le timer du jeu. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{evenements_8h_ad3bd4f1713cb36c8cfd4876124a46b8f}{gravite}} (\mbox{\hyperlink{monde_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$world, \mbox{\hyperlink{graphique_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} $\ast$ressources, int g)
+\begin{DoxyCompactList}\small\item\em definie la graviter \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{evenements_8h_a6f9fb4f37c6144d97664e6503dd0a308}{saut}} (\mbox{\hyperlink{monde_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$world, \mbox{\hyperlink{graphique_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} $\ast$ressources)
+\begin{DoxyCompactList}\small\item\em permet au mario de sauter \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{evenements_8h_a9b5fb6320a46da1433de3f65f74fcf7c}{deplacement\+\_\+droite}} (\mbox{\hyperlink{graphique_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} $\ast$ressources, \mbox{\hyperlink{monde_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$world)
+\begin{DoxyCompactList}\small\item\em deplacement droite a partir de la moitie de l\textquotesingle{}ecran mario + décor \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{evenements_8h_a92855f949bba1075aece6eb0797738b1}{deplacement\+\_\+element}} (\mbox{\hyperlink{graphique_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} $\ast$ressources, \mbox{\hyperlink{monde_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$world)
+\begin{DoxyCompactList}\small\item\em deplacement des elements du jeu \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{evenements_8h_a8f2ca1403f68e9a99af0043df3437a54}{deplacement\+\_\+champi}} (\mbox{\hyperlink{graphique_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} $\ast$r, \mbox{\hyperlink{monde_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$world)
+\begin{DoxyCompactList}\small\item\em deplacement des champis \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{evenements_8h_a27ef8c061df05abd3406cc84b853006c}{fin\+\_\+du\+\_\+jeu}} (\mbox{\hyperlink{graphique_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} $\ast$ressources, \mbox{\hyperlink{monde_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$world)
+\begin{DoxyCompactList}\small\item\em fin de jeu \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Module de gestion des evenements (en-\/tête). 
+
+\begin{DoxyAuthor}{Author}
+Juliette Schilling / Madison Noyer 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{evenements_8h_a7796b9c8dc8f0e5af70034a1f70b4b51}\label{evenements_8h_a7796b9c8dc8f0e5af70034a1f70b4b51}} 
+\index{evenements.h@{evenements.h}!choix\_mario@{choix\_mario}}
+\index{choix\_mario@{choix\_mario}!evenements.h@{evenements.h}}
+\doxysubsubsection{\texorpdfstring{choix\_mario()}{choix\_mario()}}
+{\footnotesize\ttfamily void choix\+\_\+mario (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{graphique_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} $\ast$}]{ressources,  }\item[{\mbox{\hyperlink{monde_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$}]{world,  }\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+
+
+La fonction gère le choix du personnage. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ressources} & les ressources du jeu (S\+DL) \\
+\hline
+{\em world} & le monde \\
+\hline
+{\em x} & l\textquotesingle{}abscisse du clic de souris \\
+\hline
+{\em y} & l\textquotesingle{}ordonnée du clic de souris \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{evenements_8h_a8f2ca1403f68e9a99af0043df3437a54}\label{evenements_8h_a8f2ca1403f68e9a99af0043df3437a54}} 
+\index{evenements.h@{evenements.h}!deplacement\_champi@{deplacement\_champi}}
+\index{deplacement\_champi@{deplacement\_champi}!evenements.h@{evenements.h}}
+\doxysubsubsection{\texorpdfstring{deplacement\_champi()}{deplacement\_champi()}}
+{\footnotesize\ttfamily void deplacement\+\_\+champi (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{graphique_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} $\ast$}]{r,  }\item[{\mbox{\hyperlink{monde_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$}]{world }\end{DoxyParamCaption})}
+
+
+
+deplacement des champis 
+
+
+\begin{DoxyParams}{Parameters}
+{\em r,les} & ressources du jeu \\
+\hline
+{\em world,le} & monde \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{evenements_8h_a9b5fb6320a46da1433de3f65f74fcf7c}\label{evenements_8h_a9b5fb6320a46da1433de3f65f74fcf7c}} 
+\index{evenements.h@{evenements.h}!deplacement\_droite@{deplacement\_droite}}
+\index{deplacement\_droite@{deplacement\_droite}!evenements.h@{evenements.h}}
+\doxysubsubsection{\texorpdfstring{deplacement\_droite()}{deplacement\_droite()}}
+{\footnotesize\ttfamily void deplacement\+\_\+droite (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{graphique_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} $\ast$}]{ressources,  }\item[{\mbox{\hyperlink{monde_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$}]{world }\end{DoxyParamCaption})}
+
+
+
+deplacement droite a partir de la moitie de l\textquotesingle{}ecran mario + décor 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ressources,les} & ressources du jeu \\
+\hline
+{\em world,le} & monde \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{evenements_8h_a92855f949bba1075aece6eb0797738b1}\label{evenements_8h_a92855f949bba1075aece6eb0797738b1}} 
+\index{evenements.h@{evenements.h}!deplacement\_element@{deplacement\_element}}
+\index{deplacement\_element@{deplacement\_element}!evenements.h@{evenements.h}}
+\doxysubsubsection{\texorpdfstring{deplacement\_element()}{deplacement\_element()}}
+{\footnotesize\ttfamily void deplacement\+\_\+element (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{graphique_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} $\ast$}]{ressources,  }\item[{\mbox{\hyperlink{monde_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$}]{world }\end{DoxyParamCaption})}
+
+
+
+deplacement des elements du jeu 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ressources,les} & ressources du jeu \\
+\hline
+{\em world,le} & monde \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{evenements_8h_a0040c0bf88ef6a26c2aa9e34c1f0c064}\label{evenements_8h_a0040c0bf88ef6a26c2aa9e34c1f0c064}} 
+\index{evenements.h@{evenements.h}!evenement@{evenement}}
+\index{evenement@{evenement}!evenements.h@{evenements.h}}
+\doxysubsubsection{\texorpdfstring{evenement()}{evenement()}}
+{\footnotesize\ttfamily void evenement (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{graphique_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} $\ast$}]{ressources,  }\item[{\mbox{\hyperlink{monde_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$}]{world }\end{DoxyParamCaption})}
+
+
+
+La fonction gère les évènements du jeu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ressources} & les ressources du jeu (S\+DL) \\
+\hline
+{\em world} & le monde \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{evenements_8h_a535751cd09e2d637a71ac74e841536ab}\label{evenements_8h_a535751cd09e2d637a71ac74e841536ab}} 
+\index{evenements.h@{evenements.h}!evenement\_menu@{evenement\_menu}}
+\index{evenement\_menu@{evenement\_menu}!evenements.h@{evenements.h}}
+\doxysubsubsection{\texorpdfstring{evenement\_menu()}{evenement\_menu()}}
+{\footnotesize\ttfamily void evenement\+\_\+menu (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{graphique_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} $\ast$}]{ressources,  }\item[{\mbox{\hyperlink{menu_8h_aed08c6d5d5b5d87ad2368f169239217c}{menu\+\_\+t}} $\ast$}]{menu,  }\item[{\mbox{\hyperlink{monde_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$}]{world }\end{DoxyParamCaption})}
+
+
+
+La fonction gère les évènements du menu du jeu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ressources} & les ressources du jeu (S\+DL) \\
+\hline
+{\em menu} & le menu du jeu \\
+\hline
+{\em world} & le monde \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{evenements_8h_a27ef8c061df05abd3406cc84b853006c}\label{evenements_8h_a27ef8c061df05abd3406cc84b853006c}} 
+\index{evenements.h@{evenements.h}!fin\_du\_jeu@{fin\_du\_jeu}}
+\index{fin\_du\_jeu@{fin\_du\_jeu}!evenements.h@{evenements.h}}
+\doxysubsubsection{\texorpdfstring{fin\_du\_jeu()}{fin\_du\_jeu()}}
+{\footnotesize\ttfamily void fin\+\_\+du\+\_\+jeu (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{graphique_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} $\ast$}]{ressources,  }\item[{\mbox{\hyperlink{monde_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$}]{world }\end{DoxyParamCaption})}
+
+
+
+fin de jeu 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ressources,les} & ressources du jeu \\
+\hline
+{\em world,le} & monde \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{evenements_8h_ad3bd4f1713cb36c8cfd4876124a46b8f}\label{evenements_8h_ad3bd4f1713cb36c8cfd4876124a46b8f}} 
+\index{evenements.h@{evenements.h}!gravite@{gravite}}
+\index{gravite@{gravite}!evenements.h@{evenements.h}}
+\doxysubsubsection{\texorpdfstring{gravite()}{gravite()}}
+{\footnotesize\ttfamily void gravite (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{monde_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$}]{world,  }\item[{\mbox{\hyperlink{graphique_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} $\ast$}]{ressources,  }\item[{int}]{g }\end{DoxyParamCaption})}
+
+
+
+definie la graviter 
+
+
+\begin{DoxyParams}{Parameters}
+{\em world,le} & monde \\
+\hline
+{\em ressources,les} & ressources du jeu ~\newline
+ \\
+\hline
+{\em g,le} & type de gravite (1 pour gravite du monde et 2 pour saut) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{evenements_8h_a6f9fb4f37c6144d97664e6503dd0a308}\label{evenements_8h_a6f9fb4f37c6144d97664e6503dd0a308}} 
+\index{evenements.h@{evenements.h}!saut@{saut}}
+\index{saut@{saut}!evenements.h@{evenements.h}}
+\doxysubsubsection{\texorpdfstring{saut()}{saut()}}
+{\footnotesize\ttfamily void saut (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{monde_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$}]{world,  }\item[{\mbox{\hyperlink{graphique_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} $\ast$}]{ressources }\end{DoxyParamCaption})}
+
+
+
+permet au mario de sauter 
+
+
+\begin{DoxyParams}{Parameters}
+{\em world,le} & monde \\
+\hline
+{\em ressources,les} & ressources du jeu \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{evenements_8h_a062bac19f9fbea4c61b8d983419f88f4}\label{evenements_8h_a062bac19f9fbea4c61b8d983419f88f4}} 
+\index{evenements.h@{evenements.h}!timer\_menu@{timer\_menu}}
+\index{timer\_menu@{timer\_menu}!evenements.h@{evenements.h}}
+\doxysubsubsection{\texorpdfstring{timer\_menu()}{timer\_menu()}}
+{\footnotesize\ttfamily void timer\+\_\+menu (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{menu_8h_aed08c6d5d5b5d87ad2368f169239217c}{menu\+\_\+t}} $\ast$}]{menu }\end{DoxyParamCaption})}
+
+
+
+le timer du menu 
+
+
+\begin{DoxyParams}{Parameters}
+{\em menu,le} & menu \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{evenements_8h_aa97f5ebbab1bcbfb2950a3468cb70ce7}\label{evenements_8h_aa97f5ebbab1bcbfb2950a3468cb70ce7}} 
+\index{evenements.h@{evenements.h}!update\_timer@{update\_timer}}
+\index{update\_timer@{update\_timer}!evenements.h@{evenements.h}}
+\doxysubsubsection{\texorpdfstring{update\_timer()}{update\_timer()}}
+{\footnotesize\ttfamily void update\+\_\+timer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{monde_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$}]{world,  }\item[{\mbox{\hyperlink{menu_8h_aed08c6d5d5b5d87ad2368f169239217c}{menu\+\_\+t}} $\ast$}]{menu }\end{DoxyParamCaption})}
+
+
+
+La fonction met à jour le timer du jeu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em world} & le monde \\
+\hline
+\end{DoxyParams}

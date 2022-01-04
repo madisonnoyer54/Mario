@@ -1,0 +1,177 @@
+\hypertarget{fonctions__fichiers_8h}{}\doxysection{fonctions\+\_\+fichiers.\+h File Reference}
+\label{fonctions__fichiers_8h}\index{fonctions\_fichiers.h@{fonctions\_fichiers.h}}
+
+
+Module de gestion des fonctions fichiers (en-\/tête).  
+
+
+This graph shows which files directly or indirectly include this file\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+char $\ast$$\ast$ \mbox{\hyperlink{fonctions__fichiers_8h_a08c2d9d12c45da458f42d96bdcbb0021}{allouer\+\_\+tab\+\_\+2D}} (int n, int m)
+\begin{DoxyCompactList}\small\item\em alloue le tableau 2D \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{fonctions__fichiers_8h_aba2163a2a755c6ff60a12ad34771cc64}{desallouer\+\_\+tab\+\_\+2D}} (char $\ast$$\ast$tab, int n)
+\begin{DoxyCompactList}\small\item\em desalloue le tableau 2D \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{fonctions__fichiers_8h_a2200a6994a6c77bd4783d87e65247668}{afficher\+\_\+tab\+\_\+2D}} (char $\ast$$\ast$tab, int n, int m)
+\begin{DoxyCompactList}\small\item\em affiche le tableau 2D \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{fonctions__fichiers_8h_abb602d68bcf054b059da8ed083751138}{taille\+\_\+fichier}} (const char $\ast$nom\+Fichier, int $\ast$nb\+Lig, int $\ast$nb\+Col)
+\begin{DoxyCompactList}\small\item\em taille du fichier donner \end{DoxyCompactList}\item 
+char $\ast$$\ast$ \mbox{\hyperlink{fonctions__fichiers_8h_acfa676d7fbc387557ae5ff88704e2063}{lire\+\_\+fichier}} (const char $\ast$nom\+Fichier)
+\begin{DoxyCompactList}\small\item\em lit le fichier donner \end{DoxyCompactList}\item 
+char $\ast$$\ast$ \mbox{\hyperlink{fonctions__fichiers_8h_a734a4077d7788123270ed6510ac5dcf7}{modifier\+\_\+caractere}} (char $\ast$$\ast$tab, int n, int m, char ancien, char nouveau)
+\begin{DoxyCompactList}\small\item\em modifier un caractere dans le tableau \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{fonctions__fichiers_8h_a70fd32baadbeb498495698d029c0b641}{ecrire\+\_\+fichier}} (const char $\ast$nom\+Fichier, char $\ast$$\ast$tab, int n, int m)
+\begin{DoxyCompactList}\small\item\em ecrire le fichier \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Module de gestion des fonctions fichiers (en-\/tête). 
+
+\begin{DoxyAuthor}{Author}
+Juliette Schilling / Madison Noyer 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{fonctions__fichiers_8h_a2200a6994a6c77bd4783d87e65247668}\label{fonctions__fichiers_8h_a2200a6994a6c77bd4783d87e65247668}} 
+\index{fonctions\_fichiers.h@{fonctions\_fichiers.h}!afficher\_tab\_2D@{afficher\_tab\_2D}}
+\index{afficher\_tab\_2D@{afficher\_tab\_2D}!fonctions\_fichiers.h@{fonctions\_fichiers.h}}
+\doxysubsubsection{\texorpdfstring{afficher\_tab\_2D()}{afficher\_tab\_2D()}}
+{\footnotesize\ttfamily void afficher\+\_\+tab\+\_\+2D (\begin{DoxyParamCaption}\item[{char $\ast$$\ast$}]{tab,  }\item[{int}]{n,  }\item[{int}]{m }\end{DoxyParamCaption})}
+
+
+
+affiche le tableau 2D 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tab,le} & tableau \\
+\hline
+{\em n,la} & largeur \\
+\hline
+{\em m,la} & hauteur \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{fonctions__fichiers_8h_a08c2d9d12c45da458f42d96bdcbb0021}\label{fonctions__fichiers_8h_a08c2d9d12c45da458f42d96bdcbb0021}} 
+\index{fonctions\_fichiers.h@{fonctions\_fichiers.h}!allouer\_tab\_2D@{allouer\_tab\_2D}}
+\index{allouer\_tab\_2D@{allouer\_tab\_2D}!fonctions\_fichiers.h@{fonctions\_fichiers.h}}
+\doxysubsubsection{\texorpdfstring{allouer\_tab\_2D()}{allouer\_tab\_2D()}}
+{\footnotesize\ttfamily char$\ast$$\ast$ allouer\+\_\+tab\+\_\+2D (\begin{DoxyParamCaption}\item[{int}]{n,  }\item[{int}]{m }\end{DoxyParamCaption})}
+
+
+
+alloue le tableau 2D 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n,largeur} & \\
+\hline
+{\em m,longeur} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+char$\ast$$\ast$, le tableau de char 
+\end{DoxyReturn}
+\mbox{\Hypertarget{fonctions__fichiers_8h_aba2163a2a755c6ff60a12ad34771cc64}\label{fonctions__fichiers_8h_aba2163a2a755c6ff60a12ad34771cc64}} 
+\index{fonctions\_fichiers.h@{fonctions\_fichiers.h}!desallouer\_tab\_2D@{desallouer\_tab\_2D}}
+\index{desallouer\_tab\_2D@{desallouer\_tab\_2D}!fonctions\_fichiers.h@{fonctions\_fichiers.h}}
+\doxysubsubsection{\texorpdfstring{desallouer\_tab\_2D()}{desallouer\_tab\_2D()}}
+{\footnotesize\ttfamily void desallouer\+\_\+tab\+\_\+2D (\begin{DoxyParamCaption}\item[{char $\ast$$\ast$}]{tab,  }\item[{int}]{n }\end{DoxyParamCaption})}
+
+
+
+desalloue le tableau 2D 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tab,le} & tableau de char \\
+\hline
+{\em n,la} & largeur \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{fonctions__fichiers_8h_a70fd32baadbeb498495698d029c0b641}\label{fonctions__fichiers_8h_a70fd32baadbeb498495698d029c0b641}} 
+\index{fonctions\_fichiers.h@{fonctions\_fichiers.h}!ecrire\_fichier@{ecrire\_fichier}}
+\index{ecrire\_fichier@{ecrire\_fichier}!fonctions\_fichiers.h@{fonctions\_fichiers.h}}
+\doxysubsubsection{\texorpdfstring{ecrire\_fichier()}{ecrire\_fichier()}}
+{\footnotesize\ttfamily void ecrire\+\_\+fichier (\begin{DoxyParamCaption}\item[{const char $\ast$}]{nom\+Fichier,  }\item[{char $\ast$$\ast$}]{tab,  }\item[{int}]{n,  }\item[{int}]{m }\end{DoxyParamCaption})}
+
+
+
+ecrire le fichier 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nom\+Fichier,le} & fichier donner \\
+\hline
+{\em tab,le} & tableau donner \\
+\hline
+{\em n,la} & largeur \\
+\hline
+{\em m,la} & longeur \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{fonctions__fichiers_8h_acfa676d7fbc387557ae5ff88704e2063}\label{fonctions__fichiers_8h_acfa676d7fbc387557ae5ff88704e2063}} 
+\index{fonctions\_fichiers.h@{fonctions\_fichiers.h}!lire\_fichier@{lire\_fichier}}
+\index{lire\_fichier@{lire\_fichier}!fonctions\_fichiers.h@{fonctions\_fichiers.h}}
+\doxysubsubsection{\texorpdfstring{lire\_fichier()}{lire\_fichier()}}
+{\footnotesize\ttfamily char$\ast$$\ast$ lire\+\_\+fichier (\begin{DoxyParamCaption}\item[{const char $\ast$}]{nom\+Fichier }\end{DoxyParamCaption})}
+
+
+
+lit le fichier donner 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nom\+Fichier,le} & fichier \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+char$\ast$$\ast$, retourne le fichier en tableau 
+\end{DoxyReturn}
+\mbox{\Hypertarget{fonctions__fichiers_8h_a734a4077d7788123270ed6510ac5dcf7}\label{fonctions__fichiers_8h_a734a4077d7788123270ed6510ac5dcf7}} 
+\index{fonctions\_fichiers.h@{fonctions\_fichiers.h}!modifier\_caractere@{modifier\_caractere}}
+\index{modifier\_caractere@{modifier\_caractere}!fonctions\_fichiers.h@{fonctions\_fichiers.h}}
+\doxysubsubsection{\texorpdfstring{modifier\_caractere()}{modifier\_caractere()}}
+{\footnotesize\ttfamily char$\ast$$\ast$ modifier\+\_\+caractere (\begin{DoxyParamCaption}\item[{char $\ast$$\ast$}]{tab,  }\item[{int}]{n,  }\item[{int}]{m,  }\item[{char}]{ancien,  }\item[{char}]{nouveau }\end{DoxyParamCaption})}
+
+
+
+modifier un caractere dans le tableau 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tab,le} & tableau \\
+\hline
+{\em n,longeur} & \\
+\hline
+{\em m,largeur} & \\
+\hline
+{\em ancien,ancien} & caractaire \\
+\hline
+{\em nouveau,nouveau} & caractaire \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+char$\ast$$\ast$, le nouveau tableau changer 
+\end{DoxyReturn}
+\mbox{\Hypertarget{fonctions__fichiers_8h_abb602d68bcf054b059da8ed083751138}\label{fonctions__fichiers_8h_abb602d68bcf054b059da8ed083751138}} 
+\index{fonctions\_fichiers.h@{fonctions\_fichiers.h}!taille\_fichier@{taille\_fichier}}
+\index{taille\_fichier@{taille\_fichier}!fonctions\_fichiers.h@{fonctions\_fichiers.h}}
+\doxysubsubsection{\texorpdfstring{taille\_fichier()}{taille\_fichier()}}
+{\footnotesize\ttfamily void taille\+\_\+fichier (\begin{DoxyParamCaption}\item[{const char $\ast$}]{nom\+Fichier,  }\item[{int $\ast$}]{nb\+Lig,  }\item[{int $\ast$}]{nb\+Col }\end{DoxyParamCaption})}
+
+
+
+taille du fichier donner 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nom\+Fichier,le} & fichier \\
+\hline
+{\em nb\+Lig,la} & largeur \\
+\hline
+{\em nb\+Col,la} & hauteur \\
+\hline
+\end{DoxyParams}
