@@ -29,6 +29,7 @@ void animation_mario(world_t *world);
  */
 void animation_pieces(world_t *world);
 
+
 /**
  * \brief La fonction gère l'animation des champis
  * \param d la direction du champi

@@ -44,6 +44,7 @@
  */
 #define INITIAL_SPEED 7
 
+
 /**
  * \brief graviter
  */

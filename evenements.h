@@ -16,6 +16,7 @@
  */
 void evenement_menu(ressources_t *ressources, menu_t *menu, world_t *world);
 
+
 /**
  * \brief La fonction gère le choix du personnage
  * \param ressources les ressources du jeu (SDL) 
@@ -25,12 +26,14 @@ void evenement_menu(ressources_t *ressources, menu_t *menu, world_t *world);
  */
 void choix_mario(ressources_t *ressources, world_t *world, int x, int y);
 
+
 /**
  * \brief La fonction gère les évènements du jeu 
  * \param ressources les ressources du jeu (SDL) 
  * \param world le monde
  */
 void evenement(ressources_t *ressources,world_t *world);
+
 
 /**
  * \brief le timer du menu
@@ -44,6 +47,7 @@ void timer_menu(menu_t *menu);
  * \brief La fonction cherche le temps écoulé dans le jeu
  */
 unsigned int timer();
+
 
 /**
  * \brief La fonction met à jour le timer du jeu
@@ -61,12 +65,14 @@ void update_timer(world_t *world, menu_t *menu);
  */
 void gravite(world_t *world, ressources_t *ressources, int g);
 
+
 /**
  * \brief permet au mario de sauter 
  * \param world, le monde 
  * \param ressources, les ressources du jeu 
  */
 void saut(world_t *world, ressources_t *ressources);
+
 
 /**
  * \brief deplacement droite a partir de la moitie de l'ecran mario + décor
@@ -75,12 +81,14 @@ void saut(world_t *world, ressources_t *ressources);
  */
 void deplacement_droite(ressources_t *ressources, world_t *world);
 
+
 /**
  * \brief deplacement des elements du jeu
  * \param ressources, les ressources du jeu 
  * \param world, le monde 
  */
 void deplacement_element(ressources_t *ressources, world_t *world);
+
 
 /**
  * \brief deplacement des champis
@@ -89,10 +97,14 @@ void deplacement_element(ressources_t *ressources, world_t *world);
  */
 void deplacement_champi(ressources_t *r, world_t *world);
 
+
 /**
  * \brief fin de jeu
  * \param ressources, les ressources du jeu 
  * \param world, le monde 
  */
 void fin_du_jeu(ressources_t *ressources, world_t *world);
+
+
+
 #endif

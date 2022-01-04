@@ -492,6 +492,7 @@ void affiche_pieces(ressources_t *ressources, world_t *world){
 void Destroy(ressources_t ressources){
 	free(ressources.DestR_pieces);
 	free(ressources.DestR_walls);
+	
 
 
 	SDL_DestroyTexture(ressources.fond);

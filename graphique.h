@@ -131,6 +131,7 @@ void init_mario(ressources_t *ressources, world_t *world);
  */
 void init_champi(ressources_t *ressources);
 
+
 /**
  * \brief Initialise des murs de Mario, permet de découper la plage de Sprite 
  * \param ressources les ressources du jeu
@@ -150,7 +151,6 @@ void init_pieces(ressources_t *ressources);
  * \param ressources les ressources du jeu
  */
 void init_timer(ressources_t *ressources);
-
 
 
 /**

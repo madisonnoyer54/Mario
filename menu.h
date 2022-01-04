@@ -25,6 +25,7 @@ typedef struct menu_s menu_t;
 
 #include "graphique.h"
 
+
 /**
  * @brief initialise le menu du jeu
  * 

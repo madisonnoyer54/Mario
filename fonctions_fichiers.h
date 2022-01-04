@@ -15,6 +15,7 @@
  */
 char** allouer_tab_2D(int n, int m);
 
+
 /**
  * @brief desalloue le tableau 2D
  * 
@@ -22,6 +23,7 @@ char** allouer_tab_2D(int n, int m);
  * @param n, la largeur
  */
 void desallouer_tab_2D(char** tab, int n);
+
 
 /**
  * @brief affiche le tableau 2D 
@@ -32,6 +34,7 @@ void desallouer_tab_2D(char** tab, int n);
  */
 void afficher_tab_2D(char** tab, int n, int m);
 
+
 /**
  * @brief taille du fichier donner 
  * 
@@ -41,6 +44,7 @@ void afficher_tab_2D(char** tab, int n, int m);
  */
 void taille_fichier(const char* nomFichier, int* nbLig, int* nbCol);
 
+
 /**
  * @brief lit le fichier donner 
  * 
@@ -48,6 +52,7 @@ void taille_fichier(const char* nomFichier, int* nbLig, int* nbCol);
  * @return char**, retourne le fichier en tableau 
  */
 char** lire_fichier(const char* nomFichier);
+
 
 /**
  * @brief modifier un caractere dans le tableau 
@@ -60,6 +65,7 @@ char** lire_fichier(const char* nomFichier);
  * @return char**, le nouveau tableau changer
  */
 char** modifier_caractere(char** tab, int n, int m, char ancien, char nouveau);
+
 
 /**
  * @brief ecrire le fichier 
