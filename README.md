@@ -17,3 +17,6 @@ make
 puis :
 ./main
 
+III. Binome 
+Juliette schilling -noyer Madison 
+adresse du git :https://gitlab.univ-lorraine.fr/noyer7u/projet-l2-noyer-schilling
